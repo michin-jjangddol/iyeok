@@ -19,18 +19,20 @@ The I Ching is treated not as a tool for predicting the future, but as a referen
 - Looking back on choices and outcomes over time
 - A space to share experiences one chooses to make public
 
-These features are not yet available.
+Only a coin divination preview is available for now at https://iyeok.org/app/. The other features are not yet available.
 
 ## Folder structure
 
 | Path | Purpose |
 |---|---|
 | `index.html` | Homepage |
+| `app/` | Coin divination preview (PWA) |
 | `assets/css/` | Stylesheets |
 | `assets/icons/` | Favicon and app icons |
 | `assets/images/` | Illustrations |
 | `data/` | Hexagram and classical text data |
 | `docs/` | Design and development records |
+| `tests/` | Checks for casting logic, hexagram data, and the app |
 
 ## License
 
@@ -68,18 +70,20 @@ This document was prepared with the assistance of Shana (GPT) and Laude (Claude)
 - 시간이 지난 뒤 선택과 결과를 돌아보는 회고
 - 스스로 공개한 경험을 나누는 공간
 
-위 기능은 아직 제공되지 않습니다.
+지금은 https://iyeok.org/app/ 의 동전점 맛보기만 써 볼 수 있고, 나머지 기능은 아직 제공되지 않습니다.
 
 ## 폴더 구성
 
 | 경로 | 용도 |
 |---|---|
 | `index.html` | 홈페이지 |
+| `app/` | 동전점 맛보기 (PWA) |
 | `assets/css/` | 스타일시트 |
 | `assets/icons/` | 파비콘과 앱 아이콘 |
 | `assets/images/` | 삽화 |
 | `data/` | 괘와 원문 데이터 |
 | `docs/` | 설계·개발 기록 |
+| `tests/` | 괘 계산·데이터·앱 동작 검증 |
 
 ## 라이선스
 

@@ -15,7 +15,7 @@ This folder holds the browser tab icon (favicon) and the icons used when install
 ## Next steps
 
 - [ ] Move the current `assets/favicon.svg` here and update the path in `index.html`
-- [ ] Create 192px and 512px icons at the PWA stage
+- [x] Create 192px and 512px PWA icons (drawn from Hexagram 20, Guan) and a maskable 512px icon
 
 ---
 
@@ -42,7 +42,7 @@ This document was prepared with the assistance of Shana (GPT) and Laude (Claude)
 ## 다음 작업
 
 - [ ] 현재 `assets/favicon.svg`를 이 폴더로 옮기고 `index.html` 경로 수정
-- [ ] PWA 단계에서 192·512px 아이콘 제작
+- [x] PWA용 192·512px 아이콘(제20괘 풍지관 모양)과 마스크용 512px 아이콘 제작
 
 ---
 

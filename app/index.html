@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>동전점 맛보기 · 아이역 iYeok</title>
+  <meta name="description" content="동전 3개를 여섯 번 던져 주역 64괘를 얻는 아이역 동전점 맛보기.">
+  <meta name="theme-color" content="#f4efe4" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#1b1a18" media="(prefers-color-scheme: dark)">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="아이역">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../assets/icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="stylesheet" href="app.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="../" aria-label="아이역 홈">
+      <span class="brand-mark">i易</span>
+      <span class="brand-name">iYeok</span>
+    </a>
+    <span class="app-badge">동전점 맛보기</span>
+  </header>
+
+  <main class="app">
+    <p class="app-error" id="load-error" hidden>
+      괘 데이터를 불러오지 못했습니다. 인터넷 연결을 확인하고 새로고침해 주세요.
+    </p>
+
+    <!-- 1. 시작과 방식 설정 -->
+    <section id="setup" class="panel" aria-labelledby="setup-title">
+      <h1 id="setup-title">동전점 맛보기</h1>
+      <p class="intro">
+        동전 3개를 여섯 번 던져 괘를 얻습니다.
+        정해진 하나의 방식은 없습니다. 기본 설정으로 바로 시작하거나,
+        나만의 방식으로 바꿔 보세요.
+      </p>
+
+      <dl class="summary" id="summary"></dl>
+
+      <div class="actions">
+        <button type="button" class="btn primary" id="start">바로 시작</button>
+        <button type="button" class="btn" id="toggle-settings" aria-expanded="false" aria-controls="settings">방식 설정</button>
+      </div>
+
+      <form id="settings" class="settings" hidden>
+        <fieldset>
+          <legend>동전</legend>
+          <p class="hint">모양만 달라집니다. 결과 계산에는 영향이 없습니다.</p>
+          <label class="option"><input type="radio" name="coin" value="basic">
+            <span><b>기본 동전</b><small>아이역 동전. 그림 면에 易, 숫자 면에 1</small></span></label>
+          <label class="option"><input type="radio" name="coin" value="won100">
+            <span><b>100원</b><small>그림 면과 100이 적힌 숫자 면</small></span></label>
+          <label class="option"><input type="radio" name="coin" value="won500">
+            <span><b>500원</b><small>그림 면과 500이 적힌 숫자 면</small></span></label>
+        </fieldset>
+
+        <fieldset>
+          <legend>양(陽)으로 삼을 면</legend>
+          <p class="hint">
+            동전 3개 중 이 면이 몇 개 나왔는지 세어 효를 정합니다.
+            어느 면을 양으로 보든 확률은 같으니, 평소 생각하는 쪽을 고르세요.
+          </p>
+          <label class="option"><input type="radio" name="yangFace" value="picture">
+            <span><b>그림 면</b><small>그림이 새겨진 면을 양으로 봅니다.</small></span></label>
+          <label class="option"><input type="radio" name="yangFace" value="number">
+            <span><b>숫자 면</b><small>금액 숫자가 적힌 면을 양으로 봅니다.</small></span></label>
+        </fieldset>
+
+        <fieldset>
+          <legend>효를 채우는 순서</legend>
+          <p class="hint">
+            괘는 여섯 효로 이루어집니다. 맨 아래가 초효, 맨 위가 상효입니다.
+            어떤 순서로 채우든 괘를 읽는 방법은 같습니다.
+          </p>
+          <label class="option"><input type="radio" name="order" value="earth">
+            <span><b>땅괘 · 아래 → 위</b><small>초효부터 쌓아 올립니다. 땅에서 자라나듯. 가장 널리 쓰는 전통 순서입니다.</small></span></label>
+          <label class="option"><input type="radio" name="order" value="heaven">
+            <span><b>하늘괘 · 위 → 아래</b><small>상효부터 채워 내려옵니다. 하늘에서 내려오듯.</small></span></label>
+          <label class="option"><input type="radio" name="order" value="human">
+            <span><b>인간괘 · 자리를 골라서</b><small>던지기 전에 채울 자리를 매번 직접 고릅니다. 사람이 자리를 정하는 방식입니다.</small></span></label>
+        </fieldset>
+
+        <fieldset>
+          <legend>변효 기호</legend>
+          <p class="hint">
+            노양과 노음은 변하는 효(변효)입니다. 어떤 기호로 표시할지 고르세요.
+            기호는 표시만 바꾸며 계산에는 영향이 없습니다.
+          </p>
+          <label class="option"><input type="radio" name="symbols" value="iyeok">
+            <span><b>노양 × · 노음 ○</b><small>아이역 기본 표기입니다.</small></span></label>
+          <label class="option"><input type="radio" name="symbols" value="classic">
+            <span><b>노양 ○ · 노음 ×</b><small>많은 주역 책에서 쓰는 표기입니다.</small></span></label>
+        </fieldset>
+
+        <details class="rules">
+          <summary>효는 이렇게 정해집니다</summary>
+          <table>
+            <thead><tr><th>양의 면</th><th>효</th><th>본괘</th><th>지괘</th></tr></thead>
+            <tbody>
+              <tr><td>3개</td><td>노양</td><td>양</td><td>음으로 변함</td></tr>
+              <tr><td>2개</td><td>소음</td><td>음</td><td>음</td></tr>
+              <tr><td>1개</td><td>소양</td><td>양</td><td>양</td></tr>
+              <tr><td>0개</td><td>노음</td><td>음</td><td>양으로 변함</td></tr>
+            </tbody>
+          </table>
+          <p class="hint">본괘는 지금의 모습, 지괘는 변효가 바뀐 뒤의 모습입니다.</p>
+        </details>
+
+        <div class="actions">
+          <button type="button" class="btn ghost" id="reset-settings">기본 설정으로 되돌리기</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- 2. 던지기 -->
+    <section id="cast" class="panel" hidden aria-labelledby="cast-title">
+      <div class="cast-head">
+        <h1 id="cast-title"><span id="progress">0</span> / 6</h1>
+        <p class="fixed" id="fixed-settings"></p>
+      </div>
+
+      <div class="cast-body">
+        <ol class="board" id="board" aria-label="괘의 여섯 자리 (위가 상효)"></ol>
+
+        <div class="toss">
+          <div class="coins" id="coins" aria-live="polite"></div>
+          <p class="toss-note" id="toss-note"></p>
+          <div class="actions">
+            <button type="button" class="btn primary" id="throw">동전 던지기</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button type="button" class="btn ghost" id="abort">처음으로</button>
+      </div>
+    </section>
+
+    <!-- 3. 결과 -->
+    <section id="result" class="panel" hidden aria-labelledby="result-title">
+      <h1 id="result-title">괘를 얻었습니다</h1>
+      <div class="result-pair">
+        <article class="hex-card" id="primary-card"></article>
+        <div class="arrow" aria-hidden="true">→</div>
+        <article class="hex-card" id="changed-card"></article>
+      </div>
+      <p class="change-summary" id="changing-summary"></p>
+
+      <details class="log">
+        <summary>던진 기록</summary>
+        <table>
+          <thead><tr><th>회차</th><th>자리</th><th>동전</th><th>효</th></tr></thead>
+          <tbody id="log-body"></tbody>
+        </table>
+        <p class="hint" id="log-settings"></p>
+      </details>
+
+      <p class="hint">괘사와 해석은 다음 단계에서 추가할 예정입니다. 이번 결과는 저장되지 않습니다.</p>
+
+      <div class="actions">
+        <button type="button" class="btn primary" id="again">다시 던지기</button>
+        <button type="button" class="btn" id="back-setup">방식 바꾸기</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 iYeok Project · <a href="https://github.com/michin-jjangddol/iyeok">Source</a> · <a href="https://github.com/michin-jjangddol/iyeok/blob/main/LICENSE">AGPL-3.0</a></p>
+  </footer>
+</body>
+</html>

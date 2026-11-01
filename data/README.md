@@ -12,6 +12,10 @@ This folder holds app data such as the classical I Ching text and hexagram infor
 
 - Accuracy of the classical text and hexagram structure comes first.
 - Record the source of every classical text.
+- `hexagrams.json` follows the King Wen sequence of the received Zhouyi text. All 64 entries (number, name, lower and upper trigram) were checked against
+  [Wikipedia, List of hexagrams of the I Ching](https://en.wikipedia.org/wiki/List_of_hexagrams_of_the_I_Ching) (revision 1344901076, 2026-03-23),
+  against their full titles (upper nature + lower nature + name), and against hexagram names in J's own divination notes.
+  Re-run the external check with `python tests/check_hexagrams_wikipedia.py`.
 - Hexagram shapes on screen are drawn from this data, so the drawing always matches the data.
 
 ## Naming
@@ -20,7 +24,8 @@ This folder holds app data such as the classical I Ching text and hexagram infor
 
 ## Next steps
 
-- [ ] Write and verify the 64-hexagram data at the coin-casting stage
+- [x] Write and verify the 64-hexagram data (`hexagrams.json`: number, names, upper/lower trigrams, six lines)
+- [ ] Add the judgment and line statements with their sources
 
 ---
 
@@ -44,6 +49,10 @@ This document was prepared with the assistance of Shana (GPT) and Laude (Claude)
 
 - 주역 원문과 괘 구성의 정확성을 최우선으로 확인합니다.
 - 원문 출처를 함께 기록합니다.
+- `hexagrams.json`은 주역 경문의 문왕 괘서를 따릅니다. 64개 모두(번호, 괘명, 하괘·상괘)를
+  [위키백과 List of hexagrams of the I Ching](https://en.wikipedia.org/wiki/List_of_hexagrams_of_the_I_Ching)(2026-03-23 판, revision 1344901076),
+  전체 괘명(상괘 자연 + 하괘 자연 + 괘명), J의 점 기록에 적힌 괘 이름과 대조해 확인했습니다.
+  외부 대조는 `python tests/check_hexagrams_wikipedia.py`로 다시 실행할 수 있습니다.
 - 화면의 괘 모양은 이 데이터로 그려서, 그림과 데이터가 항상 일치하게 합니다.
 
 ## 이름 규칙
@@ -52,7 +61,8 @@ This document was prepared with the assistance of Shana (GPT) and Laude (Claude)
 
 ## 다음 작업
 
-- [ ] 동전 방식 괘 뽑기 단계에서 64괘 데이터 작성 및 검증
+- [x] 64괘 데이터 작성 및 검증 (`hexagrams.json`: 번호, 이름, 상괘·하괘, 여섯 효)
+- [ ] 괘사·효사 원문과 출처 추가
 
 ---
 

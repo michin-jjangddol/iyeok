@@ -243,6 +243,17 @@ h1 {
   color: var(--ink-soft);
 }
 
+.try {
+  margin: 1.25rem 0 0;
+}
+
+.try a {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  color: var(--ink);
+  text-underline-offset: 5px;
+}
+
 .dot {
   width: 0.45rem;
   height: 0.45rem;

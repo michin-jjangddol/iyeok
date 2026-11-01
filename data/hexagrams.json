@@ -1,0 +1,1201 @@
+{
+  "source": "Hexagram order (King Wen sequence), names, and upper/lower trigrams of the received Zhouyi (周易) text. Compiled by Laude. Verified (1) against Wikipedia, 'List of hexagrams of the I Ching', revision 1344901076 (2026-03-23), https://en.wikipedia.org/wiki/List_of_hexagrams_of_the_I_Ching (all 64: number, name, lower and upper trigram; re-run with tests/check_hexagrams_wikipedia.py), (2) against the full titles built from upper nature + lower nature + name, and (3) against hexagram names in J's own divination notes.",
+  "lineOrder": "lines[0] is the bottom line (初爻), lines[5] is the top line (上爻); 1 = yang, 0 = yin",
+  "trigramValue": "bottom line = 1, middle = 2, top = 4",
+  "trigrams": {
+    "qian": {
+      "symbol": "☰",
+      "name": "乾",
+      "nameKo": "건",
+      "nature": "天",
+      "natureKo": "하늘",
+      "lines": [
+        1,
+        1,
+        1
+      ],
+      "value": 7
+    },
+    "dui": {
+      "symbol": "☱",
+      "name": "兌",
+      "nameKo": "태",
+      "nature": "澤",
+      "natureKo": "못",
+      "lines": [
+        1,
+        1,
+        0
+      ],
+      "value": 3
+    },
+    "li": {
+      "symbol": "☲",
+      "name": "離",
+      "nameKo": "리",
+      "nature": "火",
+      "natureKo": "불",
+      "lines": [
+        1,
+        0,
+        1
+      ],
+      "value": 5
+    },
+    "zhen": {
+      "symbol": "☳",
+      "name": "震",
+      "nameKo": "진",
+      "nature": "雷",
+      "natureKo": "우레",
+      "lines": [
+        1,
+        0,
+        0
+      ],
+      "value": 1
+    },
+    "xun": {
+      "symbol": "☴",
+      "name": "巽",
+      "nameKo": "손",
+      "nature": "風",
+      "natureKo": "바람",
+      "lines": [
+        0,
+        1,
+        1
+      ],
+      "value": 6
+    },
+    "kan": {
+      "symbol": "☵",
+      "name": "坎",
+      "nameKo": "감",
+      "nature": "水",
+      "natureKo": "물",
+      "lines": [
+        0,
+        1,
+        0
+      ],
+      "value": 2
+    },
+    "gen": {
+      "symbol": "☶",
+      "name": "艮",
+      "nameKo": "간",
+      "nature": "山",
+      "natureKo": "산",
+      "lines": [
+        0,
+        0,
+        1
+      ],
+      "value": 4
+    },
+    "kun": {
+      "symbol": "☷",
+      "name": "坤",
+      "nameKo": "곤",
+      "nature": "地",
+      "natureKo": "땅",
+      "lines": [
+        0,
+        0,
+        0
+      ],
+      "value": 0
+    }
+  },
+  "hexagrams": [
+    {
+      "number": 1,
+      "name": "乾",
+      "nameKo": "건",
+      "title": "乾爲天",
+      "titleKo": "중천건",
+      "lower": "qian",
+      "upper": "qian",
+      "lines": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "number": 2,
+      "name": "坤",
+      "nameKo": "곤",
+      "title": "坤爲地",
+      "titleKo": "중지곤",
+      "lower": "kun",
+      "upper": "kun",
+      "lines": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "number": 3,
+      "name": "屯",
+      "nameKo": "둔",
+      "title": "水雷屯",
+      "titleKo": "수뢰둔",
+      "lower": "zhen",
+      "upper": "kan",
+      "lines": [
+        1,
+        0,
+        0,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "number": 4,
+      "name": "蒙",
+      "nameKo": "몽",
+      "title": "山水蒙",
+      "titleKo": "산수몽",
+      "lower": "kan",
+      "upper": "gen",
+      "lines": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "number": 5,
+      "name": "需",
+      "nameKo": "수",
+      "title": "水天需",
+      "titleKo": "수천수",
+      "lower": "qian",
+      "upper": "kan",
+      "lines": [
+        1,
+        1,
+        1,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "number": 6,
+      "name": "訟",
+      "nameKo": "송",
+      "title": "天水訟",
+      "titleKo": "천수송",
+      "lower": "kan",
+      "upper": "qian",
+      "lines": [
+        0,
+        1,
+        0,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "number": 7,
+      "name": "師",
+      "nameKo": "사",
+      "title": "地水師",
+      "titleKo": "지수사",
+      "lower": "kan",
+      "upper": "kun",
+      "lines": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "number": 8,
+      "name": "比",
+      "nameKo": "비",
+      "title": "水地比",
+      "titleKo": "수지비",
+      "lower": "kun",
+      "upper": "kan",
+      "lines": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "number": 9,
+      "name": "小畜",
+      "nameKo": "소축",
+      "title": "風天小畜",
+      "titleKo": "풍천소축",
+      "lower": "qian",
+      "upper": "xun",
+      "lines": [
+        1,
+        1,
+        1,
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "number": 10,
+      "name": "履",
+      "nameKo": "리",
+      "title": "天澤履",
+      "titleKo": "천택리",
+      "lower": "dui",
+      "upper": "qian",
+      "lines": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "number": 11,
+      "name": "泰",
+      "nameKo": "태",
+      "title": "地天泰",
+      "titleKo": "지천태",
+      "lower": "qian",
+      "upper": "kun",
+      "lines": [
+        1,
+        1,
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "number": 12,
+      "name": "否",
+      "nameKo": "비",
+      "title": "天地否",
+      "titleKo": "천지비",
+      "lower": "kun",
+      "upper": "qian",
+      "lines": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "number": 13,
+      "name": "同人",
+      "nameKo": "동인",
+      "title": "天火同人",
+      "titleKo": "천화동인",
+      "lower": "li",
+      "upper": "qian",
+      "lines": [
+        1,
+        0,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "number": 14,
+      "name": "大有",
+      "nameKo": "대유",
+      "title": "火天大有",
+      "titleKo": "화천대유",
+      "lower": "qian",
+      "upper": "li",
+      "lines": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "number": 15,
+      "name": "謙",
+      "nameKo": "겸",
+      "title": "地山謙",
+      "titleKo": "지산겸",
+      "lower": "gen",
+      "upper": "kun",
+      "lines": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "number": 16,
+      "name": "豫",
+      "nameKo": "예",
+      "title": "雷地豫",
+      "titleKo": "뢰지예",
+      "lower": "kun",
+      "upper": "zhen",
+      "lines": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "number": 17,
+      "name": "隨",
+      "nameKo": "수",
+      "title": "澤雷隨",
+      "titleKo": "택뢰수",
+      "lower": "zhen",
+      "upper": "dui",
+      "lines": [
+        1,
+        0,
+        0,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "number": 18,
+      "name": "蠱",
+      "nameKo": "고",
+      "title": "山風蠱",
+      "titleKo": "산풍고",
+      "lower": "xun",
+      "upper": "gen",
+      "lines": [
+        0,
+        1,
+        1,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "number": 19,
+      "name": "臨",
+      "nameKo": "림",
+      "title": "地澤臨",
+      "titleKo": "지택림",
+      "lower": "dui",
+      "upper": "kun",
+      "lines": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "number": 20,
+      "name": "觀",
+      "nameKo": "관",
+      "title": "風地觀",
+      "titleKo": "풍지관",
+      "lower": "kun",
+      "upper": "xun",
+      "lines": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "number": 21,
+      "name": "噬嗑",
+      "nameKo": "서합",
+      "title": "火雷噬嗑",
+      "titleKo": "화뢰서합",
+      "lower": "zhen",
+      "upper": "li",
+      "lines": [
+        1,
+        0,
+        0,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "number": 22,
+      "name": "賁",
+      "nameKo": "비",
+      "title": "山火賁",
+      "titleKo": "산화비",
+      "lower": "li",
+      "upper": "gen",
+      "lines": [
+        1,
+        0,
+        1,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "number": 23,
+      "name": "剝",
+      "nameKo": "박",
+      "title": "山地剝",
+      "titleKo": "산지박",
+      "lower": "kun",
+      "upper": "gen",
+      "lines": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "number": 24,
+      "name": "復",
+      "nameKo": "복",
+      "title": "地雷復",
+      "titleKo": "지뢰복",
+      "lower": "zhen",
+      "upper": "kun",
+      "lines": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "number": 25,
+      "name": "无妄",
+      "nameKo": "무망",
+      "title": "天雷无妄",
+      "titleKo": "천뢰무망",
+      "lower": "zhen",
+      "upper": "qian",
+      "lines": [
+        1,
+        0,
+        0,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "number": 26,
+      "name": "大畜",
+      "nameKo": "대축",
+      "title": "山天大畜",
+      "titleKo": "산천대축",
+      "lower": "qian",
+      "upper": "gen",
+      "lines": [
+        1,
+        1,
+        1,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "number": 27,
+      "name": "頤",
+      "nameKo": "이",
+      "title": "山雷頤",
+      "titleKo": "산뢰이",
+      "lower": "zhen",
+      "upper": "gen",
+      "lines": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "number": 28,
+      "name": "大過",
+      "nameKo": "대과",
+      "title": "澤風大過",
+      "titleKo": "택풍대과",
+      "lower": "xun",
+      "upper": "dui",
+      "lines": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "number": 29,
+      "name": "坎",
+      "nameKo": "감",
+      "title": "坎爲水",
+      "titleKo": "중수감",
+      "lower": "kan",
+      "upper": "kan",
+      "lines": [
+        0,
+        1,
+        0,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "number": 30,
+      "name": "離",
+      "nameKo": "리",
+      "title": "離爲火",
+      "titleKo": "중화리",
+      "lower": "li",
+      "upper": "li",
+      "lines": [
+        1,
+        0,
+        1,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "number": 31,
+      "name": "咸",
+      "nameKo": "함",
+      "title": "澤山咸",
+      "titleKo": "택산함",
+      "lower": "gen",
+      "upper": "dui",
+      "lines": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "number": 32,
+      "name": "恒",
+      "nameKo": "항",
+      "title": "雷風恒",
+      "titleKo": "뢰풍항",
+      "lower": "xun",
+      "upper": "zhen",
+      "lines": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "number": 33,
+      "name": "遯",
+      "nameKo": "둔",
+      "title": "天山遯",
+      "titleKo": "천산둔",
+      "lower": "gen",
+      "upper": "qian",
+      "lines": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "number": 34,
+      "name": "大壯",
+      "nameKo": "대장",
+      "title": "雷天大壯",
+      "titleKo": "뢰천대장",
+      "lower": "qian",
+      "upper": "zhen",
+      "lines": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "number": 35,
+      "name": "晉",
+      "nameKo": "진",
+      "title": "火地晉",
+      "titleKo": "화지진",
+      "lower": "kun",
+      "upper": "li",
+      "lines": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "number": 36,
+      "name": "明夷",
+      "nameKo": "명이",
+      "title": "地火明夷",
+      "titleKo": "지화명이",
+      "lower": "li",
+      "upper": "kun",
+      "lines": [
+        1,
+        0,
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "number": 37,
+      "name": "家人",
+      "nameKo": "가인",
+      "title": "風火家人",
+      "titleKo": "풍화가인",
+      "lower": "li",
+      "upper": "xun",
+      "lines": [
+        1,
+        0,
+        1,
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "number": 38,
+      "name": "睽",
+      "nameKo": "규",
+      "title": "火澤睽",
+      "titleKo": "화택규",
+      "lower": "dui",
+      "upper": "li",
+      "lines": [
+        1,
+        1,
+        0,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "number": 39,
+      "name": "蹇",
+      "nameKo": "건",
+      "title": "水山蹇",
+      "titleKo": "수산건",
+      "lower": "gen",
+      "upper": "kan",
+      "lines": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "number": 40,
+      "name": "解",
+      "nameKo": "해",
+      "title": "雷水解",
+      "titleKo": "뢰수해",
+      "lower": "kan",
+      "upper": "zhen",
+      "lines": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "number": 41,
+      "name": "損",
+      "nameKo": "손",
+      "title": "山澤損",
+      "titleKo": "산택손",
+      "lower": "dui",
+      "upper": "gen",
+      "lines": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "number": 42,
+      "name": "益",
+      "nameKo": "익",
+      "title": "風雷益",
+      "titleKo": "풍뢰익",
+      "lower": "zhen",
+      "upper": "xun",
+      "lines": [
+        1,
+        0,
+        0,
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "number": 43,
+      "name": "夬",
+      "nameKo": "쾌",
+      "title": "澤天夬",
+      "titleKo": "택천쾌",
+      "lower": "qian",
+      "upper": "dui",
+      "lines": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "number": 44,
+      "name": "姤",
+      "nameKo": "구",
+      "title": "天風姤",
+      "titleKo": "천풍구",
+      "lower": "xun",
+      "upper": "qian",
+      "lines": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "number": 45,
+      "name": "萃",
+      "nameKo": "췌",
+      "title": "澤地萃",
+      "titleKo": "택지췌",
+      "lower": "kun",
+      "upper": "dui",
+      "lines": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "number": 46,
+      "name": "升",
+      "nameKo": "승",
+      "title": "地風升",
+      "titleKo": "지풍승",
+      "lower": "xun",
+      "upper": "kun",
+      "lines": [
+        0,
+        1,
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "number": 47,
+      "name": "困",
+      "nameKo": "곤",
+      "title": "澤水困",
+      "titleKo": "택수곤",
+      "lower": "kan",
+      "upper": "dui",
+      "lines": [
+        0,
+        1,
+        0,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "number": 48,
+      "name": "井",
+      "nameKo": "정",
+      "title": "水風井",
+      "titleKo": "수풍정",
+      "lower": "xun",
+      "upper": "kan",
+      "lines": [
+        0,
+        1,
+        1,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "number": 49,
+      "name": "革",
+      "nameKo": "혁",
+      "title": "澤火革",
+      "titleKo": "택화혁",
+      "lower": "li",
+      "upper": "dui",
+      "lines": [
+        1,
+        0,
+        1,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "number": 50,
+      "name": "鼎",
+      "nameKo": "정",
+      "title": "火風鼎",
+      "titleKo": "화풍정",
+      "lower": "xun",
+      "upper": "li",
+      "lines": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "number": 51,
+      "name": "震",
+      "nameKo": "진",
+      "title": "震爲雷",
+      "titleKo": "중뢰진",
+      "lower": "zhen",
+      "upper": "zhen",
+      "lines": [
+        1,
+        0,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "number": 52,
+      "name": "艮",
+      "nameKo": "간",
+      "title": "艮爲山",
+      "titleKo": "중산간",
+      "lower": "gen",
+      "upper": "gen",
+      "lines": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "number": 53,
+      "name": "漸",
+      "nameKo": "점",
+      "title": "風山漸",
+      "titleKo": "풍산점",
+      "lower": "gen",
+      "upper": "xun",
+      "lines": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "number": 54,
+      "name": "歸妹",
+      "nameKo": "귀매",
+      "title": "雷澤歸妹",
+      "titleKo": "뢰택귀매",
+      "lower": "dui",
+      "upper": "zhen",
+      "lines": [
+        1,
+        1,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "number": 55,
+      "name": "豐",
+      "nameKo": "풍",
+      "title": "雷火豐",
+      "titleKo": "뢰화풍",
+      "lower": "li",
+      "upper": "zhen",
+      "lines": [
+        1,
+        0,
+        1,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "number": 56,
+      "name": "旅",
+      "nameKo": "려",
+      "title": "火山旅",
+      "titleKo": "화산려",
+      "lower": "gen",
+      "upper": "li",
+      "lines": [
+        0,
+        0,
+        1,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "number": 57,
+      "name": "巽",
+      "nameKo": "손",
+      "title": "巽爲風",
+      "titleKo": "중풍손",
+      "lower": "xun",
+      "upper": "xun",
+      "lines": [
+        0,
+        1,
+        1,
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "number": 58,
+      "name": "兌",
+      "nameKo": "태",
+      "title": "兌爲澤",
+      "titleKo": "중택태",
+      "lower": "dui",
+      "upper": "dui",
+      "lines": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "number": 59,
+      "name": "渙",
+      "nameKo": "환",
+      "title": "風水渙",
+      "titleKo": "풍수환",
+      "lower": "kan",
+      "upper": "xun",
+      "lines": [
+        0,
+        1,
+        0,
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "number": 60,
+      "name": "節",
+      "nameKo": "절",
+      "title": "水澤節",
+      "titleKo": "수택절",
+      "lower": "dui",
+      "upper": "kan",
+      "lines": [
+        1,
+        1,
+        0,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "number": 61,
+      "name": "中孚",
+      "nameKo": "중부",
+      "title": "風澤中孚",
+      "titleKo": "풍택중부",
+      "lower": "dui",
+      "upper": "xun",
+      "lines": [
+        1,
+        1,
+        0,
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "number": 62,
+      "name": "小過",
+      "nameKo": "소과",
+      "title": "雷山小過",
+      "titleKo": "뢰산소과",
+      "lower": "gen",
+      "upper": "zhen",
+      "lines": [
+        0,
+        0,
+        1,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "number": 63,
+      "name": "既濟",
+      "nameKo": "기제",
+      "title": "水火既濟",
+      "titleKo": "수화기제",
+      "lower": "li",
+      "upper": "kan",
+      "lines": [
+        1,
+        0,
+        1,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "number": 64,
+      "name": "未濟",
+      "nameKo": "미제",
+      "title": "火水未濟",
+      "titleKo": "화수미제",
+      "lower": "kan",
+      "upper": "li",
+      "lines": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        1
+      ]
+    }
+  ]
+}

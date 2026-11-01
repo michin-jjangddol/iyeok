@@ -32,6 +32,13 @@ These features are not yet available.
 | `data/` | Hexagram and classical text data |
 | `docs/` | Design and development records |
 
+## License
+
+iYeok is licensed under the GNU AGPL v3.0 only. See [LICENSE](LICENSE).
+
+Anyone is free to use, study, modify, and share it,
+provided that modified versions, including those offered as a web service, also share their source code under the same license.
+
 ---
 
 This document was prepared with the assistance of Shana (GPT) and Laude (Claude).
@@ -73,6 +80,13 @@ This document was prepared with the assistance of Shana (GPT) and Laude (Claude)
 | `assets/images/` | 삽화 |
 | `data/` | 괘와 원문 데이터 |
 | `docs/` | 설계·개발 기록 |
+
+## 라이선스
+
+아이역은 GNU AGPL v3.0 only 라이선스를 따릅니다. 자세한 내용은 [LICENSE](LICENSE)를 참고하세요.
+
+누구나 자유롭게 사용·연구·수정·공유할 수 있습니다.
+단, 수정한 버전을 배포하거나 웹서비스로 제공할 때는 그 소스 코드도 같은 라이선스로 공개해야 합니다.
 
 ---
 

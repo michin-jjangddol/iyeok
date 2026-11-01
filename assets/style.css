@@ -340,6 +340,16 @@ blockquote {
   margin: 0;
 }
 
+.site-footer a {
+  color: var(--ink-soft);
+  text-underline-offset: 3px;
+}
+
+.site-footer a:hover,
+.site-footer a:focus-visible {
+  color: var(--ink);
+}
+
 @media (min-width: 40rem) {
   .plans {
     grid-template-columns: 1fr 1fr;

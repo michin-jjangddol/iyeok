@@ -1,0 +1,25 @@
+# OS
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Editor
+.vscode/*
+!.vscode/extensions.json
+
+# Python (later core development)
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Node (if a build tool is added later)
+node_modules/
+dist/
+
+# Claude Code: personal settings only
+.claude/settings.local.json
+.claude/worktrees/
+
+# Logs
+*.log

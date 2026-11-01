@@ -374,7 +374,7 @@ th {
   line-height: 1.1;
 }
 
-.face-number .coin-mark {
+.coin:not(.coin-basic).face-number .coin-mark {
   font-family: var(--sans);
   font-size: 1.05rem;
 }
@@ -406,8 +406,17 @@ th {
   color: var(--ink-soft);
 }
 
+.calm {
+  margin: 1rem 0 0;
+  text-align: center;
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+}
+
 .toss .actions {
   justify-content: center;
+  margin-top: 0.85rem;
 }
 
 /* 결과 */

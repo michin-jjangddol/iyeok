@@ -15,10 +15,10 @@ const LABELS = {
 };
 const SUMMARY_TITLES = { coin: "동전", yangFace: "양으로 삼을 면", order: "효를 채우는 순서", symbols: "변효 기호" };
 
+// 숫자 면에 적힌 금액 (그림 면 표시는 coinMark 참고)
 const COIN_FACES = {
-  basic: { picture: "易", number: "1" },
-  won100: { picture: "人", number: "100" },
-  won500: { picture: "鶴", number: "500" },
+  won100: { number: "100" },
+  won500: { number: "500" },
 };
 const FACE_NAMES = { picture: "그림", number: "숫자" };
 const POSITION_LABELS = ["초효", "이효", "삼효", "사효", "오효", "상효"];
@@ -167,17 +167,24 @@ function renderCast() {
 
   const done = r.throws.length === 6;
   const needPick = human && r.selected === null && !done;
-  $("throw").disabled = r.busy || done || needPick;
+  $("throw").disabled = r.busy || needPick;
+  $("throw").textContent = done ? "괘상 보기 →" : "동전 던지기";
+  $("calm").hidden = done;
   if (!r.throws.length) {
     $("toss-note").textContent = needPick
       ? "먼저 채울 자리를 고르세요."
-      : `${POSITION_LABELS[target]}부터 채웁니다. 마음을 가다듬고 던져 보세요.`;
+      : `${POSITION_LABELS[target]}부터 채웁니다.`;
   }
 }
 
 async function throwCoins() {
   const r = reading;
-  if (!r || r.busy || r.throws.length >= 6) return;
+  if (!r || r.busy) return;
+  if (r.throws.length === 6) {
+    // 여섯 효가 다 차면 같은 버튼이 "괘상 보기"가 된다
+    showResult();
+    return;
+  }
   const position = nextPosition();
   if (position === null || position === undefined || r.lines[position]) return;
 
@@ -197,15 +204,13 @@ async function throwCoins() {
 
   const sym = changingSymbol(r.settings, type);
   const change = type.changing ? `, 변효 ${sym} (지괘에서 ${type.yang ? "음" : "양"}으로 바뀜)` : "";
-  const next = r.settings.order === "human" && r.throws.length < 6 ? " 다음에 채울 자리를 고르세요." : "";
+  let next = "";
+  if (r.throws.length === 6) next = " 여섯 효가 완성되었습니다. 괘상을 확인해 보세요.";
+  else if (r.settings.order === "human") next = " 다음에 채울 자리를 고르세요.";
   $("toss-note").textContent =
     `${POSITION_LABELS[position]}: 양의 면 ${yangCount}개 → ${type.name} (${type.yang ? "양" : "음"}${change}).${next}`;
   renderCast();
-
-  if (r.throws.length === 6) {
-    await wait(reduceMotion ? 0 : 700);
-    if (reading === r) showResult();
-  }
+  if (r.throws.length === 6) $("throw").focus();
 }
 
 // ---------- 동전 ----------
@@ -223,16 +228,28 @@ function renderCoins(faces, flipping = false) {
       coin.classList.add(`face-${face}`);
       if (face === s.yangFace) coin.classList.add("is-yang");
     }
+    const yang = face === s.yangFace;
     const mark = document.createElement("span");
     mark.className = "coin-mark";
-    mark.textContent = face ? COIN_FACES[s.coin][face] : "?";
+    mark.textContent = face ? coinMark(s.coin, face, yang) : "?";
     const cap = document.createElement("span");
     cap.className = "coin-cap";
-    cap.textContent = face ? `${FACE_NAMES[face]}${face === s.yangFace ? " · 양" : ""}` : "";
+    cap.textContent = face ? coinCaption(s.coin, face, yang) : "";
     coin.append(mark, cap);
-    coin.setAttribute("aria-label", face ? `${FACE_NAMES[face]} 면${face === s.yangFace ? ", 양" : ""}` : "아직 던지지 않음");
+    coin.setAttribute("aria-label", face ? coinCaption(s.coin, face, yang).replace(" · ", " 면, ") : "아직 던지지 않음");
     wrap.append(coin);
   }
+}
+
+// 기본 동전은 두 면 모두 陽/陰. 100원·500원은 숫자 면에 금액, 그림 면에 그 면의 음양.
+function coinMark(coin, face, yang) {
+  if (coin === "basic" || face === "picture") return yang ? "陽" : "陰";
+  return COIN_FACES[coin].number;
+}
+
+function coinCaption(coin, face, yang) {
+  if (coin === "basic") return yang ? "양" : "음";
+  return `${FACE_NAMES[face]} · ${yang ? "양" : "음"}`;
 }
 
 // 동전이 도는 동안 기다린다. 결과 면은 호출한 쪽에서 점이 아직 유효한지 확인한 뒤 그린다.
@@ -318,7 +335,9 @@ function showResult() {
   body.replaceChildren();
   r.throws.forEach((t, i) => {
     const tr = document.createElement("tr");
-    const coins = t.faces.map((f) => FACE_NAMES[f]).join(" · ");
+    const coins = t.faces
+      .map((f) => coinMark(r.settings.coin, f, f === r.settings.yangFace))
+      .join(" · ");
     const sym = changingSymbol(r.settings, t.type);
     for (const text of [`${i + 1}`, POSITION_LABELS[t.position], coins, `${t.type.name}${sym ? ` ${sym}` : ""}`]) {
       const td = document.createElement("td");

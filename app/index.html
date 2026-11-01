@@ -51,11 +51,11 @@
           <legend>동전</legend>
           <p class="hint">모양만 달라집니다. 결과 계산에는 영향이 없습니다.</p>
           <label class="option"><input type="radio" name="coin" value="basic">
-            <span><b>기본 동전</b><small>아이역 동전. 그림 면에 易, 숫자 면에 1</small></span></label>
+            <span><b>기본 동전</b><small>아이역 동전. 양으로 삼은 면에 陽, 반대 면에 陰이 보입니다.</small></span></label>
           <label class="option"><input type="radio" name="coin" value="won100">
-            <span><b>100원</b><small>그림 면과 100이 적힌 숫자 면</small></span></label>
+            <span><b>100원</b><small>숫자 면에 100, 그림 면에는 그 면의 음양(陽 또는 陰)이 보입니다.</small></span></label>
           <label class="option"><input type="radio" name="coin" value="won500">
-            <span><b>500원</b><small>그림 면과 500이 적힌 숫자 면</small></span></label>
+            <span><b>500원</b><small>숫자 면에 500, 그림 면에는 그 면의 음양(陽 또는 陰)이 보입니다.</small></span></label>
         </fieldset>
 
         <fieldset>
@@ -129,6 +129,7 @@
         <div class="toss">
           <div class="coins" id="coins" aria-live="polite"></div>
           <p class="toss-note" id="toss-note"></p>
+          <p class="calm" id="calm">마음을 비우고, 차분히 동전을 던져봅시다.</p>
           <div class="actions">
             <button type="button" class="btn primary" id="throw">동전 던지기</button>
           </div>

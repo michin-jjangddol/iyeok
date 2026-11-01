@@ -21,6 +21,8 @@ The I Ching is treated not as a tool for predicting the future, but as a referen
 
 Only a coin divination preview is available for now at https://iyeok.org/app/. The other features are not yet available.
 
+Where iYeok hopes to go: [Vision & Roadmap](docs/iyeok-roadmap.md)
+
 ## Folder structure
 
 | Path | Purpose |
@@ -71,6 +73,8 @@ This document was prepared with the assistance of Shana (GPT) and Laude (Claude)
 - 스스로 공개한 경험을 나누는 공간
 
 지금은 https://iyeok.org/app/ 의 동전점 맛보기만 써 볼 수 있고, 나머지 기능은 아직 제공되지 않습니다.
+
+아이역이 가고 싶은 방향: [비전과 발전 계획](docs/iyeok-roadmap.md#아이역--비전과-발전-계획)
 
 ## 폴더 구성
 

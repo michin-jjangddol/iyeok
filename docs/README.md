@@ -22,6 +22,7 @@ This folder holds design documents, meeting notes, and development records.
 
 ## Next steps
 
+- [x] Write the vision and roadmap: [iyeok-roadmap.md](iyeok-roadmap.md)
 - [ ] Decide the publishing scope (keep public / exclude from deployment)
 
 ---
@@ -56,6 +57,7 @@ This document was prepared with the assistance of Shana (GPT) and Laude (Claude)
 
 ## 다음 작업
 
+- [x] 비전과 발전 계획 작성: [iyeok-roadmap.md](iyeok-roadmap.md)
 - [ ] 공개 범위 결정 (그대로 공개 / 배포 대상에서 제외)
 
 ---

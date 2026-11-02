@@ -6,6 +6,10 @@
 
 The birth story of iYeok : 2026-11-01
 
+## 🎬 YouTube Video
+
+[Watch on YouTube](https://youtu.be/T23C339FioM)
+
 <p align="center">
   <img src="../assets/images/iyeok-origin_en.png" width="90%">
 </p>
@@ -349,6 +353,10 @@ This document was prepared with the assistance of Shana (GPT) and Laude (Claude)
 **동전 세 개로 시작된 작은 세계**
 
 아이역 탄생기 : 2026-11-01
+
+## 🎬 YouTube Video
+
+[Watch on YouTube](https://youtu.be/IE53rDCk7KI)
 
 <p align="center">
   <img src="../assets/images/iyeok-origin_ko.png" width="90%">

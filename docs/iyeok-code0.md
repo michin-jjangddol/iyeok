@@ -6,6 +6,10 @@
 
 (iYeok Thought Archive · 2026-11-08)
 
+## 🎬 YouTube Video
+
+[Watch on YouTube](https://youtu.be/cUl9v_pkegw)
+
 <p align="center">
   <img src="../assets/images/iyeok-code0-en.png" width="90%">
 </p>
@@ -383,6 +387,10 @@ This document was prepared with the assistance of Shana (GPT) and Laude (Claude)
 **괘의 순서에서 비트의 세계로**
 
 (iYeok 생각창고 · 2026-11-08)
+
+## 🎬 YouTube Video
+
+[Watch on YouTube](https://youtu.be/qB9eY4JTT_8)
 
 <p align="center">
   <img src="../assets/images/iyeok-code0-ko.png" width="90%">

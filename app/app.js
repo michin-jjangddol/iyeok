@@ -7,7 +7,7 @@ import {
 const DEFAULT_SETTINGS = { coin: "basic", yangFace: "picture", order: "earth", symbols: "iyeok" };
 const STORAGE_KEY = "iyeok.coin.settings.v1";
 // 화면이 쓰는 괘사·효사 목록 파일. 내용을 고치면 새 날짜 파일을 만들고 이 경로만 바꾼다.
-const CONTENT_INDEX = "../data/hexagrams/261117_0716_content-index_Laude.json";
+const CONTENT_INDEX = "../data/hexagrams/261117_0733_content-index_Laude.json";
 const PENDING = { judgment: "괘사를 준비 중입니다.", line: "효사를 준비 중입니다.", other: "준비 중입니다." };
 // 번역·풀이가 샤나(GPT)의 초안일 때 풀이 아래에 붙이는 작성 노트
 const SHANA_DRAFT_NOTE =

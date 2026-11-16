@@ -517,6 +517,87 @@ th {
   font-size: 0.92rem;
 }
 
+/* 괘사·효사 */
+
+.texts {
+  margin: 1.75rem 0 0;
+}
+
+.text-section {
+  margin: 0 0 1.75rem;
+  padding: 1.1rem 1rem 0.4rem;
+  border-top: 1px solid var(--rule);
+}
+
+.text-section h3 {
+  margin: 0 0 0.9rem;
+  font-size: 1.05rem;
+}
+
+.text-hex {
+  margin-left: 0.35rem;
+  font-weight: normal;
+  color: var(--ink-soft);
+}
+
+.text-block {
+  margin: 0 0 1rem;
+}
+
+.text-block h4 {
+  margin: 0 0 0.3rem;
+  font-size: 0.78rem;
+  font-weight: normal;
+  letter-spacing: 0.08em;
+  color: var(--ink-faint);
+}
+
+.text-block p {
+  margin: 0;
+  line-height: 1.8;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+.is-original p {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  letter-spacing: 0.06em;
+  line-height: 1.9;
+}
+
+.is-reading p {
+  color: var(--ink-soft);
+}
+
+.pending {
+  margin: 0;
+  color: var(--ink-faint);
+  font-style: italic;
+}
+
+.line-texts {
+  list-style: none;
+  margin: 0 0 1rem;
+  padding: 0;
+}
+
+.line-texts li {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 0.75rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px dashed var(--rule);
+}
+
+.line-texts li:last-child {
+  border-bottom: 0;
+}
+
+.text-source {
+  margin: 0.25rem 0 0.75rem;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .coin.flipping,
   .slot.just-filled .hline {

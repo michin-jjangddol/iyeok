@@ -1,0 +1,21 @@
+{
+  "format": 1,
+  "idRule": "Hexagram id = six-character binary string, top line (上爻, bit 5) on the left, bottom line (初爻, bit 0) on the right; yin 0, yang 1. Leading zeros are kept. The id is fixed and separate from the King Wen number.",
+  "paths": "Paths are relative to this file. Each entry names the exact file version the app shows. To update content, save a new dated file and a new index that points to it; old files stay as they are.",
+  "hexagrams": {
+    "111010": {
+      "number": 6,
+      "judgment": {
+        "original": "111010/judgment/original/261116_2223_judgment_Laude.json",
+        "ko": "111010/judgment/ko/261116_2223_judgment_Laude.json"
+      }
+    },
+    "110001": {
+      "number": 42,
+      "judgment": {
+        "original": "110001/judgment/original/261116_2301_judgment_Laude.json",
+        "ko": "110001/judgment/ko/261116_2301_judgment_Laude.json"
+      }
+    }
+  }
+}

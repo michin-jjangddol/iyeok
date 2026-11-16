@@ -570,6 +570,13 @@ th {
   color: var(--ink-soft);
 }
 
+.text-block p.text-annotation {
+  margin: 0.35rem 0 0;
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: var(--ink-faint);
+}
+
 .pending {
   margin: 0;
   color: var(--ink-faint);

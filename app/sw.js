@@ -1,7 +1,7 @@
 // 아이역 동전점 서비스 워커
 // 인터넷이 되면 새 파일을 받고(network-first), 끊기면 저장해 둔 파일로 연다.
 
-const CACHE = "iyeok-app-v1";
+const CACHE = "iyeok-app-v2";
 const FILES = [
   "./",
   "./index.html",
@@ -16,6 +16,9 @@ const FILES = [
   "../assets/icons/icon-512-maskable.png",
   "../assets/icons/apple-touch-icon.png",
   "../data/hexagrams.json",
+  "../data/hexagrams/261116_2223_content-index_Laude.json",
+  "../data/hexagrams/111010/judgment/original/261116_2223_judgment_Laude.json",
+  "../data/hexagrams/111010/judgment/ko/261116_2223_judgment_Laude.json",
 ];
 
 self.addEventListener("install", (event) => {

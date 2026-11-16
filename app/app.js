@@ -6,6 +6,9 @@ import {
 
 const DEFAULT_SETTINGS = { coin: "basic", yangFace: "picture", order: "earth", symbols: "iyeok" };
 const STORAGE_KEY = "iyeok.coin.settings.v1";
+// 화면이 쓰는 괘사·효사 목록 파일. 내용을 고치면 새 날짜 파일을 만들고 이 경로만 바꾼다.
+const CONTENT_INDEX = "../data/hexagrams/261116_2223_content-index_Laude.json";
+const PENDING = { judgment: "괘사를 준비 중입니다.", line: "효사를 준비 중입니다.", other: "준비 중입니다." };
 
 const LABELS = {
   coin: { basic: "기본 동전", won100: "100원", won500: "500원" },
@@ -27,6 +30,8 @@ const $ = (id) => document.getElementById(id);
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 let data = null;
+let contentIndex = null; // 괘사·효사 목록. 못 불러오면 모두 "준비 중"으로 보인다.
+const contentCache = new Map();
 let settings = loadSettings();
 let reading = null; // 진행 중인 점: { settings, throws, lines, selected, busy }
 
@@ -347,7 +352,121 @@ function showResult() {
     body.append(tr);
   });
   $("log-settings").textContent = `이번 점의 방식: ${describeSettings(r.settings)}`;
+  renderTexts(r, primary, changed, moving);
   show("result");
+}
+
+// ---------- 괘사·효사 ----------
+
+// 괘 식별자: 위가 상효(bit 5), 오른쪽 끝이 초효(bit 0). 문왕괘 번호와 따로 둔다.
+function hexId(hex) {
+  return [...hex.lines].reverse().join("");
+}
+
+async function loadContent(path) {
+  if (!contentCache.has(path)) {
+    const url = new URL(path, new URL(CONTENT_INDEX, location.href));
+    contentCache.set(path, fetch(url).then((res) => (res.ok ? res.json() : null)).catch(() => null));
+  }
+  return contentCache.get(path);
+}
+
+async function loadJudgment(hex) {
+  const entry = contentIndex?.hexagrams?.[hexId(hex)]?.judgment;
+  if (!entry) return null;
+  const [original, ko] = await Promise.all([
+    entry.original ? loadContent(entry.original) : null,
+    entry.ko ? loadContent(entry.ko) : null,
+  ]);
+  return { original, ko };
+}
+
+function textBlock(label, lines, lang, className) {
+  const wrap = document.createElement("div");
+  wrap.className = `text-block ${className}`;
+  const h = document.createElement("h4");
+  h.textContent = label;
+  wrap.append(h);
+  const list = lines?.length ? lines : null;
+  const p = document.createElement("p");
+  if (list) {
+    if (lang) p.lang = lang;
+    list.forEach((line, i) => {
+      if (i) p.append(document.createElement("br"));
+      p.append(line);
+    });
+  } else {
+    p.className = "pending";
+    p.textContent = PENDING.other;
+  }
+  wrap.append(p);
+  return wrap;
+}
+
+function judgmentSection(title, hex, content) {
+  const sec = document.createElement("section");
+  sec.className = "text-section";
+  const h3 = document.createElement("h3");
+  h3.innerHTML = `${title} <span class="text-hex">${hex.titleKo} 괘사</span>`;
+  sec.append(h3);
+  if (!content?.original?.text?.length) {
+    const p = document.createElement("p");
+    p.className = "pending";
+    p.textContent = PENDING.judgment;
+    sec.append(p);
+    return sec;
+  }
+  const ko = content.ko;
+  sec.append(
+    textBlock("원문", content.original.text, "zh-Hant", "is-original"),
+    textBlock("독음", ko?.reading, "ko", "is-reading"),
+    textBlock("번역", ko?.translation, "ko", "is-translation"),
+    textBlock("풀이", ko?.interpretation, "ko", "is-interpretation"),
+  );
+  const note = document.createElement("p");
+  note.className = "hint text-source";
+  const parts = [`원문: ${content.original.source ?? "출처 확인 중"}`];
+  if (ko?.status === "draft") parts.push("번역·풀이: 검토 중인 초안");
+  note.textContent = parts.join(" · ");
+  sec.append(note);
+  return sec;
+}
+
+function linesSection(types, moving) {
+  const sec = document.createElement("section");
+  sec.className = "text-section";
+  const h3 = document.createElement("h3");
+  h3.textContent = "변효 효사";
+  sec.append(h3);
+  const ul = document.createElement("ul");
+  ul.className = "line-texts";
+  for (const pos of [...moving].reverse()) {
+    const li = document.createElement("li");
+    const b = document.createElement("b");
+    b.textContent = lineName(pos, types[pos].yang);
+    const span = document.createElement("span");
+    span.className = "pending";
+    span.textContent = PENDING.line;
+    li.append(b, span);
+    ul.append(li);
+  }
+  sec.append(ul);
+  return sec;
+}
+
+async function renderTexts(r, primary, changed, moving) {
+  const box = $("texts");
+  box.replaceChildren();
+  const [pc, cc] = await Promise.all([
+    loadJudgment(primary),
+    moving.length ? loadJudgment(changed) : null,
+  ]);
+  if (reading !== r) return; // 불러오는 사이에 새 점을 시작함
+  box.append(judgmentSection("본괘", primary, pc));
+  if (moving.length) {
+    box.append(linesSection(r.lines, moving));
+    box.append(judgmentSection("지괘", changed, cc));
+  }
 }
 
 // ---------- 시작 ----------
@@ -397,6 +516,12 @@ async function init() {
   } catch {
     $("load-error").hidden = false;
     $("start").disabled = true;
+  }
+  try {
+    const res = await fetch(CONTENT_INDEX);
+    if (res.ok) contentIndex = await res.json();
+  } catch {
+    // 목록이 없어도 점은 칠 수 있다. 괘사는 "준비 중"으로 보인다.
   }
   if ("serviceWorker" in navigator) {
     navigator.serviceWorker.register("./sw.js").catch(() => {});

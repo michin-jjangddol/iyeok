@@ -532,7 +532,15 @@ async function init() {
     // 목록이 없어도 점은 칠 수 있다. 괘사는 "준비 중"으로 보인다.
   }
   if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("./sw.js").catch(() => {});
+    // 새 버전의 서비스 워커가 자리를 잡으면, 점을 치는 중이 아닐 때 한 번 새로고침해서 새 화면을 쓴다.
+    const hadController = Boolean(navigator.serviceWorker.controller);
+    let reloaded = false;
+    navigator.serviceWorker.addEventListener("controllerchange", () => {
+      if (!hadController || reloaded || reading) return;
+      reloaded = true;
+      location.reload();
+    });
+    navigator.serviceWorker.register("./sw.js", { updateViaCache: "none" }).catch(() => {});
   }
 }
 

@@ -1,7 +1,8 @@
 // 아이역 동전점 서비스 워커
 // 인터넷이 되면 새 파일을 받고(network-first), 끊기면 저장해 둔 파일로 연다.
+// 새 파일을 받을 때 브라우저 캐시(GitHub Pages는 10분)를 그대로 믿지 않고 서버에 바뀌었는지 묻는다.
 
-const CACHE = "iyeok-app-v10";
+const CACHE = "iyeok-app-v11";
 const FILES = [
   "./",
   "./index.html",
@@ -36,7 +37,10 @@ const FILES = [
 ];
 
 self.addEventListener("install", (event) => {
-  event.waitUntil(caches.open(CACHE).then((cache) => cache.addAll(FILES)));
+  // 설치할 때도 브라우저 캐시가 아니라 서버에서 새로 받아 저장한다.
+  event.waitUntil(
+    caches.open(CACHE).then((cache) => cache.addAll(FILES.map((path) => new Request(path, { cache: "reload" })))),
+  );
   self.skipWaiting();
 });
 
@@ -54,7 +58,7 @@ self.addEventListener("fetch", (event) => {
   if (request.method !== "GET" || new URL(request.url).origin !== self.location.origin) return;
 
   event.respondWith(
-    fetch(request)
+    fetch(request, { cache: "no-cache" })
       .then((response) => {
         if (response.ok) {
           const copy = response.clone();

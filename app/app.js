@@ -7,7 +7,7 @@ import {
 const DEFAULT_SETTINGS = { coin: "basic", yangFace: "picture", order: "earth", symbols: "iyeok" };
 const STORAGE_KEY = "iyeok.coin.settings.v1";
 // 화면이 쓰는 괘사·효사 목록 파일. 내용을 고치면 새 날짜 파일을 만들고 이 경로만 바꾼다.
-const CONTENT_INDEX = "../data/hexagrams/261117_0808_content-index_Laude.json";
+const CONTENT_INDEX = "../data/hexagrams/261117_0818_content-index_Laude.json";
 const PENDING = { judgment: "괘사를 준비 중입니다.", line: "효사를 준비 중입니다.", other: "준비 중입니다." };
 // 번역·풀이가 샤나(GPT)의 초안일 때 풀이 아래에 붙이는 작성 노트
 const SHANA_DRAFT_NOTE =
@@ -420,10 +420,18 @@ function judgmentSection(title, hex, content) {
     return sec;
   }
   const ko = content.ko;
+  const translation = textBlock("번역", ko?.translation, "ko", "is-translation");
+  if (ko?.translation?.length && ko.translationNote) {
+    // 번역에 붙는 짧은 주석 (예: 고대 관념을 오늘날의 규범으로 적용하지 않는다는 설명)
+    const note = document.createElement("p");
+    note.className = "text-annotation";
+    note.textContent = `주석: ${ko.translationNote}`;
+    translation.append(note);
+  }
   sec.append(
     textBlock("원문", content.original.text, "zh-Hant", "is-original"),
     textBlock("독음", ko?.reading, "ko", "is-reading"),
-    textBlock("번역", ko?.translation, "ko", "is-translation"),
+    translation,
     textBlock("풀이", ko?.interpretation, "ko", "is-interpretation"),
   );
   if (ko?.status === "draft") {

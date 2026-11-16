@@ -1,7 +1,7 @@
 // 아이역 동전점 서비스 워커
 // 인터넷이 되면 새 파일을 받고(network-first), 끊기면 저장해 둔 파일로 연다.
 
-const CACHE = "iyeok-app-v8";
+const CACHE = "iyeok-app-v9";
 const FILES = [
   "./",
   "./index.html",

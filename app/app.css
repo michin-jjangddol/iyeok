@@ -594,8 +594,19 @@ th {
   border-bottom: 0;
 }
 
+.draft-note {
+  margin: 0.25rem 0 0;
+  padding: 0.6rem 0.8rem;
+  border-left: 3px solid var(--rule);
+  background: var(--paper-deep);
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  word-break: keep-all;
+}
+
 .text-source {
-  margin: 0.25rem 0 0.75rem;
+  margin: 0.5rem 0 0.75rem;
 }
 
 @media (prefers-reduced-motion: reduce) {

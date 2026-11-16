@@ -9,6 +9,9 @@ const STORAGE_KEY = "iyeok.coin.settings.v1";
 // 화면이 쓰는 괘사·효사 목록 파일. 내용을 고치면 새 날짜 파일을 만들고 이 경로만 바꾼다.
 const CONTENT_INDEX = "../data/hexagrams/261117_0656_content-index_Laude.json";
 const PENDING = { judgment: "괘사를 준비 중입니다.", line: "효사를 준비 중입니다.", other: "준비 중입니다." };
+// 번역·풀이가 샤나(GPT)의 초안일 때 풀이 아래에 붙이는 작성 노트
+const SHANA_DRAFT_NOTE =
+  "번역·풀이: 샤나(GPT)가 작성한 검토용 초안입니다. 특정 해설서의 번역·풀이를 인용한 것이 아니며, 추후 문헌 대조와 검토를 통해 보완할 예정입니다.";
 
 const LABELS = {
   coin: { basic: "기본 동전", won100: "100원", won500: "500원" },
@@ -423,11 +426,16 @@ function judgmentSection(title, hex, content) {
     textBlock("번역", ko?.translation, "ko", "is-translation"),
     textBlock("풀이", ko?.interpretation, "ko", "is-interpretation"),
   );
+  if (ko?.status === "draft") {
+    const byShana = Object.values(ko.sources ?? {}).some((s) => String(s).includes("SHANA"));
+    const draft = document.createElement("p");
+    draft.className = "draft-note";
+    draft.textContent = byShana ? SHANA_DRAFT_NOTE : "번역·풀이: 검토 중인 초안입니다.";
+    sec.append(draft);
+  }
   const note = document.createElement("p");
   note.className = "hint text-source";
-  const parts = [`원문: ${content.original.source ?? "출처 확인 중"}`];
-  if (ko?.status === "draft") parts.push("번역·풀이: 검토 중인 초안");
-  note.textContent = parts.join(" · ");
+  note.textContent = `원문: ${content.original.source ?? "출처 확인 중"}`;
   sec.append(note);
   return sec;
 }

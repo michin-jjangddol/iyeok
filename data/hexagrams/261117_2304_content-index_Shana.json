@@ -1,0 +1,245 @@
+{
+  "format": 1,
+  "idRule": "Hexagram id = six-character binary string, top line (上爻, bit 5) on the left, bottom line (初爻, bit 0) on the right; yin 0, yang 1. Leading zeros are kept. The id is fixed and separate from the King Wen number.",
+  "paths": "Paths are relative to this file. Each entry names the exact file version the app shows. To update content, save a new dated file and a new index that points to it; old files stay as they are.",
+  "hexagrams": {
+    "111010": {
+      "number": 6,
+      "judgment": {
+        "original": "111010/judgment/original/261116_2223_judgment_Laude.json",
+        "ko": "111010/judgment/ko/261116_2223_judgment_Laude.json"
+      }
+    },
+    "110001": {
+      "number": 42,
+      "judgment": {
+        "original": "110001/judgment/original/261116_2301_judgment_Laude.json",
+        "ko": "110001/judgment/ko/261116_2301_judgment_Laude.json"
+      }
+    },
+    "111100": {
+      "number": 33,
+      "judgment": {
+        "original": "111100/judgment/original/261116_2316_judgment_Laude.json",
+        "ko": "111100/judgment/ko/261116_2316_judgment_Laude.json"
+      }
+    },
+    "010001": {
+      "number": 3,
+      "judgment": {
+        "original": "010001/judgment/original/261116_2336_judgment_Laude.json",
+        "ko": "010001/judgment/ko/261116_2336_judgment_Laude.json"
+      }
+    },
+    "111111": {
+      "number": 1,
+      "judgment": {
+        "original": "111111/judgment/original/261116_2344_judgment_Laude.json",
+        "ko": "111111/judgment/ko/261116_2344_judgment_Laude.json"
+      }
+    },
+    "001100": {
+      "number": 62,
+      "judgment": {
+        "original": "001100/judgment/original/261116_2353_judgment_Laude.json",
+        "ko": "001100/judgment/ko/261116_2353_judgment_Laude.json"
+      }
+    },
+    "001001": {
+      "number": 51,
+      "judgment": {
+        "original": "001001/judgment/original/261117_0656_judgment_Laude.json",
+        "ko": "001001/judgment/ko/261117_0656_judgment_Laude.json"
+      }
+    },
+    "101000": {
+      "number": 35,
+      "judgment": {
+        "original": "101000/judgment/original/261117_0716_judgment_Laude.json",
+        "ko": "101000/judgment/ko/261117_0716_judgment_Laude.json"
+      }
+    },
+    "011001": {
+      "number": 17,
+      "judgment": {
+        "original": "011001/judgment/original/261117_0733_judgment_Laude.json",
+        "ko": "011001/judgment/ko/261117_0733_judgment_Laude.json"
+      }
+    },
+    "110110": {
+      "number": 57,
+      "judgment": {
+        "original": "110110/judgment/original/261117_0744_judgment_Laude.json",
+        "ko": "110110/judgment/ko/261117_0744_judgment_Laude.json"
+      }
+    },
+    "110100": {
+      "number": 53,
+      "judgment": {
+        "original": "110100/judgment/original/261117_0751_judgment_Laude.json",
+        "ko": "110100/judgment/ko/261117_0751_judgment_Laude.json"
+      }
+    },
+    "001000": {
+      "number": 16,
+      "judgment": {
+        "original": "001000/judgment/original/261117_0759_judgment_Laude.json",
+        "ko": "001000/judgment/ko/261117_0759_judgment_Laude.json"
+      }
+    },
+    "000000": {
+      "number": 2,
+      "judgment": {
+        "original": "000000/judgment/original/261117_0808_judgment_Laude.json",
+        "ko": "000000/judgment/ko/261117_0808_judgment_Laude.json"
+      }
+    },
+    "111110": {
+      "number": 44,
+      "judgment": {
+        "original": "111110/judgment/original/261117_0818_judgment_Laude.json",
+        "ko": "111110/judgment/ko/261117_0818_judgment_Laude.json"
+      }
+    },
+    "011000": {
+      "number": 45,
+      "judgment": {
+        "original": "011000/judgment/original/261117_0829_judgment_Laude.json",
+        "ko": "011000/judgment/ko/261117_0829_judgment_Laude.json"
+      }
+    },
+    "000111": {
+      "number": 11,
+      "judgment": {
+        "original": "000111/judgment/original/261117_1138_judgment_Shana.json",
+        "ko": "000111/judgment/ko/261117_1138_judgment_Shana.json"
+      }
+    },
+    "110000": {
+      "number": 20,
+      "judgment": {
+        "original": "110000/judgment/original/261117_1148_judgment_Laude.json",
+        "ko": "110000/judgment/ko/261117_1148_judgment_Laude.json"
+      }
+    },
+    "010101": {
+      "number": 63,
+      "judgment": {
+        "original": "010101/judgment/original/261117_1208_judgment_Shana.json",
+        "ko": "010101/judgment/ko/261117_1208_judgment_Shana.json"
+      }
+    },
+    "101010": {
+      "number": 64,
+      "judgment": {
+        "original": "101010/judgment/original/261117_1234_judgment_Laude.json",
+        "ko": "101010/judgment/ko/261117_1234_judgment_Laude.json"
+      }
+    },
+    "110011": {
+      "number": 61,
+      "judgment": {
+        "original": "110011/judgment/original/261117_1244_judgment_Shana.json",
+        "ko": "110011/judgment/ko/261117_1244_judgment_Shana.json"
+      }
+    },
+    "000110": {
+      "number": 46,
+      "judgment": {
+        "original": "000110/judgment/original/261117_1821_judgment_Laude.json",
+        "ko": "000110/judgment/ko/261117_1821_judgment_Laude.json"
+      }
+    },
+    "001011": {
+      "number": 54,
+      "judgment": {
+        "original": "001011/judgment/original/261117_1843_judgment_Shana.json",
+        "ko": "001011/judgment/ko/261117_1843_judgment_Shana.json"
+      }
+    },
+    "110111": {
+      "number": 9,
+      "judgment": {
+        "original": "110111/judgment/original/261117_1932_judgment_Laude.json",
+        "ko": "110111/judgment/ko/261117_1932_judgment_Laude.json"
+      }
+    },
+    "100011": {
+      "number": 41,
+      "judgment": {
+        "original": "100011/judgment/original/261117_1951_judgment_Shana.json",
+        "ko": "100011/judgment/ko/261117_1951_judgment_Shana.json"
+      }
+    },
+    "001110": {
+      "number": 32,
+      "judgment": {
+        "original": "001110/judgment/original/261117_2014_judgment_Laude.json",
+        "ko": "001110/judgment/ko/261117_2014_judgment_Laude.json"
+      }
+    },
+    "001101": {
+      "number": 55,
+      "judgment": {
+        "original": "001101/judgment/original/261117_2025_judgment_Shana.json",
+        "ko": "001101/judgment/ko/261117_2025_judgment_Shana.json"
+      }
+    },
+    "101100": {
+      "number": 56,
+      "judgment": {
+        "original": "101100/judgment/original/261117_2040_judgment_Laude.json",
+        "ko": "101100/judgment/ko/261117_2040_judgment_Laude.json"
+      }
+    },
+    "100110": {
+      "number": 18,
+      "judgment": {
+        "original": "100110/judgment/original/261117_2052_judgment_Shana.json",
+        "ko": "100110/judgment/ko/261117_2052_judgment_Shana.json"
+      }
+    },
+    "010110": {
+      "number": 48,
+      "judgment": {
+        "original": "010110/judgment/original/261117_2142_judgment_Laude.json",
+        "ko": "010110/judgment/ko/261117_2142_judgment_Laude.json"
+      }
+    },
+    "100000": {
+      "number": 23,
+      "judgment": {
+        "original": "100000/judgment/original/261117_2158_judgment_Shana.json",
+        "ko": "100000/judgment/ko/261117_2158_judgment_Shana.json"
+      }
+    },
+    "101111": {
+      "number": 14,
+      "judgment": {
+        "original": "101111/judgment/original/261117_2206_judgment_Laude.json",
+        "ko": "101111/judgment/ko/261117_2206_judgment_Laude.json"
+      }
+    },
+    "000011": {
+      "number": 19,
+      "judgment": {
+        "original": "000011/judgment/original/261117_2223_judgment_Shana.json",
+        "ko": "000011/judgment/ko/261117_2223_judgment_Shana.json"
+      }
+    },
+    "100001": {
+      "number": 27,
+      "judgment": {
+        "original": "100001/judgment/original/261117_2232_judgment_Laude.json",
+        "ko": "100001/judgment/ko/261117_2232_judgment_Laude.json"
+      }
+    },
+    "011100": {
+      "number": 31,
+      "judgment": {
+        "original": "011100/judgment/original/261117_2304_judgment_Shana.json",
+        "ko": "011100/judgment/ko/261117_2304_judgment_Shana.json"
+      }
+    }
+  }
+}

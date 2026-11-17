@@ -1,6 +1,6 @@
 # iYeok — How It Grows and How We Work
 
-Updated 2026-11-17 11:25 (KST), against main commit `21272595fc6c9b9dec94a478a8accbfc01f20692`. The earlier versions, including `261116_2353_iyeok-growth-roadmap_Laude.md`, are kept unchanged. This document records the development direction and collaboration rules agreed by J (JJDD) with Shana and Laude.
+Updated 2026-11-17 11:26 (KST), against main commit `21272595fc6c9b9dec94a478a8accbfc01f20692`. The earlier versions, including `261116_2353_iyeok-growth-roadmap_Laude.md`, are kept unchanged. This document records the development direction and collaboration rules agreed by J (JJDD) with Shana and Laude.
 It works alongside [iyeok-roadmap.md](iyeok-roadmap.md), which holds the long-term vision. This document covers the practical side: how content is added, how the code is organized, and how changes reach the site.
 
 Each item is marked as one of:
@@ -161,7 +161,7 @@ Example (checked against the data on 2026-11-16): 風雷益 `110001` (49), lines
 A document in the repository is not read automatically by a new session. Paste this at the start:
 
 ```
-Read docs/261117_1125_iyeok-growth-roadmap_Shana.md in the iyeok repository first and follow it.
+Read docs/261117_1126_iyeok-growth-roadmap_Shana.md in the iyeok repository first and follow it.
 Check main and the work branch, then wait for my instructions.
 ```
 
@@ -175,7 +175,7 @@ This document was prepared with the assistance of Shana (GPT) and Laude (Claude)
 
 # 아이역 — 자라는 방식과 일하는 방식
 
-2026-11-17 11:25(한국시간) 보완. main 커밋 `21272595fc6c9b9dec94a478a8accbfc01f20692`를 기준으로 확인했습니다. `261116_2353_iyeok-growth-roadmap_Laude.md`를 포함한 이전 판은 그대로 보존합니다. J(JJDD)가 샤나·로드와 정한 개발 방향과 협업 원칙을 기록합니다.
+2026-11-17 11:26(한국시간) 보완. main 커밋 `21272595fc6c9b9dec94a478a8accbfc01f20692`를 기준으로 확인했습니다. `261116_2353_iyeok-growth-roadmap_Laude.md`를 포함한 이전 판은 그대로 보존합니다. J(JJDD)가 샤나·로드와 정한 개발 방향과 협업 원칙을 기록합니다.
 장기 비전은 [iyeok-roadmap.md](iyeok-roadmap.md)에 있고, 이 문서는 실제로 일하는 방법을 다룹니다. 콘텐츠를 채우는 방식, 코드를 나누는 방식, 변경이 홈피에 반영되는 과정입니다.
 
 각 항목에는 다음 표시를 붙였습니다.
@@ -256,7 +256,7 @@ data/hexagrams/
   2. 새 파일을 가리키는 새 목록 파일을 만듭니다.
   3. `CONTENT_INDEX`를 새 목록으로 바꿉니다.
   4. `app/sw.js`의 오프라인 목록에 새 파일을 넣고 캐시 이름을 올립니다.
-  
+
   이전 파일은 그대로 둡니다.
 - 효사와 다른 언어는 `judgment/` 옆에 폴더를 둡니다(예: `lines/1/ko/`, `judgment/en/`). **[미정]** 정확한 폴더 이름.
 - 기존 구현에서는 실행 파일 수정 전 백업을 `backups/app/`에 두었습니다. 새 작업에는 JJDD의 현재 파일 규칙을 적용합니다. 한국시간 날짜·시간과 이번 편집자의 `_Shana` 또는 `_Laude`를 붙인 새 판을 저장하고, 이전 파일을 보존하며 이름 충돌을 확인합니다. 고정 실행 파일명을 유지해야 하는 변경에는 명시적 예외가 필요합니다. **[미정]** `backups/`를 홈피 공개 범위에 둘지.
@@ -342,7 +342,7 @@ data/hexagrams/
 저장소에 문서가 있어도 새 세션이 자동으로 읽지는 않습니다. 세션을 시작할 때 아래를 붙여 넣으세요.
 
 ```
-iyeok 저장소의 docs/261117_1125_iyeok-growth-roadmap_Shana.md를 먼저 읽고 따라 줘.
+iyeok 저장소의 docs/261117_1126_iyeok-growth-roadmap_Shana.md를 먼저 읽고 따라 줘.
 main과 작업 브랜치 상태를 확인한 뒤 내 지시를 기다려 줘.
 ```
 

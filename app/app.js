@@ -9,6 +9,9 @@ const STORAGE_KEY = "iyeok.coin.settings.v1";
 // 화면이 쓰는 괘사·효사 목록 파일. 내용을 고치면 새 날짜 파일을 만들고 이 경로만 바꾼다.
 const CONTENT_INDEX = "../data/hexagrams/261117_0829_content-index_Laude.json";
 const PENDING = { judgment: "괘사를 준비 중입니다.", line: "효사를 준비 중입니다.", other: "준비 중입니다." };
+const LOAD_FAILED = "내용을 불러오지 못했습니다.";
+// 일시적인 오류(연결 끊김, 서버 5xx 등)일 때 다시 시도하기 전 기다리는 시간. 처음 시도까지 합쳐 최대 3번.
+const RETRY_DELAYS = [400, 1200];
 // 번역·풀이가 샤나(GPT)의 초안일 때 풀이 아래에 붙이는 작성 노트
 const SHANA_DRAFT_NOTE =
   "번역·풀이: 샤나(GPT)가 작성한 검토용 초안입니다. 특정 해설서의 번역·풀이를 인용한 것이 아니며, 추후 문헌 대조와 검토를 통해 보완할 예정입니다.";
@@ -33,8 +36,9 @@ const $ = (id) => document.getElementById(id);
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 let data = null;
-let contentIndex = null; // 괘사·효사 목록. 못 불러오면 모두 "준비 중"으로 보인다.
-const contentCache = new Map();
+let contentIndex = null; // 괘사·효사 목록. 불러오기에 성공했을 때만 채운다.
+let contentIndexLoading = null;
+const contentCache = new Map(); // 성공한 요청만 남긴다. 실패한 요청은 지워서 다음에 다시 시도할 수 있게 한다.
 let settings = loadSettings();
 let reading = null; // 진행 중인 점: { settings, throws, lines, selected, busy }
 
@@ -366,22 +370,63 @@ function hexId(hex) {
   return [...hex.lines].reverse().join("");
 }
 
-async function loadContent(path) {
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+// JSON을 받는다. 연결 오류나 일시적인 서버 오류(408, 429, 5xx)는 몇 번 더 시도하고, 그래도 안 되면 오류를 던진다.
+async function fetchJson(url) {
+  let lastError;
+  for (let attempt = 0; attempt <= RETRY_DELAYS.length; attempt++) {
+    if (attempt) await sleep(RETRY_DELAYS[attempt - 1]);
+    try {
+      const res = await fetch(url);
+      if (res.ok) return await res.json();
+      lastError = new Error(`HTTP ${res.status}`);
+      const temporary = res.status === 408 || res.status === 429 || res.status >= 500;
+      if (!temporary) break;
+    } catch (err) {
+      lastError = err;
+    }
+  }
+  throw lastError;
+}
+
+// 괘사·효사 목록. 실패하면 다음에 필요할 때 다시 받는다.
+function ensureContentIndex() {
+  if (contentIndex) return Promise.resolve(contentIndex);
+  if (!contentIndexLoading) {
+    contentIndexLoading = fetchJson(CONTENT_INDEX)
+      .then((index) => (contentIndex = index))
+      .finally(() => {
+        contentIndexLoading = null;
+      });
+  }
+  return contentIndexLoading;
+}
+
+function loadContent(path) {
   if (!contentCache.has(path)) {
     const url = new URL(path, new URL(CONTENT_INDEX, location.href));
-    contentCache.set(path, fetch(url).then((res) => (res.ok ? res.json() : null)).catch(() => null));
+    const request = fetchJson(url);
+    contentCache.set(path, request);
+    request.catch(() => contentCache.delete(path));
   }
   return contentCache.get(path);
 }
 
+// 결과: { status: "ok", original, ko } | { status: "none" } (아직 쓰지 않은 괘) | { status: "error" } (불러오기 실패)
 async function loadJudgment(hex) {
-  const entry = contentIndex?.hexagrams?.[hexId(hex)]?.judgment;
-  if (!entry) return null;
-  const [original, ko] = await Promise.all([
-    entry.original ? loadContent(entry.original) : null,
-    entry.ko ? loadContent(entry.ko) : null,
-  ]);
-  return { original, ko };
+  try {
+    const index = await ensureContentIndex();
+    const entry = index?.hexagrams?.[hexId(hex)]?.judgment;
+    if (!entry?.original) return { status: "none" };
+    const [original, ko] = await Promise.all([
+      loadContent(entry.original),
+      entry.ko ? loadContent(entry.ko) : null,
+    ]);
+    return { status: "ok", original, ko };
+  } catch {
+    return { status: "error" };
+  }
 }
 
 function textBlock(label, lines, lang, className) {
@@ -406,12 +451,30 @@ function textBlock(label, lines, lang, className) {
   return wrap;
 }
 
-function judgmentSection(title, hex, content) {
+function judgmentSection(title, hex, content, retry) {
   const sec = document.createElement("section");
   sec.className = "text-section";
   const h3 = document.createElement("h3");
   h3.innerHTML = `${title} <span class="text-hex">${hex.titleKo} 괘사</span>`;
   sec.append(h3);
+  if (content?.status === "error") {
+    const box = document.createElement("div");
+    box.className = "load-failed";
+    const p = document.createElement("p");
+    p.textContent = LOAD_FAILED;
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "btn retry";
+    btn.textContent = "다시 시도";
+    btn.addEventListener("click", () => {
+      btn.disabled = true;
+      btn.textContent = "불러오는 중…";
+      retry();
+    });
+    box.append(p, btn);
+    sec.append(box);
+    return sec;
+  }
   if (!content?.original?.text?.length) {
     const p = document.createElement("p");
     p.className = "pending";
@@ -470,18 +533,20 @@ function linesSection(types, moving) {
   return sec;
 }
 
-async function renderTexts(r, primary, changed, moving) {
+// retrying=true면 "다시 시도" 중이라 지금 화면을 둔 채 불러오고, 새 점이면 이전 점의 글을 먼저 지운다.
+async function renderTexts(r, primary, changed, moving, retrying = false) {
   const box = $("texts");
-  box.replaceChildren();
+  if (!retrying) box.replaceChildren();
   const [pc, cc] = await Promise.all([
     loadJudgment(primary),
     moving.length ? loadJudgment(changed) : null,
   ]);
   if (reading !== r) return; // 불러오는 사이에 새 점을 시작함
-  box.append(judgmentSection("본괘", primary, pc));
+  const retry = () => renderTexts(r, primary, changed, moving, true);
+  box.replaceChildren(judgmentSection("본괘", primary, pc, retry));
   if (moving.length) {
     box.append(linesSection(r.lines, moving));
-    box.append(judgmentSection("지괘", changed, cc));
+    box.append(judgmentSection("지괘", changed, cc, retry));
   }
 }
 
@@ -533,12 +598,8 @@ async function init() {
     $("load-error").hidden = false;
     $("start").disabled = true;
   }
-  try {
-    const res = await fetch(CONTENT_INDEX);
-    if (res.ok) contentIndex = await res.json();
-  } catch {
-    // 목록이 없어도 점은 칠 수 있다. 괘사는 "준비 중"으로 보인다.
-  }
+  // 목록을 미리 받아 둔다. 실패해도 점은 칠 수 있고, 결과를 볼 때 다시 시도한다.
+  ensureContentIndex().catch(() => {});
   if ("serviceWorker" in navigator) {
     // 새 버전의 서비스 워커가 자리를 잡으면, 점을 치는 중이 아닐 때 한 번 새로고침해서 새 화면을 쓴다.
     const hadController = Boolean(navigator.serviceWorker.controller);

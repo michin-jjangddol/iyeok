@@ -577,6 +577,26 @@ th {
   color: var(--ink-faint);
 }
 
+.load-failed {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
+  margin: 0 0 1rem;
+  padding: 0.7rem 0.85rem;
+  border-left: 3px solid var(--seal);
+  background: var(--paper-deep);
+}
+
+.load-failed p {
+  margin: 0;
+}
+
+.btn.retry {
+  padding: 0.35rem 0.9rem;
+  font-size: 0.9rem;
+}
+
 .pending {
   margin: 0;
   color: var(--ink-faint);

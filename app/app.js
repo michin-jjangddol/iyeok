@@ -7,7 +7,7 @@ import {
 const DEFAULT_SETTINGS = { coin: "basic", yangFace: "picture", order: "earth", symbols: "iyeok" };
 const STORAGE_KEY = "iyeok.coin.settings.v1";
 // 화면이 쓰는 괘사·효사 목록 파일. 내용을 고치면 새 날짜 파일을 만들고 이 경로만 바꾼다.
-const CONTENT_INDEX = "../data/hexagrams/261117_1843_content-index_Shana.json";
+const CONTENT_INDEX = "../data/hexagrams/261117_1932_content-index_Laude.json";
 const PENDING = { judgment: "괘사를 준비 중입니다.", line: "효사를 준비 중입니다.", other: "준비 중입니다." };
 const LOAD_FAILED = "내용을 불러오지 못했습니다.";
 // 일시적인 오류(연결 끊김, 서버 5xx 등)일 때 다시 시도하기 전 기다리는 시간. 처음 시도까지 합쳐 최대 3번.

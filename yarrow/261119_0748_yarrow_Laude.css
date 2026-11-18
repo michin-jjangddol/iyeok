@@ -1,0 +1,130 @@
+/* 시초점 맛보기 화면에만 쓰는 스타일. 공통 스타일은 ../assets/style.css를 그대로 쓴다. */
+
+.yarrow-intro {
+  max-width: calc(var(--measure) + 2 * var(--gutter));
+  margin: 0 auto;
+  padding: 3rem var(--gutter) 3.5rem;
+}
+
+.yarrow-intro .status {
+  margin: 1.5rem 0 0;
+}
+
+.yarrow-intro .lead {
+  margin-top: 2rem;
+}
+
+.yarrow-text {
+  margin: 1rem 0 0;
+  color: var(--ink-soft);
+}
+
+.yarrow-menu,
+.yarrow-plan {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.yarrow-menu {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.yarrow-choice {
+  display: block;
+  width: 100%;
+  padding: 1rem 1.15rem;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background: var(--paper-deep);
+  color: var(--ink-soft);
+  font: inherit;
+  line-height: 1.6;
+  text-align: left;
+  cursor: pointer;
+}
+
+.yarrow-choice strong {
+  display: block;
+  margin-bottom: 0.2rem;
+  font-family: var(--serif);
+  color: var(--ink);
+}
+
+.yarrow-choice:hover {
+  border-color: var(--rule);
+}
+
+.yarrow-choice:focus-visible,
+.yarrow-close:focus-visible {
+  outline: 2px solid var(--seal);
+  outline-offset: 2px;
+}
+
+.yarrow-plan {
+  display: grid;
+  gap: 0.5rem;
+  color: var(--ink-soft);
+}
+
+.yarrow-plan li {
+  padding-left: 1rem;
+  border-left: 2px solid var(--rule);
+  line-height: 1.6;
+}
+
+.yarrow-plan + .try {
+  margin-top: 2.5rem;
+}
+
+.yarrow-plan strong {
+  color: var(--ink);
+}
+
+.yarrow-dialog {
+  width: min(22rem, calc(100vw - 2rem));
+  padding: 1.75rem 1.5rem 1.5rem;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  background: var(--paper);
+  color: var(--ink);
+  text-align: center;
+}
+
+.yarrow-dialog::backdrop {
+  background: rgba(20, 18, 15, 0.45);
+}
+
+.yarrow-dialog h2 {
+  margin: 0 0 1rem;
+}
+
+.yarrow-dialog p {
+  margin: 0 0 0.5rem;
+}
+
+.soon-mark {
+  font-family: var(--serif);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--seal);
+}
+
+.yarrow-close {
+  margin-top: 1rem;
+  padding: 0.5rem 1.5rem;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+@media (min-width: 40rem) {
+  .yarrow-menu {
+    grid-template-columns: 1fr 1fr;
+  }
+}

@@ -2,7 +2,7 @@
 // 인터넷이 되면 새 파일을 받고(network-first), 끊기면 저장해 둔 파일로 연다.
 // 새 파일을 받을 때 브라우저 캐시(GitHub Pages는 10분)를 그대로 믿지 않고 서버에 바뀌었는지 묻는다.
 
-const CACHE = "iyeok-app-v55";
+const CACHE = "iyeok-app-v56";
 const FILES = [
   "./",
   "./index.html",
@@ -17,7 +17,7 @@ const FILES = [
   "../assets/icons/icon-512-maskable.png",
   "../assets/icons/apple-touch-icon.png",
   "../data/hexagrams.json",
-  "../data/hexagrams/261118_2244_content-index_Laude.json",
+  "../data/hexagrams/261119_0707_content-index_Shana.json",
   "../data/hexagrams/111010/judgment/original/261116_2223_judgment_Laude.json",
   "../data/hexagrams/111010/judgment/ko/261116_2223_judgment_Laude.json",
   "../data/hexagrams/110001/judgment/original/261116_2301_judgment_Laude.json",
@@ -120,6 +120,8 @@ const FILES = [
   "../data/hexagrams/111101/judgment/ko/261118_2231_judgment_Shana.json",
   "../data/hexagrams/010000/judgment/original/261118_2244_judgment_Laude.json",
   "../data/hexagrams/010000/judgment/ko/261118_2244_judgment_Laude.json",
+  "../data/hexagrams/100101/judgment/original/261119_0707_judgment_Shana.json",
+  "../data/hexagrams/100101/judgment/ko/261119_0707_judgment_Shana.json",
 ];
 
 self.addEventListener("install", (event) => {

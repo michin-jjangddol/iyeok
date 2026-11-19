@@ -10,6 +10,7 @@
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../assets/style.css">
   <link rel="stylesheet" href="261119_0748_yarrow_Laude.css">
+  <link rel="stylesheet" href="261119_2027_yarrow-menu_Laude.css">
 </head>
 <body>
   <!-- 시초점 맛보기: 소개와 준비 안내만 있는 화면. 시초점 계산·괘 뽑기·설정 저장은 아직 없다. -->
@@ -40,12 +41,12 @@
     <section class="section" aria-labelledby="menu-title">
       <h2 id="menu-title"><span class="en">Menu</span>어떻게 시작할까요</h2>
       <ul class="yarrow-menu">
-        <li><button type="button" class="yarrow-choice" data-name="배우기"><strong>배우기</strong><span>그림과 설명으로 원리와 순서를 살펴보기</span></button></li>
+        <li><a class="yarrow-choice" href="learn/"><strong>배우기</strong><span>그림과 설명으로 원리와 순서를 살펴보기 (첫 부분 체험)</span></a></li>
         <li><button type="button" class="yarrow-choice" data-name="찬찬히"><strong>찬찬히</strong><span>단계별 안내와 함께 괘 뽑기</span></button></li>
         <li><button type="button" class="yarrow-choice" data-name="빠르게"><strong>빠르게</strong><span>설명은 접어 두고 내 속도로 진행하기</span></button></li>
         <li><button type="button" class="yarrow-choice" data-name="옵션"><strong>옵션</strong><span>시작 방식과 안내 설정</span></button></li>
       </ul>
-      <p class="note">네 메뉴 모두 아직 준비 중입니다. 누르면 준비 안내가 열립니다.</p>
+      <p class="note">배우기는 첫 부분(시초 준비부터 두 무더기로 나누기까지)을 체험할 수 있습니다. 나머지 세 메뉴는 아직 준비 중이며, 누르면 준비 안내가 열립니다.</p>
 
       <h3>앞으로 준비할 방향</h3>
       <ul class="yarrow-plan">
@@ -80,7 +81,7 @@
       var closeBtn = document.getElementById("soon-close");
       var opener = null;
 
-      document.querySelectorAll(".yarrow-choice").forEach(function (btn) {
+      document.querySelectorAll("button.yarrow-choice").forEach(function (btn) {
         btn.addEventListener("click", function () {
           opener = btn;
           nameEl.textContent = btn.dataset.name;

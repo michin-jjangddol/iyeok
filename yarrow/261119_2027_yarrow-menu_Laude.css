@@ -1,0 +1,4 @@
+/* 시초점 메뉴: '배우기'는 이제 학습 화면으로 가는 링크라 버튼 모양을 그대로 쓰면서 밑줄만 없앤다. */
+a.yarrow-choice {
+  text-decoration: none;
+}

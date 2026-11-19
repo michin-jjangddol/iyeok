@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 240" preserveAspectRatio="none">
+  <!-- 시초점 배우기: 시초를 펼쳐 놓는 천(학습용 도식). 전통적 상징을 뜻하지 않는다. -->
+  <defs>
+    <pattern id="weave" width="6" height="6" patternUnits="userSpaceOnUse">
+      <rect width="6" height="6" fill="#e6dcc6"/>
+      <path d="M0 3H6M3 0V6" stroke="#dbcfb5" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect x="2" y="2" width="356" height="236" rx="10" fill="url(#weave)" stroke="#c9b994" stroke-width="2"/>
+  <rect x="10" y="10" width="340" height="220" rx="6" fill="none" stroke="#b7a57c" stroke-width="1" stroke-dasharray="4 3"/>
+</svg>

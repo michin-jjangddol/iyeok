@@ -4,15 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>시초점 배우기 · 아이역 iYeok</title>
-  <meta name="description" content="시초 쉰 가지로 첫 효 하나가 만들어지는 과정을 나누고, 덜고, 넷씩 세며 차근차근 배워 봅니다.">
+  <meta name="description" content="시초 쉰 가지를 나누고, 덜고, 넷씩 세며 여섯 효를 쌓아 괘 하나를 완성하는 과정을 차근차근 배워 봅니다.">
   <meta name="theme-color" content="#f4efe4" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#1b1a18" media="(prefers-color-scheme: dark)">
   <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../../assets/style.css">
-  <link rel="stylesheet" href="261119_2114_learn_Laude.css">
+  <link rel="stylesheet" href="261119_2207_learn_Laude.css">
 </head>
 <body>
-  <!-- 시초점 배우기 3차: 첫 효 하나를 끝까지 만든다. 2~6효, 실제 점치기, 음성, 설정 저장, 오프라인은 아직 없다. -->
+  <!-- 시초점 배우기 4차: 여섯 효를 쌓아 괘 하나를 완성한다. 실제 점치기, 괘사 풀이, 음성, 설정 저장, 오프라인은 없다. -->
   <header class="site-header">
     <a class="brand" href="../../" aria-label="아이역 홈">
       <span class="brand-mark">i易</span>
@@ -27,6 +27,7 @@
     <p class="eyebrow">시초점 · 배우기</p>
     <h1 class="learn-heading">시초점 배우기</h1>
     <p class="learn-notice" id="notice"></p>
+    <p class="learn-refresh">진행은 저장되지 않습니다. 새로고침하거나 페이지를 닫으면 처음부터 다시 시작합니다.</p>
 
     <section class="learn-scene" aria-labelledby="scene-title">
       <div class="learn-head">
@@ -34,7 +35,7 @@
         <span class="learn-step" id="scene-step">준비</span>
       </div>
 
-      <div class="learn-mat">
+      <div class="learn-mat" id="mat">
         <div class="learn-mat-bg" style="background-image:url('261119_2027_mat_Laude.svg')" aria-hidden="true"></div>
         <svg id="field" class="learn-field" viewBox="0 0 360 240" role="img" aria-label="펼쳐 놓은 천"></svg>
       </div>
@@ -64,14 +65,18 @@
 
       <div class="learn-board" id="board" hidden aria-label="효판">
         <p class="learn-board-title">효판 (아래에서 위로 쌓습니다)</p>
-        <div class="board-line" data-line="6"><span class="board-label">상효 · 준비 중</span><span class="board-mark"></span><span class="board-bar"></span></div>
-        <div class="board-line" data-line="5"><span class="board-label">5효 · 준비 중</span><span class="board-mark"></span><span class="board-bar"></span></div>
-        <div class="board-line" data-line="4"><span class="board-label">4효 · 준비 중</span><span class="board-mark"></span><span class="board-bar"></span></div>
-        <div class="board-line" data-line="3"><span class="board-label">3효 · 준비 중</span><span class="board-mark"></span><span class="board-bar"></span></div>
-        <div class="board-line" data-line="2"><span class="board-label">2효 · 준비 중</span><span class="board-mark"></span><span class="board-bar"></span></div>
+        <div class="board-line" data-line="6"><span class="board-label">상효 · 아직</span><span class="board-mark"></span><span class="board-bar"></span></div>
+        <div class="board-line" data-line="5"><span class="board-label">오효 · 아직</span><span class="board-mark"></span><span class="board-bar"></span></div>
+        <div class="board-line" data-line="4"><span class="board-label">사효 · 아직</span><span class="board-mark"></span><span class="board-bar"></span></div>
+        <div class="board-line" data-line="3"><span class="board-label">삼효 · 아직</span><span class="board-mark"></span><span class="board-bar"></span></div>
+        <div class="board-line" data-line="2"><span class="board-label">이효 · 아직</span><span class="board-mark"></span><span class="board-bar"></span></div>
         <div class="board-line" data-line="1"><span class="board-label">초효 · 아직 그리지 않음</span><span class="board-mark"></span><span class="board-bar"></span></div>
       </div>
       <p class="learn-line-table" id="line-table" hidden></p>
+
+      <div class="learn-result" id="result" hidden aria-live="polite"></div>
+      <button type="button" class="learn-btn learn-ghost learn-toggle" id="review-toggle" aria-expanded="false" aria-controls="review" hidden>만든 과정 돌아보기</button>
+      <div class="learn-review" id="review" hidden></div>
 
       <nav class="learn-nav" aria-label="장면 이동">
         <button type="button" class="learn-btn learn-ghost" id="prev">이전</button>
@@ -85,6 +90,15 @@
       </div>
     </section>
 
+    <dialog class="learn-confirm" id="restart-confirm" aria-labelledby="restart-title" aria-describedby="restart-desc">
+      <h2 id="restart-title">처음부터 다시 배울까요?</h2>
+      <p id="restart-desc">지금까지 만든 효와 과정이 모두 지워집니다.</p>
+      <div class="learn-range-row">
+        <button type="button" class="learn-btn learn-ghost" id="restart-no">취소</button>
+        <button type="button" class="learn-btn learn-primary" id="restart-yes">지우고 다시 시작</button>
+      </div>
+    </dialog>
+
     <p class="try learn-back"><a href="../">← 시초점 메뉴로</a> · <a href="../../">아이역 홈으로</a></p>
   </main>
 
@@ -92,6 +106,6 @@
     <p>© 2026 iYeok Project · <a href="https://github.com/michin-jjangddol/iyeok">Source</a> · <a href="https://github.com/michin-jjangddol/iyeok/blob/main/LICENSE">AGPL-3.0</a></p>
   </footer>
 
-  <script type="module" src="261119_2114_learn_Laude.js"></script>
+  <script type="module" src="261119_2207_learn_Laude.js"></script>
 </body>
 </html>

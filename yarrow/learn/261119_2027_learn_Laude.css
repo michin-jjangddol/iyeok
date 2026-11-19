@@ -1,0 +1,244 @@
+/* 시초점 배우기 화면 전용 스타일. 공통 스타일은 ../../assets/style.css를 그대로 쓴다. */
+
+.learn {
+  max-width: calc(var(--measure) + 2 * var(--gutter));
+  margin: 0 auto;
+  padding: 1.5rem var(--gutter) 3rem;
+}
+
+.learn-heading {
+  font-size: clamp(1.8rem, 6vw, 2.6rem);
+}
+
+.learn-notice {
+  margin: 0.75rem 0 1.5rem;
+  font-size: 0.85rem;
+  color: var(--ink-faint);
+}
+
+.learn-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.learn-head h2 {
+  margin: 0 0 0.75rem;
+}
+
+.learn-head h2:focus {
+  outline: none;
+}
+
+.learn-step {
+  font-size: 0.85rem;
+  color: var(--ink-faint);
+  white-space: nowrap;
+}
+
+.learn-mat {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 360 / 240;
+}
+
+.learn-mat-bg {
+  position: absolute;
+  inset: 0;
+  background-size: 100% 100%;
+  border-radius: 10px;
+}
+
+.learn-field {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.learn-field .stalk {
+  stroke: #5b4a2c;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  transition: transform 0.6s ease, opacity 0.4s ease;
+}
+
+.learn-field .stalk-aside {
+  stroke: var(--seal);
+  stroke-width: 2;
+}
+
+.learn-field .stalk.no-anim {
+  transition: none;
+}
+
+.learn-field .zone-line {
+  stroke: #b7a57c;
+  stroke-width: 1;
+  stroke-dasharray: 5 4;
+}
+
+.learn-field .zone-label,
+.learn-field .pile-label {
+  font-family: var(--sans);
+  font-size: 11px;
+  fill: #6b5a3a;
+}
+
+.learn-field .pile-label {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.learn-counts {
+  margin: 0.75rem 0 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+.learn-story {
+  margin: 1rem 0 0;
+  padding: 1rem 1.15rem;
+  background: var(--paper-deep);
+  border-radius: 6px;
+  font-family: var(--serif);
+  line-height: 1.75;
+}
+
+.learn-story:focus {
+  outline: none;
+}
+
+.learn-story p {
+  margin: 0 0 0.4rem;
+}
+
+.learn-story p:last-child {
+  margin-bottom: 0;
+}
+
+.learn-btn {
+  min-height: 44px;
+  padding: 0.5rem 1.1rem;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.learn-btn:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.learn-btn:focus-visible,
+.learn-panel input:focus-visible {
+  outline: 2px solid var(--seal);
+  outline-offset: 2px;
+}
+
+.learn-primary {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.learn-action {
+  display: block;
+  margin: 1rem auto 0;
+}
+
+.learn-small {
+  min-width: 44px;
+  padding: 0.5rem 0.75rem;
+}
+
+.learn-panel {
+  margin: 1rem 0 0;
+  padding: 1rem;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+}
+
+.learn-range-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+.learn-panel input[type="range"] {
+  width: 100%;
+  min-height: 44px;
+  accent-color: var(--seal);
+}
+
+.learn-range-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.learn-readout {
+  flex: 1;
+  text-align: center;
+  font-weight: 600;
+}
+
+.learn-hint {
+  margin: 0.5rem 0 0;
+  font-size: 0.8rem;
+  color: var(--ink-faint);
+}
+
+.learn-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+}
+
+.learn-end {
+  margin: 1.25rem 0 0;
+  text-align: center;
+}
+
+.learn-back {
+  margin-top: 2.5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .learn-field .stalk {
+    transition: none;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .learn-mat-bg {
+    filter: brightness(0.55) saturate(0.8);
+  }
+
+  .learn-field .stalk {
+    stroke: #e9dcc0;
+  }
+
+  .learn-field .zone-label,
+  .learn-field .pile-label {
+    fill: #e2d6bd;
+  }
+}
+
+/* hidden 속성이 위의 display 지정보다 앞서도록 */
+.learn [hidden] {
+  display: none !important;
+}

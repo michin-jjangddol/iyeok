@@ -9,7 +9,7 @@
   <meta name="theme-color" content="#1b1a18" media="(prefers-color-scheme: dark)">
   <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../../assets/style.css">
-  <link rel="stylesheet" href="261120_1935_learn_Laude.css">
+  <link rel="stylesheet" href="261120_2121_learn_Laude.css">
 </head>
 <body>
   <!-- 시초점 배우기 4차: 여섯 효를 쌓아 괘 하나를 완성한다. 실제 점치기, 괘사 풀이, 음성, 설정 저장, 오프라인은 없다. -->
@@ -42,18 +42,8 @@
 
       <p class="learn-counts" id="counts" aria-live="polite" hidden></p>
 
-      <!-- 진행 버튼: 시초 그림·상태 요약 바로 아래, 설명글 위 (261120_1935 이동) -->
-      <nav class="learn-nav" aria-label="장면 이동">
-        <button type="button" class="learn-btn learn-ghost" id="prev">이전</button>
-        <button type="button" class="learn-btn learn-ghost" id="replay">다시 보기</button>
-        <button type="button" class="learn-btn learn-primary" id="next">배우기 시작</button>
-      </nav>
-
-      <div class="learn-story" id="story" tabindex="-1" aria-live="polite"></div>
-
-      <button type="button" class="learn-btn learn-ghost learn-toggle" id="verse-toggle" aria-expanded="false" aria-controls="verse" hidden>원문과 뜻 보기</button>
-      <div class="learn-verse" id="verse" hidden></div>
-
+      <!-- 조작 영역: 시초판·상태 요약 바로 아래 (261120_2121 이동) -->
+      <div class="learn-ops" id="ops">
       <button type="button" class="learn-btn learn-action" id="action" hidden>하나 따로 두기</button>
       <button type="button" class="learn-btn learn-ghost learn-toggle" id="summary-toggle" aria-pressed="false" hidden>같은 과정 요약해서 보기</button>
 
@@ -91,6 +81,19 @@
           <button type="button" class="learn-btn learn-primary" id="split-confirm">이렇게 나누기</button>
         </div>
       </div>
+      </div>
+
+      <!-- 진행 버튼: 조작 영역 아래, 설명글 위 (261120_2121) -->
+      <nav class="learn-nav" aria-label="장면 이동">
+        <button type="button" class="learn-btn learn-ghost" id="prev">이전</button>
+        <button type="button" class="learn-btn learn-ghost" id="replay">다시 보기</button>
+        <button type="button" class="learn-btn learn-primary" id="next">배우기 시작</button>
+      </nav>
+
+      <div class="learn-story" id="story" tabindex="-1" aria-live="polite"></div>
+
+      <button type="button" class="learn-btn learn-ghost learn-toggle" id="verse-toggle" aria-expanded="false" aria-controls="verse" hidden>원문과 뜻 보기</button>
+      <div class="learn-verse" id="verse" hidden></div>
 
       <div class="learn-board" id="board" hidden aria-label="효판">
         <p class="learn-board-title">효판 (아래에서 위로 쌓습니다)</p>

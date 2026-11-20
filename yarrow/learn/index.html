@@ -9,7 +9,7 @@
   <meta name="theme-color" content="#1b1a18" media="(prefers-color-scheme: dark)">
   <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../../assets/style.css">
-  <link rel="stylesheet" href="261120_1844_learn_Laude.css">
+  <link rel="stylesheet" href="261120_1935_learn_Laude.css">
 </head>
 <body>
   <!-- 시초점 배우기 4차: 여섯 효를 쌓아 괘 하나를 완성한다. 실제 점치기, 괘사 풀이, 음성, 설정 저장, 오프라인은 없다. -->
@@ -41,6 +41,13 @@
       </div>
 
       <p class="learn-counts" id="counts" aria-live="polite" hidden></p>
+
+      <!-- 진행 버튼: 시초 그림·상태 요약 바로 아래, 설명글 위 (261120_1935 이동) -->
+      <nav class="learn-nav" aria-label="장면 이동">
+        <button type="button" class="learn-btn learn-ghost" id="prev">이전</button>
+        <button type="button" class="learn-btn learn-ghost" id="replay">다시 보기</button>
+        <button type="button" class="learn-btn learn-primary" id="next">배우기 시작</button>
+      </nav>
 
       <div class="learn-story" id="story" tabindex="-1" aria-live="polite"></div>
 
@@ -99,12 +106,6 @@
       <div class="learn-result" id="result" hidden aria-live="polite"></div>
       <button type="button" class="learn-btn learn-ghost learn-toggle" id="review-toggle" aria-expanded="false" aria-controls="review" hidden>만든 과정 돌아보기</button>
       <div class="learn-review" id="review" hidden></div>
-
-      <nav class="learn-nav" aria-label="장면 이동">
-        <button type="button" class="learn-btn learn-ghost" id="prev">이전</button>
-        <button type="button" class="learn-btn learn-ghost" id="replay">다시 보기</button>
-        <button type="button" class="learn-btn learn-primary" id="next">배우기 시작</button>
-      </nav>
 
       <div class="learn-end" id="end-links" hidden>
         <p class="learn-next-note" id="next-note">배우기는 여기까지입니다. 괘사와 함께 실제로 괘를 뽑아 보고 싶다면, 지금은 <a href="../../app/">동전점 맛보기</a>에서 해 볼 수 있습니다. 시초로 직접 괘를 뽑는 본게임(찬찬히·빠르게)은 준비 중입니다.</p>

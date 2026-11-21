@@ -1,0 +1,79 @@
+/* 「아이역 생각」 상자 (261121_0945 LAUDE): 동전점 '방식 설정'과 시초점 옵션 맨 아래에 쓰는 공용 스타일.
+   전통 절차 설명과 구분되도록 단정한 상자로 두고, 첫 문단 뒤 나머지는 <details>로 [더 읽기]/[접기]. */
+.iyeok-thought {
+  margin: 2rem 0 0;
+  padding: 1.1rem 1.15rem 1rem;
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--seal);
+  border-radius: 8px;
+  background: var(--paper-deep);
+  line-height: 1.75;
+}
+
+.iyeok-thought h2 {
+  margin: 0 0 0.5rem;
+  font-family: var(--serif);
+  font-size: 1.1rem;
+}
+
+.iyeok-thought p {
+  margin: 0.6rem 0 0;
+}
+
+.iyeok-thought > p:first-of-type {
+  margin-top: 0;
+}
+
+.iyeok-thought-more {
+  margin: 0.6rem 0 0;
+}
+
+.iyeok-thought-more > summary {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0.35rem 1rem;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 0.92rem;
+  cursor: pointer;
+  list-style: none;
+}
+
+.iyeok-thought-more > summary::-webkit-details-marker {
+  display: none;
+}
+
+.iyeok-thought-more > summary::marker {
+  content: "";
+}
+
+.iyeok-thought-more > summary:focus-visible {
+  outline: 2px solid var(--seal);
+  outline-offset: 2px;
+}
+
+.iyeok-thought-more .when-open,
+.iyeok-thought-more[open] .when-closed {
+  display: none;
+}
+
+.iyeok-thought-more[open] .when-open {
+  display: inline;
+}
+
+.iyeok-thought-body {
+  margin: 0.25rem 0 0;
+}
+
+.iyeok-thought .iyeok-thought-note {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+.iyeok-thought .iyeok-thought-motto {
+  margin-top: 0.9rem;
+  font-weight: 700;
+}

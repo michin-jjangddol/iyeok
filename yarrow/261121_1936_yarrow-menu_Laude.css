@@ -1,0 +1,72 @@
+/* 시초점 메뉴 (261121_1936 LAUDE): 동전점처럼 지금 방식 요약 + [바로 시작] [배우기] [옵션]. */
+.ymenu-summary {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.35rem 1.25rem;
+  margin: 1.75rem 0 0;
+  padding: 1rem 1.15rem;
+  background: var(--paper-deep);
+  border-radius: 8px;
+  font-size: 0.92rem;
+}
+
+.ymenu-summary dt {
+  color: var(--ink-faint);
+}
+
+.ymenu-summary dd {
+  margin: 0;
+}
+
+.ymenu-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 1.5rem 0 0;
+}
+
+.ymenu-btn {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0.6rem 1.3rem;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.95rem;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.ymenu-btn:hover {
+  border-color: var(--ink-faint);
+}
+
+.ymenu-primary {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+}
+
+.ymenu-btn:focus-visible {
+  outline: 2px solid var(--seal);
+  outline-offset: 2px;
+}
+
+.ymenu-note {
+  margin: 1rem 0 0;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+@media (max-width: 360px) {
+  .ymenu-summary {
+    grid-template-columns: 1fr;
+    gap: 0.1rem;
+  }
+  .ymenu-summary dd {
+    margin-bottom: 0.4rem;
+  }
+}

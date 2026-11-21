@@ -1,0 +1,8 @@
+{
+  "format": 1,
+  "default": "ko",
+  "locales": [
+    { "code": "ko", "label": "한국어", "status": "ready", "file": "261121_1715_ko_Shana.json" },
+    { "code": "en", "label": "English", "status": "preparing", "file": "261121_1715_en_Shana.json" }
+  ]
+}

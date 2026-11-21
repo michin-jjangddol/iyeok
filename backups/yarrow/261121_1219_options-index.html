@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>시초점 옵션 · 아이역 iYeok</title>
+  <meta name="description" content="시초점 배우기의 방식을 정합니다: 사람을 상징하는 하나를 덜어 내는 쪽, 진행 방식.">
+  <meta name="theme-color" content="#f4efe4" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#1b1a18" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../assets/style.css">
+  <link rel="stylesheet" href="261120_2247_options_Laude.css">
+  <link rel="stylesheet" href="../../assets/261121_0945_iyeok-thought_Laude.css">
+</head>
+<body>
+  <!-- 시초점 옵션 (261120_2247 LAUDE): 배우기 화면에 있던 설정을 시초점 메뉴의 [옵션]으로 옮겼다. 저장은 이 기기에만. -->
+  <header class="site-header">
+    <a class="brand" href="../../" aria-label="아이역 홈">
+      <span class="brand-mark">i易</span>
+      <span class="brand-name">iYeok</span>
+    </a>
+    <nav class="site-nav" aria-label="주요 메뉴">
+      <a href="../">시초점 메뉴</a>
+    </nav>
+  </header>
+
+  <main class="yopt">
+    <p class="eyebrow">시초점 · 옵션</p>
+    <h1>시초점 옵션</h1>
+    <p class="yopt-intro">여기서 정한 방식은 시초점 배우기에 적용됩니다. 고른 값은 이 기기에만 저장됩니다.</p>
+
+    <form id="yarrow-settings" class="yopt-form">
+      <fieldset>
+        <legend>하나를 덜어 내는 쪽</legend>
+        <p class="hint">두 무더기로 나눈 뒤, 사람을 상징하는 하나를 어느 쪽에서 덜어 둘지 정합니다.</p>
+        <label class="option"><input type="radio" name="takeSide" value="left">
+          <span><b>하늘 쪽에서 — 왼쪽</b><small>왼쪽(하늘) 무더기에서 하나를 덜어 둡니다.</small></span></label>
+        <label class="option"><input type="radio" name="takeSide" value="right" checked>
+          <span><b>땅 쪽에서 — 오른쪽</b><small>기본값. 오른쪽(땅) 무더기에서 하나를 덜어 둡니다.</small></span></label>
+        <p class="hint">고른 쪽은 한 번의 배우기 동안 모든 차례에 똑같이 적용됩니다. 왼쪽=하늘, 오른쪽=땅은 아이역이 배우기 쉽게 정한 배치이며, 「계사전」의 ‘掛一以象三’ 구절에는 어느 쪽에서 덜지 적혀 있지 않습니다.</p>
+      </fieldset>
+
+      <fieldset>
+        <legend>진행 방식</legend>
+        <p class="hint">나눈 뒤 이어지는 다섯 장면(하나 덜기 · 하늘 쪽 넷씩 나누기 · 땅 쪽 넷씩 나누기 · 남은 것 모으기 · 다시 모으기)을 어떻게 볼지 정합니다.</p>
+        <label class="option"><input type="radio" name="pace" value="step" checked>
+          <span><b>단계별 진행</b><small>기본값. 다섯 장면을 하나씩 넘기며 봅니다.</small></span></label>
+        <label class="option"><input type="radio" name="pace" value="fast">
+          <span><b>빠르게 진행</b><small>다섯 장면을 한 화면 요약으로 보고 바로 다음 차례로 넘어갑니다. 첫 효의 첫 차례는 단계별로 봅니다.</small></span></label>
+        <p class="hint">진행 방식은 보여 주는 장면 수만 바꾸며 계산과 결과는 같습니다. 배우기 중에 바꾸면 다음 나누기부터 적용됩니다.</p>
+      </fieldset>
+      <p class="yopt-status" id="yopt-status" role="status" aria-live="polite"></p>
+      <div class="yopt-actions">
+        <a class="yopt-btn yopt-primary" href="../learn/">배우기로 가기</a>
+        <button type="button" class="yopt-btn" id="yopt-reset">기본값으로 되돌리기</button>
+      </div>
+    </form>
+
+    <p class="yopt-note">배우기를 하는 중에 바꾸면, ‘하나를 덜어 내는 쪽’은 계산이 달라지지 않도록 진행 중인 배우기에서는 원래대로 이어지고 다음 배우기부터 적용됩니다. ‘진행 방식’은 다음 나누기부터 바로 적용됩니다. 찬찬히·빠르게가 준비되면 같은 옵션을 함께 쓸 예정입니다.</p>
+    <!-- 「아이역 생각」 (261121_0945 LAUDE): 한글판. 첫 문단은 늘 보이고 나머지는 [더 읽기]로 펼친다. 셋째 문단만 화면마다 다르다. -->
+    <section class="iyeok-thought" aria-labelledby="thought-title">
+      <h2 id="thought-title">아이역 생각</h2>
+      <p>음과 양은 몸의 성별만으로 나눌 수 없는, 누구 안에나 함께 있는 성질이라고 바라봅니다. 흔히 남성성·여성성이라 부르는 성질도 한 사람 안에 함께 있으며, 시간과 경험, 자신의 선택에 따라 서로 다른 모습으로 드러날 수 있습니다.</p>
+      <details class="iyeok-thought-more">
+        <summary><span class="when-closed">더 읽기</span><span class="when-open">접기</span></summary>
+        <div class="iyeok-thought-body">
+          <p>‘소(少)’가 자라며 펼쳐 가는 모습이라면, ‘노(老)’는 충분히 무르익어 전환점에 이른 모습입니다. 아이역은 노음과 노양의 변화를, 한 성질이 깊어지면서 다른 성질로 나아갈 가능성이 열리는 것으로 읽어 봅니다. 어느 쪽이 더 좋거나 우월하다는 뜻은 아닙니다.</p>
+          <p>시초점의 소·다로 읽는 방식에서도 세 차례 중 하나만 다르면 그 하나가 효의 음양을 정하고, 셋이 모두 같으면 변하는 효가 됩니다. 아이역은 이를 단순한 다수결보다 “이 조합에서 어떤 성질에 결정권을 주는가”라는 물음으로도 바라봅니다.</p>
+          <p class="iyeok-thought-note">소·다는 한 차례에 덜어 모은 수가 작은지(소) 큰지(다)를 말합니다. 첫 차례는 5가 소·9가 다, 둘째·셋째 차례는 4가 소·8이 다이며, 소는 양에 다는 음에 대응시켜 읽습니다. 자세한 과정은 배우기의 [왜 이 효가 나왔나요?]에서 볼 수 있습니다.</p>
+          <p>사람은 태어날 조건을 고르지 못하지만, 태어난 자신을 미워할 필요는 없습니다. 지금의 모습에 자신을 가둘 필요도 없습니다. 무엇을 받아들이고 어떤 방향으로 살아갈지는 스스로 살피고 선택할 수 있습니다. 아이역이 여러 방식을 선택할 수 있게 하려는 이유도 여기에 있습니다.</p>
+          <p>방식은 시작하기 전에 정하고, 그 과정에서는 같은 기준으로 읽습니다. 다른 기준이 궁금하다면 처음의 결과를 지우기보다, 또 하나의 관점으로 나란히 살펴봅니다.</p>
+          <p>이 글은 전통 문헌의 유일한 해석이 아니라 아이역이 제안하는 관점입니다.</p>
+          <p class="iyeok-thought-motto">괘는 길을 보여주고, 선택은 사람이 합니다.</p>
+        </div>
+      </details>
+    </section>
+
+    <p class="try"><a href="../">← 시초점 메뉴로</a> · <a href="../../">아이역 홈으로</a></p>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 iYeok Project · <a href="https://github.com/michin-jjangddol/iyeok">Source</a> · <a href="https://github.com/michin-jjangddol/iyeok/blob/main/LICENSE">AGPL-3.0</a></p>
+  </footer>
+
+  <script type="module" src="261120_2247_options_Laude.js"></script>
+</body>
+</html>

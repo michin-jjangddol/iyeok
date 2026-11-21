@@ -1,0 +1,20 @@
+.iyeok-language {
+  max-width: var(--measure, 34rem);
+  margin: 0 auto;
+  padding: .75rem var(--gutter, 1rem);
+  color: var(--ink-soft);
+  font-size: .9rem;
+}
+.iyeok-language label { margin-right: .75rem; }
+.iyeok-language select {
+  max-width: 100%;
+  min-height: 44px;
+  padding: .4rem .6rem;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+}
+.iyeok-language select:focus-visible { outline: 2px solid var(--seal); outline-offset: 3px; }
+.iyeok-language p { margin: .5rem 0 0; line-height: 1.6; overflow-wrap: anywhere; }

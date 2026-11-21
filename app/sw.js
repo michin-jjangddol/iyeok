@@ -2,7 +2,7 @@
 // 인터넷이 되면 새 파일을 받고(network-first), 끊기면 저장해 둔 파일로 연다.
 // 새 파일을 받을 때 브라우저 캐시(GitHub Pages는 10분)를 그대로 믿지 않고 서버에 바뀌었는지 묻는다.
 
-const CACHE = "iyeok-app-v69";
+const CACHE = "iyeok-app-v70";
 const FILES = [
   "./",
   "./index.html",
@@ -11,6 +11,7 @@ const FILES = [
   "./iching.js",
   "./manifest.webmanifest",
   "../assets/style.css",
+  "../assets/261121_0945_iyeok-thought_Laude.css",
   "../assets/favicon.svg",
   "../assets/icons/icon-192.png",
   "../assets/icons/icon-512.png",

@@ -9,12 +9,13 @@
   <meta name="theme-color" content="#1b1a18" media="(prefers-color-scheme: dark)">
   <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../../assets/style.css">
-  <link rel="stylesheet" href="261122_2047_options_Laude.css">
+  <link rel="stylesheet" href="261123_0709_options_Laude.css">
   <link rel="stylesheet" href="../../assets/261121_0945_iyeok-thought_Laude.css">
   <link rel="stylesheet" href="../../assets/i18n/261121_1836_language_Laude.css">
   <script type="module" src="../../assets/i18n/261121_1836_language_Laude.js"></script>
 </head>
 <body>
+  <!-- 261123_0709 LAUDE: 정시초 나누기 옵션 추가(백업 backups/yarrow/261123_0709_options-index.html). -->
   <!-- 261123_0102 LAUDE: 변효 기호 추가(백업 backups/yarrow/261123_0102_options-index.html). -->
   <!-- 261122_2047 LAUDE: 음양 대응을 두 방식 공통으로(백업 backups/yarrow/261122_2047_options-index.html). -->
   <!-- 시초점 옵션 (261120_2247 LAUDE): 배우기 화면에 있던 설정을 시초점 메뉴의 [옵션]으로 옮겼다. 저장은 이 기기에만. -->
@@ -72,6 +73,53 @@
         <p class="hint">태시초(太蓍草): 처음 50개에서 따로 두는 하나. ‘시작’의 뜻을 담아 아이역이 붙인 이름입니다. 정시초: 네 개씩 센 묶음. 윤시초: 각 무더기에서 따로 모을 1~4가지(4개여도 윤시초). 인시초(人蓍草): 하늘과 땅의 두 무더기에서 사람을 상징하여 매 차례 덜어 두는 한 개이며, 태시초와는 다릅니다. 윤시초 자리에는 매 차례의 윤시초와 인시초를 함께 모아 둡니다.</p>
         <p class="hint">효를 읽는 방식과 음양 대응은 배우기를 시작할 때 고정하며, 진행 중 변경은 다음 새 배우기부터 적용됩니다.</p>
       </fieldset>
+      <!-- 261123_0709 LAUDE: 정시초 나누기(움직이다 멈추기)의 시작 자리·방향과 빠르기(JJDD). 이름은 JJDD가 정한 대로. -->
+      <fieldset>
+        <legend>정시초 나누기</legend>
+        <p class="hint">배우기의 [움직이다 멈추기]에서 선택바가 어디서 시작해 어느 쪽으로 먼저 움직일지, 얼마나 빨리 움직일지 정합니다. 첫 글자는 시작 자리(좌·중·우), 나머지는 먼저 움직이는 쪽입니다. 좌좌좌·우우우는 끝에서 시작합니다.</p>
+        <p class="hint"><b>시작 자리와 방향</b> · 기본값 중우</p>
+        <div class="yopt-chips" role="radiogroup" aria-label="시작 자리와 방향">
+          <label class="option"><input type="radio" name="motionStart" value="LLL">
+            <span><b>좌좌좌</b><small>왼끝 →</small></span></label>
+          <label class="option"><input type="radio" name="motionStart" value="LL">
+            <span><b>좌좌</b><small>왼¼ ←</small></span></label>
+          <label class="option"><input type="radio" name="motionStart" value="LC">
+            <span><b>좌중</b><small>왼¼ →</small></span></label>
+          <label class="option"><input type="radio" name="motionStart" value="CL">
+            <span><b>중좌</b><small>가운데 ←</small></span></label>
+          <label class="option"><input type="radio" name="motionStart" value="CR" checked>
+            <span><b>중우</b><small>가운데 →</small></span></label>
+          <label class="option"><input type="radio" name="motionStart" value="RL">
+            <span><b>우좌</b><small>오¼ ←</small></span></label>
+          <label class="option"><input type="radio" name="motionStart" value="RR">
+            <span><b>우우</b><small>오¼ →</small></span></label>
+          <label class="option"><input type="radio" name="motionStart" value="RRR">
+            <span><b>우우우</b><small>오끝 ←</small></span></label>
+        </div>
+        <p class="hint"><b>빠르기</b> · 기본값 5</p>
+        <div class="yopt-chips is-speed" role="radiogroup" aria-label="빠르기 1에서 9">
+          <label class="option"><input type="radio" name="motionSpeed" value="1" aria-label="빠르기 1">
+            <span><b>1</b></span></label>
+          <label class="option"><input type="radio" name="motionSpeed" value="2" aria-label="빠르기 2">
+            <span><b>2</b></span></label>
+          <label class="option"><input type="radio" name="motionSpeed" value="3" aria-label="빠르기 3">
+            <span><b>3</b></span></label>
+          <label class="option"><input type="radio" name="motionSpeed" value="4" aria-label="빠르기 4">
+            <span><b>4</b></span></label>
+          <label class="option"><input type="radio" name="motionSpeed" value="5" checked aria-label="빠르기 5 (기본값)">
+            <span><b>5</b></span></label>
+          <label class="option"><input type="radio" name="motionSpeed" value="6" aria-label="빠르기 6">
+            <span><b>6</b></span></label>
+          <label class="option"><input type="radio" name="motionSpeed" value="7" aria-label="빠르기 7">
+            <span><b>7</b></span></label>
+          <label class="option"><input type="radio" name="motionSpeed" value="8" aria-label="빠르기 8">
+            <span><b>8</b></span></label>
+          <label class="option"><input type="radio" name="motionSpeed" value="9" aria-label="빠르기 9">
+            <span><b>9</b></span></label>
+        </div>
+        <p class="yopt-speed-scale" aria-hidden="true"><span>1 조금 느리게</span><span>5 기본</span><span>9 조금 빠르게</span></p>
+        <p class="hint">멈춘 자리가 그대로 나누는 자리가 되며, 계산 규칙은 바뀌지 않습니다. 같은 시작·빠르기로 같은 박자에 멈추면 같은 자리에서 나뉠 수 있습니다. 바꾼 값은 다음 [움직이기 시작]부터 바로 적용됩니다.</p>
+      </fieldset>
       <!-- 261123_0102 LAUDE: 변효 기호(동전점과 같은 두 표기). 표시만 바꾸며 동전점 설정과는 따로 저장한다. -->
       <fieldset>
         <legend>변효 기호</legend>
@@ -115,6 +163,6 @@
     <p>© 2026 iYeok Project · <a href="https://github.com/michin-jjangddol/iyeok">Source</a> · <a href="https://github.com/michin-jjangddol/iyeok/blob/main/LICENSE">AGPL-3.0</a></p>
   </footer>
 
-  <script type="module" src="261123_0102_options_Laude.js"></script>
+  <script type="module" src="261123_0709_options_Laude.js"></script>
 </body>
 </html>

@@ -583,7 +583,7 @@ function bindEvents() {
 function openSettings(open) {
   $("settings").hidden = !open;
   $("toggle-settings").setAttribute("aria-expanded", String(open));
-  $("toggle-settings").textContent = open ? "설정 닫기" : "방식 설정";
+  $("toggle-settings").textContent = open ? "설정 닫기" : "설정"; // 261123_0801: '방식 설정' → '설정'(JJDD)
 }
 
 async function init() {

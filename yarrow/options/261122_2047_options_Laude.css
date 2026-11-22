@@ -1,0 +1,154 @@
+/* 261122_2047 LAUDE: 원본 261122_1945_options_Laude.css. 음양 대응 공통 옵션: 지금 고른 읽는 방식의 줄을 진하게. */
+/* 시초점 옵션 화면 (261120_2247 LAUDE). 261121_1335: 고른 카드 표시를 .is-checked 클래스로도(아이폰 사파리 되돌리기 표시 문제).
+   동전점 '방식 설정'과 같은 카드형 선택. 공통 스타일은 assets/style.css. */
+.yopt {
+  max-width: calc(var(--measure) + 2 * var(--gutter));
+  margin: 0 auto;
+  padding: 2.5rem var(--gutter) 3rem;
+}
+
+.yopt h1 {
+  margin: 0.5rem 0 0;
+}
+
+.yopt-intro,
+.yopt-note {
+  margin: 1rem 0 0;
+  color: var(--ink-soft);
+}
+
+.yopt-note {
+  font-size: 0.9rem;
+}
+
+.yopt-form {
+  margin: 1.5rem 0 0;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--rule);
+}
+
+.yopt-form fieldset {
+  border: 0;
+  margin: 1.25rem 0 0;
+  padding: 0;
+  min-width: 0;
+}
+
+.yopt-form legend {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 1.1rem;
+  padding: 0;
+}
+
+.yopt .hint {
+  margin: 0.35rem 0 0.85rem;
+  font-size: 0.85rem;
+  line-height: 1.65;
+  color: var(--ink-faint);
+}
+
+.yopt .option {
+  position: relative;
+  display: block;
+  margin-top: 0.5rem;
+  cursor: pointer;
+}
+
+.yopt .option input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.yopt .option span {
+  display: block;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  line-height: 1.5;
+}
+
+.yopt .option b {
+  display: block;
+  font-weight: 600;
+}
+
+.yopt .option small {
+  display: block;
+  margin-top: 0.15rem;
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+}
+
+.yopt .option input:checked + span,
+.yopt .option.is-checked span {
+  border-color: var(--ink);
+  box-shadow: inset 0 0 0 1px var(--ink);
+  background: var(--paper-deep);
+}
+
+.yopt .option input:focus-visible + span,
+.yopt-btn:focus-visible {
+  outline: 2px solid var(--seal);
+  outline-offset: 2px;
+}
+
+.yopt-status {
+  margin: 1rem 0 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+.yopt-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.yopt-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.5rem 1.1rem;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.95rem;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.yopt-primary {
+  border-color: var(--ink);
+  font-weight: 600;
+}
+
+/* 261122_1945: 윤효점 하위 옵션(소·다의 음양 대응). 윤효점 카드 아래에 들여 쓴다. */
+.yopt .yopt-sub {
+  margin: 0.75rem 0 0 0.75rem;
+  padding: 0.25rem 0 0 0.85rem;
+  border: 0;
+  border-left: 2px solid var(--rule);
+}
+
+.yopt .yopt-sub legend {
+  font-size: 0.98rem;
+}
+
+.yopt .yopt-sub legend small {
+  font-weight: 400;
+  color: var(--ink-soft);
+}
+
+/* 261122_2047: 음양 대응의 두 줄(정효점·윤효점) 중 지금 고른 방식 쪽을 진하게, 다른 쪽은 흐리게 */
+.yopt .yopt-sub .option small { display: block; }
+.yopt-form[data-method="jeong"] .map-yun,
+.yopt-form[data-method="yun"] .map-jeong { opacity: 0.6; }
+.yopt-form[data-method="jeong"] .map-jeong,
+.yopt-form[data-method="yun"] .map-yun { font-weight: 600; }

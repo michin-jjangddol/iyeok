@@ -9,7 +9,7 @@
   <meta name="theme-color" content="#1b1a18" media="(prefers-color-scheme: dark)">
   <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../../assets/style.css">
-  <link rel="stylesheet" href="261121_1632_learn_Laude.css">
+  <link rel="stylesheet" href="261122_1640_learn_Laude.css">
   <link rel="stylesheet" href="../../assets/i18n/261121_1836_language_Laude.css">
   <script type="module" src="../../assets/i18n/261121_1836_language_Laude.js"></script>
 </head>
@@ -52,7 +52,6 @@
 
       <!-- 조작 영역: 시초판·상태 요약 바로 아래 (261120_2121 이동). 261121_1554: 기본 나누기 방식은 움직이다 멈추기, 예시 따라가기 없음 -->
       <div class="learn-ops" id="ops">
-      <button type="button" class="learn-btn learn-action" id="action" hidden>하나 따로 두기</button>
 
       <div class="learn-panel" id="split-panel" hidden>
         <div class="split-modes" role="group" aria-label="나누기 방식">
@@ -91,6 +90,8 @@
       <!-- 진행 버튼: 조작 영역 아래, 설명글 위 (261120_2121) -->
       <nav class="learn-nav" aria-label="장면 이동">
         <button type="button" class="learn-btn learn-ghost" id="prev">이전</button>
+        <!-- 261122_1640: 장면 동작 버튼을 [이전]과 [다음] 사이 한 줄로 옮김(JJDD) -->
+        <button type="button" class="learn-btn learn-action" id="action" hidden>하나 따로 두기</button>
         <button type="button" class="learn-btn learn-primary" id="next">배우기 시작</button>
       </nav>
 

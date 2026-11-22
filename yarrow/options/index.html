@@ -51,6 +51,16 @@
           <span><b>빠르게 진행</b><small>첫 효의 첫 차례부터 여섯 효 모두, 다섯 장면을 한 화면 요약으로 보고 바로 다음 차례로 넘어갑니다.</small></span></label>
         <p class="hint">진행 방식은 보여 주는 장면 수만 바꾸며 계산과 결과는 같습니다. 배우기 중에 바꾸면 다음 나누기부터 적용됩니다.</p>
       </fieldset>
+      <fieldset>
+        <legend>효를 읽는 방식</legend>
+        <label class="option"><input type="radio" name="readingMethod" value="jeong" checked>
+          <span><b>정효점 — 기본값</b><small>최종 정시초를 네 개씩 묶어, 묶음 수로 효를 읽습니다.</small></span></label>
+        <label class="option"><input type="radio" name="readingMethod" value="yun">
+          <span><b>윤효점</b><small>세 차례에 모은 윤시초와 사람시초의 수를 소·다로 구분해 효를 읽습니다.</small></span></label>
+        <p class="hint">두 방식은 같은 과정에서 같은 효를 읽으며, 점괘나 확률이 달라지지 않습니다. 정시초·윤시초·사람시초와 정효점·윤효점은 아이역의 학습용 명칭입니다.</p>
+        <p class="hint">정시초: 네 개씩 센 묶음. 윤시초: 각 무더기에서 따로 모을 1~4가지(4개여도 윤시초). 사람시초: 매 차례 덜어 두는 하나. 처음 50개에서 따로 둔 하나는 사람시초가 아닙니다.</p>
+        <p class="hint">효를 읽는 방식은 배우기를 시작할 때 고정하며, 진행 중 변경은 다음 새 배우기부터 적용됩니다.</p>
+      </fieldset>
       <p class="yopt-status" id="yopt-status" role="status" aria-live="polite"></p>
       <div class="yopt-actions">
         <a class="yopt-btn yopt-primary" href="../learn/">배우기로 가기</a>
@@ -84,6 +94,6 @@
     <p>© 2026 iYeok Project · <a href="https://github.com/michin-jjangddol/iyeok">Source</a> · <a href="https://github.com/michin-jjangddol/iyeok/blob/main/LICENSE">AGPL-3.0</a></p>
   </footer>
 
-  <script type="module" src="261121_1335_options_Laude.js"></script>
+  <script type="module" src="261122_1816_options_Shana.js"></script>
 </body>
 </html>

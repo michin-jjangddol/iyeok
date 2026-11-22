@@ -9,7 +9,7 @@
   <meta name="theme-color" content="#1b1a18" media="(prefers-color-scheme: dark)">
   <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../../assets/style.css">
-  <link rel="stylesheet" href="261121_1335_options_Laude.css">
+  <link rel="stylesheet" href="261122_1945_options_Laude.css">
   <link rel="stylesheet" href="../../assets/261121_0945_iyeok-thought_Laude.css">
   <link rel="stylesheet" href="../../assets/i18n/261121_1836_language_Laude.css">
   <script type="module" src="../../assets/i18n/261121_1836_language_Laude.js"></script>
@@ -57,9 +57,18 @@
           <span><b>정효점 — 기본값</b><small>최종 정시초를 네 개씩 묶어, 묶음 수로 효를 읽습니다.</small></span></label>
         <label class="option"><input type="radio" name="readingMethod" value="yun">
           <span><b>윤효점</b><small>세 차례에 윤시초 자리로 모은 윤시초와 인시초의 수를 소·다로 구분해 효를 읽습니다.</small></span></label>
-        <p class="hint">두 방식은 같은 과정에서 같은 효를 읽으며, 점괘나 확률이 달라지지 않습니다. 태시초·정시초·윤시초·인시초와 정효점·윤효점은 아이역의 학습용 명칭입니다.</p>
+        <!-- 261122_1945 LAUDE: 윤효점을 고르면 보이는 하위 옵션(JJDD). 정효점에는 적용하지 않는다. -->
+        <fieldset class="yopt-sub" id="yun-mapping" hidden>
+          <legend>소·다의 음양 대응 <small>(윤효점에서만)</small></legend>
+          <label class="option"><input type="radio" name="yunMapping" value="traditional" checked>
+            <span><b>소양·다음 — 전통 대응, 기본값</b><small>작은 수인 소(少)를 양으로, 큰 수인 다(多)를 음으로 읽습니다. 여기서 ‘소양’은 소(少)=양이라는 뜻이며, 효 이름 소양(少陽)과는 다른 말입니다.</small></span></label>
+          <label class="option"><input type="radio" name="yunMapping" value="inverted">
+            <span><b>소음·다양 — 아이역 반전 대응</b><small>작은 수인 소(少)를 음으로, 큰 수인 다(多)를 양으로 읽습니다. 같은 조작이라도 효의 음양과 괘가 바뀝니다(6↔9, 7↔8, 변효 여부는 그대로).</small></span></label>
+          <p class="hint">반전 대응은 아이역이 고를 수 있게 더한 방식이며, 전통 유파의 방식이 아닙니다. 반전 대응을 고르면 같은 조작에서 6과 9, 7과 8이 서로 바뀌므로 각 효가 나오는 비율도 서로 맞바뀝니다.</p>
+        </fieldset>
+        <p class="hint">전통 대응에서는 두 방식이 같은 효를 읽습니다. 윤효점에서 아이역 반전 대응을 선택하면 음양과 괘가 달라집니다. 태시초·정시초·윤시초·인시초와 정효점·윤효점은 아이역의 학습용 명칭입니다.</p>
         <p class="hint">태시초(太蓍草): 처음 50개에서 따로 두는 하나. ‘시작’의 뜻을 담아 아이역이 붙인 이름입니다. 정시초: 네 개씩 센 묶음. 윤시초: 각 무더기에서 따로 모을 1~4가지(4개여도 윤시초). 인시초(人蓍草): 하늘과 땅의 두 무더기에서 사람을 상징하여 매 차례 덜어 두는 한 개이며, 태시초와는 다릅니다. 윤시초 자리에는 매 차례의 윤시초와 인시초를 함께 모아 둡니다.</p>
-        <p class="hint">효를 읽는 방식은 배우기를 시작할 때 고정하며, 진행 중 변경은 다음 새 배우기부터 적용됩니다.</p>
+        <p class="hint">효를 읽는 방식과 음양 대응은 배우기를 시작할 때 고정하며, 진행 중 변경은 다음 새 배우기부터 적용됩니다.</p>
       </fieldset>
       <p class="yopt-status" id="yopt-status" role="status" aria-live="polite"></p>
       <div class="yopt-actions">
@@ -94,6 +103,6 @@
     <p>© 2026 iYeok Project · <a href="https://github.com/michin-jjangddol/iyeok">Source</a> · <a href="https://github.com/michin-jjangddol/iyeok/blob/main/LICENSE">AGPL-3.0</a></p>
   </footer>
 
-  <script type="module" src="261122_1816_options_Shana.js"></script>
+  <script type="module" src="261122_1945_options_Laude.js"></script>
 </body>
 </html>

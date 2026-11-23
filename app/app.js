@@ -3,18 +3,13 @@ import {
   tossCoins, countYang, lineTypeFromYangCount, fillOrder,
   primaryLines, changedLines, changingPositions, findHexagram, lineName,
 } from "./iching.js";
+import { createTextLoader } from "../assets/261124_0800_hexagram-texts_Laude.js";
+import { triCaption, imageryLines, trigramGuide } from "../assets/261124_0800_trigrams-ko_Laude.js";
 
 const DEFAULT_SETTINGS = { coin: "basic", yangFace: "picture", order: "earth", symbols: "iyeok" };
 const STORAGE_KEY = "iyeok.coin.settings.v1";
 // 화면이 쓰는 괘사·효사 목록 파일. 내용을 고치면 새 날짜 파일을 만들고 이 경로만 바꾼다.
 const CONTENT_INDEX = "../data/hexagrams/261119_1939_content-index_Shana.json";
-const PENDING = { judgment: "괘사를 준비 중입니다.", line: "효사를 준비 중입니다.", other: "준비 중입니다." };
-const LOAD_FAILED = "내용을 불러오지 못했습니다.";
-// 일시적인 오류(연결 끊김, 서버 5xx 등)일 때 다시 시도하기 전 기다리는 시간. 처음 시도까지 합쳐 최대 3번.
-const RETRY_DELAYS = [400, 1200];
-// 번역·풀이가 샤나(GPT)의 초안일 때 풀이 아래에 붙이는 작성 노트
-const SHANA_DRAFT_NOTE =
-  "번역·풀이: 샤나(GPT)가 작성한 검토용 초안입니다. 특정 해설서의 번역·풀이를 인용한 것이 아니며, 추후 문헌 대조와 검토를 통해 보완할 예정입니다.";
 
 const LABELS = {
   coin: { basic: "기본 동전", won100: "100원", won500: "500원" },
@@ -36,9 +31,7 @@ const $ = (id) => document.getElementById(id);
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 let data = null;
-let contentIndex = null; // 괘사·효사 목록. 불러오기에 성공했을 때만 채운다.
-let contentIndexLoading = null;
-const contentCache = new Map(); // 성공한 요청만 남긴다. 실패한 요청은 지워서 다음에 다시 시도할 수 있게 한다.
+const textLoader = createTextLoader(CONTENT_INDEX); // 괘사·효사(공용 모듈: 재시도·다시 시도·준비 중 표시)
 let settings = loadSettings();
 let reading = null; // 진행 중인 점: { settings, throws, lines, selected, busy }
 
@@ -318,13 +311,8 @@ function hexCard(title, hex, types, s) {
   name.className = "hex-title";
   name.innerHTML = `<span class="hex-no">제${hex.number}괘</span> <b>${hex.titleKo}</b> <span class="hex-han">${hex.title}</span>`;
 
-  const up = data.trigrams[hex.upper];
-  const lo = data.trigrams[hex.lower];
-  const tri = document.createElement("p");
-  tri.className = "hex-tri";
-  tri.textContent = `위 ${up.symbol} ${up.nameKo}(${up.name}) ${up.natureKo} · 아래 ${lo.symbol} ${lo.nameKo}(${lo.name}) ${lo.natureKo}`;
-
-  card.append(h2, fig, name, tri);
+  // 261124_0800: 위·아래 팔괘 두 줄(시초점과 같은 모양): 손하곤상(巽下坤上) / 아래 ☴ 바람 · 위 ☷ 땅
+  card.append(h2, fig, name, ...triCaption(data, hex, { tag: "p", className: "hex-tri is-trigram" }));
   return card;
 }
 
@@ -359,196 +347,18 @@ function showResult() {
     body.append(tr);
   });
   $("log-settings").textContent = `이번 점의 방식: ${describeSettings(r.settings)}`;
-  renderTexts(r, primary, changed, moving);
+  // [팔괘 성격 보기]: 변효 안내 바로 아래
+  document.getElementById("trigram-guide")?.remove();
+  const guide = trigramGuide(data, moving.length ? [{ title: "본괘", h: primary }, { title: "지괘", h: changed }] : [{ title: "본괘", h: primary }]);
+  guide.id = "trigram-guide";
+  $("changing-summary").after(guide);
+  textLoader.renderTexts($("texts"), { primary, changed, types, moving, isCurrent: () => reading === r, intro: (h) => imageryLines(data, h) });
   show("result");
 }
 
 // ---------- 괘사·효사 ----------
-
-// 괘 식별자: 위가 상효(bit 5), 오른쪽 끝이 초효(bit 0). 문왕괘 번호와 따로 둔다.
-function hexId(hex) {
-  return [...hex.lines].reverse().join("");
-}
-
-const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-
-// JSON을 받는다. 연결 오류나 일시적인 서버 오류(408, 429, 5xx)는 몇 번 더 시도하고, 그래도 안 되면 오류를 던진다.
-async function fetchJson(url) {
-  let lastError;
-  for (let attempt = 0; attempt <= RETRY_DELAYS.length; attempt++) {
-    if (attempt) await sleep(RETRY_DELAYS[attempt - 1]);
-    try {
-      const res = await fetch(url);
-      if (res.ok) return await res.json();
-      lastError = new Error(`HTTP ${res.status}`);
-      const temporary = res.status === 408 || res.status === 429 || res.status >= 500;
-      if (!temporary) break;
-    } catch (err) {
-      lastError = err;
-    }
-  }
-  throw lastError;
-}
-
-// 괘사·효사 목록. 실패하면 다음에 필요할 때 다시 받는다.
-function ensureContentIndex() {
-  if (contentIndex) return Promise.resolve(contentIndex);
-  if (!contentIndexLoading) {
-    contentIndexLoading = fetchJson(CONTENT_INDEX)
-      .then((index) => (contentIndex = index))
-      .finally(() => {
-        contentIndexLoading = null;
-      });
-  }
-  return contentIndexLoading;
-}
-
-function loadContent(path) {
-  if (!contentCache.has(path)) {
-    const url = new URL(path, new URL(CONTENT_INDEX, location.href));
-    const request = fetchJson(url);
-    contentCache.set(path, request);
-    request.catch(() => contentCache.delete(path));
-  }
-  return contentCache.get(path);
-}
-
-// 결과: { status: "ok", original, ko } | { status: "none" } (아직 쓰지 않은 괘) | { status: "error" } (불러오기 실패)
-async function loadJudgment(hex) {
-  try {
-    const index = await ensureContentIndex();
-    const entry = index?.hexagrams?.[hexId(hex)]?.judgment;
-    if (!entry?.original) return { status: "none" };
-    const [original, ko] = await Promise.all([
-      loadContent(entry.original),
-      entry.ko ? loadContent(entry.ko) : null,
-    ]);
-    return { status: "ok", original, ko };
-  } catch {
-    return { status: "error" };
-  }
-}
-
-function textBlock(label, lines, lang, className) {
-  const wrap = document.createElement("div");
-  wrap.className = `text-block ${className}`;
-  const h = document.createElement("h4");
-  h.textContent = label;
-  wrap.append(h);
-  const list = lines?.length ? lines : null;
-  const p = document.createElement("p");
-  if (list) {
-    if (lang) p.lang = lang;
-    list.forEach((line, i) => {
-      if (i) p.append(document.createElement("br"));
-      p.append(line);
-    });
-  } else {
-    p.className = "pending";
-    p.textContent = PENDING.other;
-  }
-  wrap.append(p);
-  return wrap;
-}
-
-function judgmentSection(title, hex, content, retry) {
-  const sec = document.createElement("section");
-  sec.className = "text-section";
-  const h3 = document.createElement("h3");
-  h3.innerHTML = `${title} <span class="text-hex">${hex.titleKo} 괘사</span>`;
-  sec.append(h3);
-  if (content?.status === "error") {
-    const box = document.createElement("div");
-    box.className = "load-failed";
-    const p = document.createElement("p");
-    p.textContent = LOAD_FAILED;
-    const btn = document.createElement("button");
-    btn.type = "button";
-    btn.className = "btn retry";
-    btn.textContent = "다시 시도";
-    btn.addEventListener("click", () => {
-      btn.disabled = true;
-      btn.textContent = "불러오는 중…";
-      retry();
-    });
-    box.append(p, btn);
-    sec.append(box);
-    return sec;
-  }
-  if (!content?.original?.text?.length) {
-    const p = document.createElement("p");
-    p.className = "pending";
-    p.textContent = PENDING.judgment;
-    sec.append(p);
-    return sec;
-  }
-  const ko = content.ko;
-  const translation = textBlock("번역", ko?.translation, "ko", "is-translation");
-  if (ko?.translation?.length && ko.translationNote) {
-    // 번역에 붙는 짧은 주석 (예: 고대 관념을 오늘날의 규범으로 적용하지 않는다는 설명)
-    const note = document.createElement("p");
-    note.className = "text-annotation";
-    note.textContent = `주석: ${ko.translationNote}`;
-    translation.append(note);
-  }
-  sec.append(
-    textBlock("원문", content.original.text, "zh-Hant", "is-original"),
-    textBlock("독음", ko?.reading, "ko", "is-reading"),
-    translation,
-    textBlock("풀이", ko?.interpretation, "ko", "is-interpretation"),
-  );
-  if (ko?.status === "draft") {
-    const byShana = Object.values(ko.sources ?? {}).some((s) => String(s).includes("SHANA"));
-    const draft = document.createElement("p");
-    draft.className = "draft-note";
-    draft.textContent = byShana ? SHANA_DRAFT_NOTE : "번역·풀이: 검토 중인 초안입니다.";
-    sec.append(draft);
-  }
-  const note = document.createElement("p");
-  note.className = "hint text-source";
-  note.textContent = `원문: ${content.original.source ?? "출처 확인 중"}`;
-  sec.append(note);
-  return sec;
-}
-
-function linesSection(types, moving) {
-  const sec = document.createElement("section");
-  sec.className = "text-section";
-  const h3 = document.createElement("h3");
-  h3.textContent = "변효 효사";
-  sec.append(h3);
-  const ul = document.createElement("ul");
-  ul.className = "line-texts";
-  for (const pos of [...moving].reverse()) {
-    const li = document.createElement("li");
-    const b = document.createElement("b");
-    b.textContent = lineName(pos, types[pos].yang);
-    const span = document.createElement("span");
-    span.className = "pending";
-    span.textContent = PENDING.line;
-    li.append(b, span);
-    ul.append(li);
-  }
-  sec.append(ul);
-  return sec;
-}
-
-// retrying=true면 "다시 시도" 중이라 지금 화면을 둔 채 불러오고, 새 점이면 이전 점의 글을 먼저 지운다.
-async function renderTexts(r, primary, changed, moving, retrying = false) {
-  const box = $("texts");
-  if (!retrying) box.replaceChildren();
-  const [pc, cc] = await Promise.all([
-    loadJudgment(primary),
-    moving.length ? loadJudgment(changed) : null,
-  ]);
-  if (reading !== r) return; // 불러오는 사이에 새 점을 시작함
-  const retry = () => renderTexts(r, primary, changed, moving, true);
-  box.replaceChildren(judgmentSection("본괘", primary, pc, retry));
-  if (moving.length) {
-    box.append(linesSection(r.lines, moving));
-    box.append(judgmentSection("지괘", changed, cc, retry));
-  }
-}
+// 261124_0800 LAUDE: 괘사 불러오기·표시는 공용 모듈(assets/261124_0800_hexagram-texts_Laude.js)로 옮겼다(같은 코드, 시초점 맛보기도 사용).
+//   괘사 앞에 '괘의 모습'(위·아래 팔괘)을 함께 보여 준다.
 
 // ---------- 시작 ----------
 
@@ -599,7 +409,7 @@ async function init() {
     $("start").disabled = true;
   }
   // 목록을 미리 받아 둔다. 실패해도 점은 칠 수 있고, 결과를 볼 때 다시 시도한다.
-  ensureContentIndex().catch(() => {});
+  textLoader.prefetch();
   if ("serviceWorker" in navigator) {
     // 새 버전의 서비스 워커가 자리를 잡으면, 점을 치는 중이 아닐 때 한 번 새로고침해서 새 화면을 쓴다.
     const hadController = Boolean(navigator.serviceWorker.controller);

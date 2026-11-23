@@ -1,0 +1,30 @@
+/* 261123_2132 LAUDE: 배우기 결과의 본괘·지괘 줄 맞춤(JJDD). 맛보기(yarrow/try/261123_2048_try_Laude.css)와 같은 규칙.
+   기호(×·○)가 있는 줄만 높아지던 것을 모든 줄 같은 높이로, 두 괘를 같은 너비의 두 칸에 나란히 두고 위쪽에 맞춘다. */
+.learn-result .result-hexes {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 11rem);
+  justify-content: center;
+  align-items: start;
+  gap: 1.25rem;
+}
+.learn-result .result-hex {
+  min-width: 0;
+}
+.learn-result .result-bars {
+  width: min(8.5rem, 100%);
+  gap: 0.5rem;
+}
+.learn-result .result-bar {
+  height: 1.1rem;
+}
+.learn-result .result-mark {
+  font-size: 1rem;
+  line-height: 1;
+  text-align: center;
+}
+.learn-result .result-hex figcaption {
+  margin-top: 0.2rem;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}

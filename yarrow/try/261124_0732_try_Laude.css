@@ -1,0 +1,396 @@
+/* 261124_0732 LAUDE: 원본 261123_2048_try_Laude.css. 위·아래 팔괘 줄과 '괘의 모습' 글 모양. */
+/* 261123_2048 LAUDE: 원본 261123_1831_try_Laude.css. 결과의 본괘·지괘 줄 맞춤(JJDD): 기호(×·○)가 있는 줄만 높아지던 것을 모든 줄 같은 높이로, 두 괘를 위쪽 기준으로 나란히. */
+/* 261123_1831 LAUDE: 시초점 맛보기 전용 스타일. 시초판·효판·결과 그림은 배우기 CSS(../learn/261122_1723_learn_Laude.css)를 그대로 쓴다.
+   괘사 글 모양(text-section 등)은 동전점(app/app.css)과 같은 모양으로 옮겨 왔다(동전점 CSS 를 통째로 불러오면 .option·.board 등이 겹치므로). */
+
+.try-setup h2,
+.try-result h2 {
+  margin: 1.5rem 0 0.75rem;
+  font-size: 1.2rem;
+}
+
+.try-summary {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.45rem 1rem;
+  margin: 0 0 1rem;
+  padding: 0.9rem 1rem;
+  background: var(--paper-deep);
+  border-radius: 8px;
+  font-size: 0.92rem;
+}
+
+.try-summary dt {
+  color: var(--ink-faint);
+}
+
+.try-summary dd {
+  margin: 0;
+  font-weight: 600;
+  word-break: keep-all;
+}
+
+@media (max-width: 420px) {
+  .try-summary {
+    grid-template-columns: 1fr;
+    gap: 0.1rem;
+  }
+  .try-summary dd {
+    margin-bottom: 0.45rem;
+  }
+}
+
+.try-cast,
+.try-result {
+  margin-top: 1.5rem;
+}
+
+.try-note {
+  margin: 0.75rem 0;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  word-break: keep-all;
+}
+
+.try-points {
+  margin: 0.5rem 0 1rem;
+  padding-left: 1.2rem;
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  word-break: keep-all;
+}
+
+.try-points li {
+  margin: 0.3rem 0;
+}
+
+.try-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 1.25rem 0;
+}
+
+.try-actions a.learn-btn {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+.try-fixed {
+  margin: 0 0 0.75rem;
+  font-size: 0.82rem;
+  color: var(--ink-faint);
+  word-break: keep-all;
+}
+
+/* 시초판 바로 아래: 선택바·안내·주된 버튼 */
+.try-ops {
+  margin: 0.5rem 0 0.75rem;
+}
+
+.try-ops .motion-track[hidden] {
+  display: none;
+}
+
+.try-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 0.25rem 0 0;
+}
+
+.try-buttons .learn-btn {
+  min-width: 10rem;
+}
+
+.try-msg p:first-child {
+  font-weight: 600;
+}
+
+.try-restart {
+  display: block;
+  margin: 1rem auto 0;
+}
+
+.try-error {
+  margin: 1rem 0;
+  padding: 0.7rem 0.85rem;
+  border-left: 3px solid var(--seal);
+  background: var(--paper-deep);
+}
+
+.result-hex .result-name {
+  font-weight: 600;
+}
+
+/* 과정 보기 */
+.try-process,
+.try-trigrams {
+  margin: 1.25rem 0;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+}
+
+.try-process summary,
+.try-trigrams summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.process-criterion {
+  margin: 0.75rem 0;
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+}
+
+.process-line {
+  margin: 0.75rem 0;
+  padding-top: 0.6rem;
+  border-top: 1px dashed var(--rule);
+  font-size: 0.86rem;
+  word-break: keep-all;
+}
+
+.process-line h4 {
+  margin: 0 0 0.35rem;
+  font-size: 0.95rem;
+}
+
+.process-line ol {
+  margin: 0 0 0.35rem;
+  padding-left: 1.2rem;
+}
+
+.process-line p {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+/* 괘사·효사(동전점과 같은 모양) */
+.texts {
+  margin: 1.75rem 0 0;
+}
+
+.text-section {
+  margin: 0 0 1.75rem;
+  padding: 1.1rem 1rem 0.4rem;
+  border-top: 1px solid var(--rule);
+}
+
+.text-section h3 {
+  margin: 0 0 0.9rem;
+  font-size: 1.05rem;
+}
+
+.text-hex {
+  margin-left: 0.35rem;
+  font-weight: normal;
+  color: var(--ink-soft);
+}
+
+.text-block {
+  margin: 0 0 1rem;
+}
+
+.text-block h4 {
+  margin: 0 0 0.3rem;
+  font-size: 0.78rem;
+  font-weight: normal;
+  letter-spacing: 0.08em;
+  color: var(--ink-faint);
+}
+
+.text-block p {
+  margin: 0;
+  line-height: 1.8;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+.is-original p {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  letter-spacing: 0.06em;
+  line-height: 1.9;
+}
+
+.is-reading p {
+  color: var(--ink-soft);
+}
+
+.text-block p.text-annotation {
+  margin: 0.35rem 0 0;
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: var(--ink-faint);
+}
+
+.load-failed {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
+  margin: 0 0 1rem;
+  padding: 0.7rem 0.85rem;
+  border-left: 3px solid var(--seal);
+  background: var(--paper-deep);
+}
+
+.load-failed p {
+  margin: 0;
+}
+
+.pending {
+  margin: 0;
+  color: var(--ink-faint);
+  font-style: italic;
+}
+
+.line-texts {
+  list-style: none;
+  margin: 0 0 1rem;
+  padding: 0;
+}
+
+.line-texts li {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 0.75rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px dashed var(--rule);
+}
+
+.line-texts li:last-child {
+  border-bottom: 0;
+}
+
+.draft-note {
+  margin: 0.25rem 0 0;
+  padding: 0.6rem 0.8rem;
+  border-left: 3px solid var(--rule);
+  background: var(--paper-deep);
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  word-break: keep-all;
+}
+
+.text-source {
+  margin: 0.5rem 0 0.75rem;
+  font-size: 0.82rem;
+  color: var(--ink-faint);
+}
+
+/* 261123_2048: 본괘·지괘 줄 맞춤 — 줄마다 높이를 고정하고(기호 글자 높이와 무관), 두 괘를 위쪽에 맞춘다. */
+.try-result .result-hexes {
+  align-items: flex-start;
+}
+.try-result .result-bars {
+  gap: 0.5rem;
+}
+.try-result .result-bar {
+  height: 1.1rem;
+}
+.try-result .result-mark {
+  font-size: 1rem;
+  line-height: 1;
+  text-align: center;
+}
+.try-result .result-hex figcaption {
+  margin-top: 0.2rem;
+}
+/* 두 괘는 같은 너비의 두 칸으로 늘 나란히(긴 괘 이름은 칸 안에서 줄바꿈). 변효가 없어 본괘만 있으면 가운데 한 칸. */
+.try-result .result-hexes {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 11rem);
+  justify-content: center;
+  gap: 1.25rem;
+}
+.try-result .result-hex {
+  min-width: 0;
+}
+.try-result .result-bars {
+  width: min(8.5rem, 100%);
+}
+.try-result .result-hex figcaption {
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+/* 261124_0732: 괘 이름 아래 위·아래 팔괘(손하곤상 · 아래 ☴ 바람 · 위 ☷ 땅) */
+.try-result .result-tri {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: normal;
+  color: var(--ink-soft);
+  line-height: 1.45;
+}
+/* 괘사 앞 '괘의 모습' */
+.text-block.is-imagery {
+  padding: 0.7rem 0.85rem;
+  border-left: 3px solid var(--rule);
+  background: var(--paper-deep);
+  border-radius: 0 6px 6px 0;
+}
+.text-block.is-imagery p {
+  line-height: 1.7;
+}
+.text-block.is-imagery p + p {
+  margin-top: 0.2rem;
+}
+
+/* 261124_0732: [팔괘 성격 보기] */
+.trigram-intro {
+  margin: 0.75rem 0 0.5rem;
+  font-size: 0.86rem;
+  color: var(--ink-soft);
+  word-break: keep-all;
+}
+.trigram-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.trigram-list li {
+  display: grid;
+  grid-template-columns: 1.6rem 1fr;
+  column-gap: 0.5rem;
+  padding: 0.45rem 0.35rem;
+  border-bottom: 1px dashed var(--rule);
+  font-size: 0.88rem;
+  word-break: keep-all;
+}
+.trigram-list li > :not(.trigram-sym) {
+  grid-column: 2;
+}
+.trigram-list li.is-here {
+  background: var(--paper-deep);
+  border-radius: 6px;
+}
+.trigram-sym {
+  grid-row: span 4;
+  font-size: 1.35rem;
+  line-height: 1.2;
+}
+.trigram-word {
+  color: var(--ink-soft);
+}
+.trigram-gloss {
+  color: var(--ink-soft);
+  font-size: 0.84rem;
+}
+.trigram-here {
+  color: var(--seal);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+.trigram-note {
+  margin: 0.6rem 0 0;
+  font-size: 0.8rem;
+  color: var(--ink-faint);
+  word-break: keep-all;
+}

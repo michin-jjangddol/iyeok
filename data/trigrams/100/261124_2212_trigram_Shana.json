@@ -1,0 +1,54 @@
+{
+  "format": 1,
+  "code": "100",
+  "value": 4,
+  "id": "gen",
+  "nameKo": "간",
+  "name": "艮",
+  "symbol": "☶",
+  "natureKo": "산",
+  "nature": "山",
+  "lines": [
+    0,
+    0,
+    1
+  ],
+  "lineOrder": "lines 는 아래 효부터(lines[0] = 아래 효, lines[2] = 위 효). code 는 위 효부터 쓴 3자리(왼쪽 = 위 효). 양 = 1, 음 = 0.",
+  "basis": "이름·한자·기호·자연물·효 배열·value 는 data/hexagrams.json 의 trigrams.gen 와 같다(tests/261124_1930_trigram-data_Laude.mjs 가 검사).",
+  "imageFolder": "data/trigrams/100/images/",
+  "icon": {
+    "status": "registered",
+    "current": "data/trigrams/100/images/261124_2212_gen-icon-256_Shana.webp",
+    "versions": [
+      {
+        "path": "data/trigrams/100/images/261124_2212_gen-icon-1024_Shana.png",
+        "createdAt": "2026-11-24T22:12+09:00",
+        "author": "SHANA",
+        "width": 1024,
+        "height": 1024,
+        "role": "archive",
+        "note": "JJDD approved the softly sloping mountain with a slightly raised summit."
+      },
+      {
+        "path": "data/trigrams/100/images/261124_2212_gen-icon-256_Shana.webp",
+        "createdAt": "2026-11-24T22:12+09:00",
+        "author": "SHANA",
+        "width": 256,
+        "height": 256,
+        "role": "web",
+        "note": "JJDD approved the softly sloping mountain with a slightly raised summit."
+      }
+    ],
+    "intent": "완만한 능선과 살짝 높인 봉우리, 옅은 녹회색 면과 갈색 윤곽으로 간의 고요한 산을 표현한다. 뾰족한 첨봉과 주변 풍경은 제외한다.",
+    "alt": "완만한 양쪽 능선과 둥근 봉우리를 가진 옅은 녹회색 수채화 산 아이콘"
+  },
+  "iconIdea": {
+    "status": "완만한 산세와 살짝 높인 봉우리 시안을 JJDD가 선택하여 이미지 등록",
+    "candidate": "고요한 봉우리",
+    "question": "봉우리 하나로 멈춤과 무게가 느껴질까?",
+    "source": "docs/eight-trigram-icons.md — 05. 여덟 가지 자연의 첫 후보"
+  },
+  "createdAt": "2026-11-24T19:30+09:00",
+  "author": "SHANA",
+  "updatedAt": "2026-11-24T22:12+09:00"
+}

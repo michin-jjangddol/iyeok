@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="261123_2158_options_Laude.css">
   <link rel="stylesheet" href="../../assets/261121_0945_iyeok-thought_Laude.css">
   <link rel="stylesheet" href="../../assets/i18n/261121_1836_language_Laude.css">
-  <script type="module" src="../../assets/i18n/261124_0800_language_Laude.js"></script>
+  <script type="module" src="../../assets/i18n/261125_0744_language_Laude.js"></script>
 </head>
 <body>
   <!-- 261123_1036 LAUDE: '전통 대응'→'전통 방식', '아이역 반전 대응'→'아이역 방식'(백업 backups/yarrow/261123_1036_options-index.html). -->
@@ -132,6 +132,16 @@
           <span><b>노양 ○ · 노음 ×</b><small>많은 주역 책에서 쓰는 표기입니다.</small></span></label>
         <p class="hint">기호는 숫자가 아니라 판정된 효 종류에 붙습니다. 아이역 방식을 골라 9가 노음이 되면 노음의 기호가 붙습니다. 소양·소음에는 기호가 없습니다. 동전점의 기호 설정과는 따로 저장되며, 배우기를 시작할 때 고정되어 진행 중 변경은 다음 새 배우기부터 적용됩니다.</p>
       </fieldset>
+      <!-- 261125_0744 LAUDE: 팔괘 순서([팔괘 성격 보기]). 시초점·동전점 공통 저장 iyeok.trigram-order.v1(JJDD). -->
+      <fieldset id="trigram-order">
+        <legend>팔괘 순서</legend>
+        <p class="hint">[팔괘 성격 보기]에서 여덟 괘를 늘어놓는 순서를 고르세요. 보는 순서만 바꾸며 점괘에는 영향이 없습니다.</p>
+        <label class="option"><input type="radio" name="trigramOrder" value="xiantian" checked>
+          <span><b>선천 순서 — 기본값</b><small>건·태·리·진·손·감·간·곤. 선천 팔괘의 수 차례(건1 … 곤8)입니다.</small></span></label>
+        <label class="option"><input type="radio" name="trigramOrder" value="iyeok">
+          <span><b>아이역 순서</b><small>건·손·리·간·태·감·진·곤. 위 효부터 읽은 이진 번호를 큰 수부터(111 → 000) 늘어놓습니다. 64괘 번호와 같은 규칙입니다.</small></span></label>
+        <p class="hint">두 순서는 효를 위에서부터 읽는지 아래에서부터 읽는지만 다릅니다. 이 설정은 시초점과 동전점에 함께 적용됩니다.</p>
+      </fieldset>
       <p class="yopt-status" id="yopt-status" role="status" aria-live="polite"></p>
       <div class="yopt-actions">
         <!-- 261123_2158 LAUDE: [시초점](바로 시작) [시초점 배우기] [기본값 되돌리기] (JJDD). 백업 backups/yarrow/261123_2158_options-index.html -->
@@ -167,6 +177,6 @@
     <p>© 2026 iYeok Project · <a href="https://github.com/michin-jjangddol/iyeok">Source</a> · <a href="https://github.com/michin-jjangddol/iyeok/blob/main/LICENSE">AGPL-3.0</a></p>
   </footer>
 
-  <script type="module" src="261123_1036_options_Laude.js"></script>
+  <script type="module" src="261125_0744_options_Laude.js"></script>
 </body>
 </html>

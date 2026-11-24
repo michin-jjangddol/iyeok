@@ -1,0 +1,129 @@
+/* 261124_2251 LAUDE: 원본 261124_0800_trigrams_Laude.css. 팔괘 아이콘 자리([팔괘 성격 보기] 기호 옆, '괘의 모습' 그림) 추가. */
+/* 261124_0800 LAUDE: 위·아래 팔괘 안내 공용 스타일(맛보기·배우기·동전점). assets/261124_0800_trigrams-ko_Laude.js 와 짝. */
+.result-tri,
+.hex-tri.is-trigram {
+  display: block;
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: normal;
+  color: var(--ink-soft);
+  line-height: 1.45;
+}
+.text-block.is-imagery {
+  padding: 0.7rem 0.85rem;
+  border-left: 3px solid var(--rule);
+  background: var(--paper-deep);
+  border-radius: 0 6px 6px 0;
+}
+.text-block.is-imagery h4 {
+  margin: 0 0 0.3rem;
+  font-size: 0.78rem;
+  font-weight: normal;
+  letter-spacing: 0.08em;
+  color: var(--ink-faint);
+}
+.text-block.is-imagery p {
+  margin: 0;
+  line-height: 1.7;
+  word-break: keep-all;
+}
+.text-block.is-imagery p + p {
+  margin-top: 0.2rem;
+}
+.trigram-guide {
+  margin: 1.25rem 0;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  text-align: left;
+}
+.trigram-guide summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+.trigram-intro {
+  margin: 0.75rem 0 0.5rem;
+  font-size: 0.86rem;
+  color: var(--ink-soft);
+  word-break: keep-all;
+}
+.trigram-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.trigram-list li {
+  display: grid;
+  grid-template-columns: 1.6rem 3.5rem 1fr;
+  column-gap: 0.5rem;
+  padding: 0.45rem 0.35rem;
+  border-bottom: 1px dashed var(--rule);
+  font-size: 0.88rem;
+  word-break: keep-all;
+}
+.trigram-list li > :not(.trigram-sym):not(.trigram-icon-slot) {
+  grid-column: 3;
+}
+.trigram-list li.is-here {
+  background: var(--paper-deep);
+  border-radius: 6px;
+}
+.trigram-sym {
+  grid-row: span 4;
+  font-size: 1.35rem;
+  line-height: 1.2;
+}
+.trigram-word,
+.trigram-gloss {
+  color: var(--ink-soft);
+}
+.trigram-gloss {
+  font-size: 0.84rem;
+}
+.trigram-here {
+  color: var(--seal);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+.trigram-note {
+  margin: 0.6rem 0 0;
+  font-size: 0.8rem;
+  color: var(--ink-faint);
+  word-break: keep-all;
+}
+
+/* 261124_2251: 아이콘 */
+.trigram-icon {
+  display: block;
+  object-fit: contain;
+}
+.trigram-icon-slot {
+  grid-column: 2;
+  grid-row: 1 / span 4;
+  align-self: start;
+  width: 3.5rem;
+  height: 3.5rem;
+}
+.trigram-icon-slot .trigram-icon {
+  width: 3.5rem;
+  height: 3.5rem;
+}
+/* '괘의 모습': 그림(위 = 상괘, 아래 = 하괘) + 글 */
+.imagery-row {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 0.75rem;
+  align-items: start;
+}
+.imagery-row + .imagery-row {
+  margin-top: 0.6rem;
+}
+.trigram-pair {
+  display: grid;
+  gap: 0.15rem;
+  justify-items: center;
+}
+.trigram-pair .trigram-icon {
+  width: 2.75rem;
+  height: 2.75rem;
+}

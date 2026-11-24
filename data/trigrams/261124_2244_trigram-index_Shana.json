@@ -1,0 +1,164 @@
+{
+  "format": 1,
+  "createdAt": "2026-11-24T22:44+09:00",
+  "author": "SHANA",
+  "about": "팔괘 공용 자료 목록. 폴더 이름과 고유 번호(3자리 이진 문자열)는 고정하고, 보여 주는 순서·배치는 orders·arrangements 에 따로 둔다.",
+  "codeRule": {
+    "code": "3자리 문자열, 왼쪽부터 위 효·가운데 효·아래 효. 양 = 1, 음 = 0. 선행 0 을 지킨다(예: \"001\").",
+    "value": "code 를 이진수로 읽은 0~7 (data/hexagrams.json 의 trigrams.*.value 와 같다).",
+    "lines": "효 배열은 아래 효부터(lines[0] = 아래 효). code 와 방향이 반대다.",
+    "hexagram": "64괘 고유 번호(6자리, data/hexagrams/{6자리}/) = 상괘 code + 하괘 code. 예: 지풍승 000110 = 곤 000 + 손 110.",
+    "folders": "팔괘 아이콘은 data/trigrams/{3자리}/images/, 64괘 그림은 data/hexagrams/{6자리}/images/ 에 둔다."
+  },
+  "trigrams": [
+    {
+      "code": "000",
+      "value": 0,
+      "id": "kun",
+      "nameKo": "곤",
+      "info": "data/trigrams/000/261124_2013_trigram_Shana.json",
+      "images": "data/trigrams/000/images/"
+    },
+    {
+      "code": "001",
+      "value": 1,
+      "id": "zhen",
+      "nameKo": "진",
+      "info": "data/trigrams/001/261124_2024_trigram_Shana.json",
+      "images": "data/trigrams/001/images/"
+    },
+    {
+      "code": "010",
+      "value": 2,
+      "id": "kan",
+      "nameKo": "감",
+      "info": "data/trigrams/010/261124_2052_trigram_Shana.json",
+      "images": "data/trigrams/010/images/"
+    },
+    {
+      "code": "011",
+      "value": 3,
+      "id": "dui",
+      "nameKo": "태",
+      "info": "data/trigrams/011/261124_2101_trigram_Shana.json",
+      "images": "data/trigrams/011/images/"
+    },
+    {
+      "code": "100",
+      "value": 4,
+      "id": "gen",
+      "nameKo": "간",
+      "info": "data/trigrams/100/261124_2212_trigram_Shana.json",
+      "images": "data/trigrams/100/images/"
+    },
+    {
+      "code": "101",
+      "value": 5,
+      "id": "li",
+      "nameKo": "리",
+      "info": "data/trigrams/101/261124_2239_trigram_Shana.json",
+      "images": "data/trigrams/101/images/"
+    },
+    {
+      "code": "110",
+      "value": 6,
+      "id": "xun",
+      "nameKo": "손",
+      "info": "data/trigrams/110/261124_2244_trigram_Shana.json",
+      "images": "data/trigrams/110/images/"
+    },
+    {
+      "code": "111",
+      "value": 7,
+      "id": "qian",
+      "nameKo": "건",
+      "info": "data/trigrams/111/261124_1930_trigram_Laude.json",
+      "images": "data/trigrams/111/images/"
+    }
+  ],
+  "orders": {
+    "binary": {
+      "label": "이진 번호순 0~7",
+      "codes": [
+        "000",
+        "001",
+        "010",
+        "011",
+        "100",
+        "101",
+        "110",
+        "111"
+      ],
+      "verified": true,
+      "basis": "codeRule 로 정해지는 순서"
+    },
+    "screen": {
+      "label": "현재 화면 표시 순서([팔괘 성격 보기])",
+      "codes": [
+        "111",
+        "011",
+        "101",
+        "001",
+        "110",
+        "010",
+        "100",
+        "000"
+      ],
+      "verified": true,
+      "basis": "assets/261124_0800_trigrams-ko_Laude.js 의 TRIGRAM_ORDER 와 같다(검사). 화면은 아직 이 파일을 읽지 않는다."
+    },
+    "xiantianNumber": {
+      "label": "선천 팔괘의 수(乾一 兌二 離三 震四 巽五 坎六 艮七 坤八)",
+      "numbers": {
+        "111": 1,
+        "011": 2,
+        "101": 3,
+        "001": 4,
+        "110": 5,
+        "010": 6,
+        "100": 7,
+        "000": 8
+      },
+      "verified": false,
+      "basis": "LAUDE 기억. 이 환경에서 위키백과 등 외부 문헌에 접속하지 못해 대조하지 못했다(2026-11-24). 화면에서 쓰기 전에 문헌과 대조해 출처를 적고 verified 를 true 로 바꾼다."
+    }
+  },
+  "arrangements": {
+    "xiantian": {
+      "label": "선천 팔괘 방위 배치",
+      "directions": {
+        "S": "111",
+        "N": "000",
+        "E": "101",
+        "W": "010",
+        "NE": "001",
+        "SE": "011",
+        "SW": "110",
+        "NW": "100"
+      },
+      "drawing": "전통 그림은 남쪽을 위에 그린다고 알려져 있다(대조 전).",
+      "verified": false,
+      "basis": "LAUDE 기억. 이 환경에서 위키백과 등 외부 문헌에 접속하지 못해 대조하지 못했다(2026-11-24). 화면에서 쓰기 전에 문헌과 대조해 출처를 적고 verified 를 true 로 바꾼다."
+    },
+    "houtian": {
+      "label": "후천 팔괘 방위 배치",
+      "directions": {
+        "E": "001",
+        "SE": "110",
+        "S": "101",
+        "SW": "000",
+        "W": "011",
+        "NW": "111",
+        "N": "010",
+        "NE": "100"
+      },
+      "verified": false,
+      "basis": "LAUDE 기억. 이 환경에서 위키백과 등 외부 문헌에 접속하지 못해 대조하지 못했다(2026-11-24). 화면에서 쓰기 전에 문헌과 대조해 출처를 적고 verified 를 true 로 바꾼다."
+    }
+  },
+  "notes": [
+    "'후천 순서'처럼 한 줄로 늘어놓는 순서는 시작 방위와 도는 방향이 있어야 정해진다. 필요하면 orders 에 start·direction 과 함께 따로 적는다(지금은 없음).",
+    "낙서의 1~9 방위수는 팔괘 고유 번호로 쓰지 않는다.",
+    "방위 기호: N 북, NE 북동, E 동, SE 남동, S 남, SW 남서, W 서, NW 북서."
+  ]
+}

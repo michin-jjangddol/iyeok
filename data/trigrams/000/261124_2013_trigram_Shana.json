@@ -1,0 +1,54 @@
+{
+  "format": 1,
+  "code": "000",
+  "value": 0,
+  "id": "kun",
+  "nameKo": "곤",
+  "name": "坤",
+  "symbol": "☷",
+  "natureKo": "땅",
+  "nature": "地",
+  "lines": [
+    0,
+    0,
+    0
+  ],
+  "lineOrder": "lines 는 아래 효부터(lines[0] = 아래 효, lines[2] = 위 효). code 는 위 효부터 쓴 3자리(왼쪽 = 위 효). 양 = 1, 음 = 0.",
+  "basis": "이름·한자·기호·자연물·효 배열·value 는 data/hexagrams.json 의 trigrams.kun 와 같다(tests/261124_1930_trigram-data_Laude.mjs 가 검사).",
+  "imageFolder": "data/trigrams/000/images/",
+  "icon": {
+    "status": "registered",
+    "current": "data/trigrams/000/images/261124_2013_kun-icon-256_Shana.webp",
+    "versions": [
+      {
+        "path": "data/trigrams/000/images/261124_2013_kun-icon-1024_Shana.png",
+        "createdAt": "2026-11-24T20:13+09:00",
+        "author": "SHANA",
+        "width": 1024,
+        "height": 1024,
+        "role": "archive",
+        "note": "JJDD selected the layered-earth candidate; transparent background."
+      },
+      {
+        "path": "data/trigrams/000/images/261124_2013_kun-icon-256_Shana.webp",
+        "createdAt": "2026-11-24T20:13+09:00",
+        "author": "SHANA",
+        "width": 256,
+        "height": 256,
+        "role": "web",
+        "note": "JJDD selected the layered-earth candidate; transparent background."
+      }
+    ],
+    "intent": "평평한 지표 아래 두터운 지층을 겹쳐 곤의 땅을 표현한다. JJDD가 선택한 지층형 아이콘이며, 글씨·괘 기호는 포함하지 않는다.",
+    "alt": "평평한 갈색 지표 아래로 완만한 두 겹의 지층이 이어지는 땅 아이콘"
+  },
+  "iconIdea": {
+    "status": "지층형 후보를 JJDD가 선택하여 이미지 등록",
+    "candidate": "평평하고 두터운 지층",
+    "question": "산과 구별하면서 받아 주는 넓이를 담을 수 있을까?",
+    "source": "docs/eight-trigram-icons.md — 05. 여덟 가지 자연의 첫 후보"
+  },
+  "createdAt": "2026-11-24T19:30+09:00",
+  "author": "SHANA",
+  "updatedAt": "2026-11-24T20:13+09:00"
+}

@@ -2,7 +2,7 @@
 // 인터넷이 되면 새 파일을 받고(network-first), 끊기면 저장해 둔 파일로 연다.
 // 새 파일을 받을 때 브라우저 캐시(GitHub Pages는 10분)를 그대로 믿지 않고 서버에 바뀌었는지 묻는다.
 
-const CACHE = "iyeok-app-v76"; // 261124_0800: 위·아래 팔괘 안내·괘사 공용 모듈·언어 사전 새 판
+const CACHE = "iyeok-app-v77"; // 261124_2251: 팔괘 아이콘
 const FILES = [
   "../assets/i18n/261124_0800_language_Laude.js",
   "../assets/i18n/261121_1836_language_Laude.css",
@@ -14,9 +14,26 @@ const FILES = [
   "./index.html",
   "./app.css",
   "./app.js",
-  "../assets/261124_0800_hexagram-texts_Laude.js",
-  "../assets/261124_0800_trigrams-ko_Laude.js",
-  "../assets/261124_0800_trigrams_Laude.css",
+  "../assets/261124_2251_hexagram-texts_Laude.js",
+  "../assets/261124_2251_trigrams-ko_Laude.js",
+  "../assets/261124_2251_trigrams_Laude.css",
+  "../data/trigrams/261124_2249_trigram-index_Shana.json",
+  "../data/trigrams/000/261124_2013_trigram_Shana.json",
+  "../data/trigrams/000/images/261124_2013_kun-icon-256_Shana.webp",
+  "../data/trigrams/001/261124_2024_trigram_Shana.json",
+  "../data/trigrams/001/images/261124_2024_zhen-icon-256_Shana.webp",
+  "../data/trigrams/010/261124_2052_trigram_Shana.json",
+  "../data/trigrams/010/images/261124_2052_kan-icon-256_Shana.webp",
+  "../data/trigrams/011/261124_2101_trigram_Shana.json",
+  "../data/trigrams/011/images/261124_2101_dui-icon-256_Shana.webp",
+  "../data/trigrams/100/261124_2212_trigram_Shana.json",
+  "../data/trigrams/100/images/261124_2212_gen-icon-256_Shana.webp",
+  "../data/trigrams/101/261124_2239_trigram_Shana.json",
+  "../data/trigrams/101/images/261124_2239_li-icon-256_Shana.webp",
+  "../data/trigrams/110/261124_2244_trigram_Shana.json",
+  "../data/trigrams/110/images/261124_2244_xun-icon-256_Shana.webp",
+  "../data/trigrams/111/261124_2249_trigram_Shana.json",
+  "../data/trigrams/111/images/261124_2249_qian-icon-256_Shana.webp",
   "./iching.js",
   "./manifest.webmanifest",
   "../assets/style.css",

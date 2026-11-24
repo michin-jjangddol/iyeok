@@ -3,8 +3,8 @@ import {
   tossCoins, countYang, lineTypeFromYangCount, fillOrder,
   primaryLines, changedLines, changingPositions, findHexagram, lineName,
 } from "./iching.js";
-import { createTextLoader } from "../assets/261124_0800_hexagram-texts_Laude.js";
-import { triCaption, imageryLines, trigramGuide } from "../assets/261124_0800_trigrams-ko_Laude.js";
+import { createTextLoader } from "../assets/261124_2251_hexagram-texts_Laude.js";
+import { triCaption, imageryLines, trigramGuide, loadTrigramIcons, iconPair } from "../assets/261124_2251_trigrams-ko_Laude.js"; // 261124_2251: 팔괘 아이콘
 
 const DEFAULT_SETTINGS = { coin: "basic", yangFace: "picture", order: "earth", symbols: "iyeok" };
 const STORAGE_KEY = "iyeok.coin.settings.v1";
@@ -349,10 +349,10 @@ function showResult() {
   $("log-settings").textContent = `이번 점의 방식: ${describeSettings(r.settings)}`;
   // [팔괘 성격 보기]: 변효 안내 바로 아래
   document.getElementById("trigram-guide")?.remove();
-  const guide = trigramGuide(data, moving.length ? [{ title: "본괘", h: primary }, { title: "지괘", h: changed }] : [{ title: "본괘", h: primary }]);
+  const guide = trigramGuide(data, moving.length ? [{ title: "본괘", h: primary }, { title: "지괘", h: changed }] : [{ title: "본괘", h: primary }], { icons: loadTrigramIcons("../") });
   guide.id = "trigram-guide";
   $("changing-summary").after(guide);
-  textLoader.renderTexts($("texts"), { primary, changed, types, moving, isCurrent: () => reading === r, intro: (h) => imageryLines(data, h) });
+  textLoader.renderTexts($("texts"), { primary, changed, types, moving, isCurrent: () => reading === r, intro: (h) => ({ lines: imageryLines(data, h), figure: iconPair(data, h, loadTrigramIcons("../")) }) });
   show("result");
 }
 

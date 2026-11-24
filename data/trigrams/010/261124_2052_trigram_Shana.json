@@ -1,0 +1,54 @@
+{
+  "format": 1,
+  "code": "010",
+  "value": 2,
+  "id": "kan",
+  "nameKo": "감",
+  "name": "坎",
+  "symbol": "☵",
+  "natureKo": "물",
+  "nature": "水",
+  "lines": [
+    0,
+    1,
+    0
+  ],
+  "lineOrder": "lines 는 아래 효부터(lines[0] = 아래 효, lines[2] = 위 효). code 는 위 효부터 쓴 3자리(왼쪽 = 위 효). 양 = 1, 음 = 0.",
+  "basis": "이름·한자·기호·자연물·효 배열·value 는 data/hexagrams.json 의 trigrams.kan 와 같다(tests/261124_1930_trigram-data_Laude.mjs 가 검사).",
+  "imageFolder": "data/trigrams/010/images/",
+  "icon": {
+    "status": "registered",
+    "current": "data/trigrams/010/images/261124_2052_kan-icon-256_Shana.webp",
+    "versions": [
+      {
+        "path": "data/trigrams/010/images/261124_2052_kan-icon-1024_Shana.png",
+        "createdAt": "2026-11-24T20:52+09:00",
+        "author": "SHANA",
+        "width": 1024,
+        "height": 1024,
+        "role": "archive",
+        "note": "JJDD approved two cascading tiers: shorter upper drop, taller lower drop, no detached droplet or rocks."
+      },
+      {
+        "path": "data/trigrams/010/images/261124_2052_kan-icon-256_Shana.webp",
+        "createdAt": "2026-11-24T20:52+09:00",
+        "author": "SHANA",
+        "width": 256,
+        "height": 256,
+        "role": "web",
+        "note": "JJDD approved two cascading tiers: shorter upper drop, taller lower drop, no detached droplet or rocks."
+      }
+    ],
+    "intent": "짧은 윗단과 높은 아랫단으로 이어지는 두 단 물줄기로 감의 흐르는 물을 표현한다. 옅은 청회색 수채화와 흰 물결을 사용하며 바위와 독립 물방울은 제외한다.",
+    "alt": "짧은 윗단에서 굽이쳐 더 높은 아랫단으로 흘러내리는 청회색 두 단 물줄기 아이콘"
+  },
+  "iconIdea": {
+    "status": "두 단 물줄기 시안을 JJDD가 선택하여 이미지 등록",
+    "candidate": "깊이를 가진 물줄기",
+    "question": "못과 다른 흐름과 깊이를 보여 줄 수 있을까?",
+    "source": "docs/eight-trigram-icons.md — 05. 여덟 가지 자연의 첫 후보"
+  },
+  "createdAt": "2026-11-24T19:30+09:00",
+  "author": "SHANA",
+  "updatedAt": "2026-11-24T20:52+09:00"
+}

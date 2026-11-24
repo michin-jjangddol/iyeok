@@ -4,7 +4,7 @@ import {
   primaryLines, changedLines, changingPositions, findHexagram, lineName,
 } from "./iching.js";
 import { createTextLoader } from "../assets/261124_2251_hexagram-texts_Laude.js";
-import { triCaption, imageryLines, trigramGuide, loadTrigramIcons, iconPair } from "../assets/261125_0711_trigrams-ko_Laude.js"; // 261124_2251: 팔괘 아이콘, 261125_0640: 괘 기호 크게, 261125_0711: 아이역 순서
+import { triCaption, imageryLines, trigramGuide, loadTrigramIcons, iconPair, loadTrigramOrder, saveTrigramOrder, DEFAULT_TRIGRAM_ORDER } from "../assets/261125_0744_trigrams-ko_Laude.js"; // 261124_2251: 팔괘 아이콘, 261125_0640: 괘 기호 크게, 261125_0744: 팔괘 순서 설정
 
 const DEFAULT_SETTINGS = { coin: "basic", yangFace: "picture", order: "earth", symbols: "iyeok" };
 const STORAGE_KEY = "iyeok.coin.settings.v1";
@@ -66,6 +66,9 @@ function syncForm() {
   for (const key of Object.keys(DEFAULT_SETTINGS)) {
     for (const input of form.elements[key]) input.checked = input.value === settings[key];
   }
+  // 261125_0744: 팔괘 순서(시초점과 같은 공통 저장값)
+  const order = loadTrigramOrder();
+  for (const input of form.elements.trigramOrder) input.checked = input.value === order;
 }
 
 function renderSummary() {
@@ -377,6 +380,7 @@ function bindEvents() {
   });
   $("toggle-settings").addEventListener("click", () => openSettings($("settings").hidden));
   $("settings").addEventListener("change", (e) => {
+    if (e.target.name === "trigramOrder") return void saveTrigramOrder(e.target.value);
     if (!(e.target.name in DEFAULT_SETTINGS)) return;
     settings[e.target.name] = e.target.value;
     saveSettings();
@@ -385,6 +389,7 @@ function bindEvents() {
   $("reset-settings").addEventListener("click", () => {
     settings = { ...DEFAULT_SETTINGS };
     saveSettings();
+    saveTrigramOrder(DEFAULT_TRIGRAM_ORDER);
     syncForm();
     renderSummary();
   });

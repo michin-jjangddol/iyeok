@@ -5,6 +5,10 @@
 iYeok Docs
 Date: 2026-11-24
 
+## 🎬 YouTube Video
+
+[Watch on YouTube](https://youtu.be/ict6j-dI2fA)
+
 <p align="center">
   <img src="../assets/images/eight-trigram-icons_en.png" width="90%">
 </p>
@@ -393,6 +397,10 @@ This document was prepared with the assistance of Shana (GPT) and Laude (Claude)
 
 아이역 문서
 작성일: 2026-11-24
+
+## 🎬 YouTube Video
+
+[Watch on YouTube](https://youtu.be/rF569hDwwrE)
 
 <p align="center">
   <img src="../assets/images/eight-trigram-icons_ko.png" width="90%">

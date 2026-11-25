@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>시초점 설정 · 아이역 iYeok</title>
+  <meta name="description" content="시초점 배우기의 방식을 정합니다: 인시초를 덜어 내는 쪽, 진행 방식, 효를 읽는 방식.">
+  <meta name="theme-color" content="#f4efe4" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#1b1a18" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../assets/style.css">
+  <link rel="stylesheet" href="261123_2158_options_Laude.css">
+  <link rel="stylesheet" href="../../assets/261121_0945_iyeok-thought_Laude.css">
+  <link rel="stylesheet" href="../../assets/i18n/261121_1836_language_Laude.css">
+  <script type="module" src="../../assets/i18n/261126_0707_language_Laude.js"></script>
+</head>
+<body>
+  <!-- 261123_1036 LAUDE: '전통 대응'→'전통 방식', '아이역 반전 대응'→'아이역 방식'(백업 backups/yarrow/261123_1036_options-index.html). -->
+  <!-- 261123_0801 LAUDE: 화면 글 '옵션' → '설정'(JJDD), 언어 모듈 새 판. 주소(options/)는 그대로. -->
+  <!-- 261123_0709 LAUDE: 정시초 나누기 옵션 추가(백업 backups/yarrow/261123_0709_options-index.html). -->
+  <!-- 261123_0102 LAUDE: 변효 기호 추가(백업 backups/yarrow/261123_0102_options-index.html). -->
+  <!-- 261122_2047 LAUDE: 음양 대응을 두 방식 공통으로(백업 backups/yarrow/261122_2047_options-index.html). -->
+  <!-- 시초점 옵션 (261120_2247 LAUDE): 배우기 화면에 있던 설정을 시초점 메뉴의 [옵션]으로 옮겼다. 저장은 이 기기에만. -->
+  <header class="site-header">
+    <a class="brand" href="../../" aria-label="아이역 홈">
+      <span class="brand-mark">i易</span>
+      <span class="brand-name">iYeok</span>
+    </a>
+    <nav class="site-nav" aria-label="주요 메뉴">
+      <a href="../">시초점 메뉴</a>
+    </nav>
+  </header>
+
+  <main class="yopt">
+    <p class="eyebrow">시초점 · 설정</p>
+    <h1>시초점 설정</h1>
+    <p class="yopt-intro">여기서 정한 방식은 시초점 배우기와 바로 시작에 똑같이 적용됩니다. 고른 값은 이 기기에만 저장됩니다.</p>
+
+    <form id="yarrow-settings" class="yopt-form">
+      <fieldset>
+        <legend>하나를 덜어 내는 쪽</legend>
+        <p class="hint">두 무더기로 나눈 뒤, 인시초(人蓍草, 사람을 상징하는 하나)를 어느 쪽에서 덜어 둘지 정합니다.</p>
+        <label class="option"><input type="radio" name="takeSide" value="left">
+          <span><b>하늘 쪽에서 — 왼쪽</b><small>왼쪽(하늘) 무더기에서 하나를 덜어 둡니다.</small></span></label>
+        <label class="option"><input type="radio" name="takeSide" value="right" checked>
+          <span><b>땅 쪽에서 — 오른쪽</b><small>기본값. 오른쪽(땅) 무더기에서 하나를 덜어 둡니다.</small></span></label>
+        <p class="hint">고른 쪽은 한 번의 배우기 동안 모든 차례에 똑같이 적용됩니다. 왼쪽=하늘, 오른쪽=땅은 아이역이 배우기 쉽게 정한 배치이며, 「계사전」의 ‘掛一以象三’ 구절에는 어느 쪽에서 덜지 적혀 있지 않습니다.</p>
+      </fieldset>
+
+      <fieldset>
+        <legend>진행 방식</legend>
+        <p class="hint">나눈 뒤 이어지는 다섯 장면(하나 덜기 · 하늘 쪽 넷씩 나누기 · 땅 쪽 넷씩 나누기 · 남은 것 모으기 · 다시 모으기)을 어떻게 볼지 정합니다.</p>
+        <label class="option"><input type="radio" name="pace" value="step" checked>
+          <span><b>단계별 진행</b><small>기본값. 다섯 장면을 하나씩 넘기며 봅니다.</small></span></label>
+        <label class="option"><input type="radio" name="pace" value="fast">
+          <span><b>빠르게 진행</b><small>첫 효의 첫 차례부터 여섯 효 모두, 다섯 장면을 한 화면 요약으로 보고 바로 다음 차례로 넘어갑니다.</small></span></label>
+        <p class="hint">진행 방식은 보여 주는 장면 수만 바꾸며 계산과 결과는 같습니다. 배우기 중에 바꾸면 다음 나누기부터 적용됩니다. 바로 시작에서는 단계별이면 장면마다 [다음 장면]을 눌러 넘기고, 빠르게면 자동으로 지나갑니다(바로 시작은 시작할 때의 방식으로 끝까지 진행).</p>
+      </fieldset>
+      <fieldset>
+        <legend>효를 읽는 방식</legend>
+        <label class="option"><input type="radio" name="readingMethod" value="jeong" checked>
+          <span><b>정효점 — 기본값</b><small>최종 정시초를 네 개씩 묶어, 묶음 수로 효를 읽습니다.</small></span></label>
+        <label class="option"><input type="radio" name="readingMethod" value="yun">
+          <span><b>윤효점</b><small>세 차례에 윤시초 자리로 모은 윤시초와 인시초의 수를 소·다로 구분해 효를 읽습니다.</small></span></label>
+        <!-- 261122_2047 LAUDE: 음양 대응을 정효점·윤효점 공통 하위 옵션으로(JJDD). 이전에는 윤효점에서만 보였다. 저장 이름 yunMapping 은 호환을 위해 그대로. -->
+        <fieldset class="yopt-sub" id="yin-yang-mapping">
+          <legend>음양 대응 <small>(정효점·윤효점 모두)</small></legend>
+          <label class="option"><input type="radio" name="yunMapping" value="traditional" checked>
+            <span><b>전통 방식 — 기본값</b><small class="map-jeong">정효점: 홀수(7·9)=양 · 짝수(6·8)=음</small><small class="map-yun">윤효점: 작은 수 소(少)=양 · 큰 수 다(多)=음</small></span></label>
+          <label class="option"><input type="radio" name="yunMapping" value="inverted">
+            <span><b>아이역 방식</b><small class="map-jeong">정효점: 홀수(7·9)=음 · 짝수(6·8)=양</small><small class="map-yun">윤효점: 작은 수 소(少)=음 · 큰 수 다(多)=양</small><small>같은 조작이라도 효의 음양과 괘가 뒤집힙니다(6↔9, 7↔8, 변효 여부는 그대로).</small></span></label>
+          <p class="hint">아이역 방식은 아이역이 고를 수 있게 더한 것이며, 전통 유파의 방식이 아닙니다. 아이역 방식을 고르면 같은 조작에서 6과 9, 7과 8이 서로 바뀌므로 각 효가 나오는 비율도 서로 맞바뀝니다. 소·다의 ‘소’는 효 이름 소양(少陽)·소음(少陰)의 ‘소’와는 다른 말입니다.</p>
+        </fieldset>
+        <p class="hint">음양 대응이 같으면 정효점과 윤효점은 언제나 같은 효를 읽습니다. 아이역 방식을 고르면 정효점·윤효점 모두 음양과 괘가 뒤집힙니다. 태시초·정시초·윤시초·인시초와 정효점·윤효점은 아이역의 학습용 명칭입니다.</p>
+        <p class="hint">태시초(太蓍草): 처음 50개에서 따로 두는 하나. ‘시작’의 뜻을 담아 아이역이 붙인 이름입니다. 정시초: 네 개씩 센 묶음. 윤시초: 각 무더기에서 따로 모을 1~4가지(4개여도 윤시초). 인시초(人蓍草): 하늘과 땅의 두 무더기에서 사람을 상징하여 매 차례 덜어 두는 한 개이며, 태시초와는 다릅니다. 윤시초 자리에는 매 차례의 윤시초와 인시초를 함께 모아 둡니다.</p>
+        <p class="hint">효를 읽는 방식과 음양 대응은 배우기를 시작할 때 고정하며, 진행 중 변경은 다음 새 배우기부터 적용됩니다.</p>
+      </fieldset>
+      <!-- 261123_0709 LAUDE: 정시초 나누기(움직이다 멈추기)의 시작 자리·방향과 빠르기(JJDD). 이름은 JJDD가 정한 대로. -->
+      <fieldset>
+        <legend>정시초 나누기</legend>
+        <p class="hint">배우기의 [움직이다 멈추기]에서 선택바가 어디서 시작해 어느 쪽으로 먼저 움직일지, 얼마나 빨리 움직일지 정합니다. 첫 글자는 시작 자리(좌·중·우), 나머지는 먼저 움직이는 쪽입니다. 좌좌좌·우우우는 끝에서 시작합니다.</p>
+        <p class="hint"><b>시작 자리와 방향</b> · 기본값 중우</p>
+        <div class="yopt-chips" role="radiogroup" aria-label="시작 자리와 방향">
+          <label class="option"><input type="radio" name="motionStart" value="LLL">
+            <span><b>좌좌좌</b><small>왼끝 →</small></span></label>
+          <label class="option"><input type="radio" name="motionStart" value="LL">
+            <span><b>좌좌</b><small>왼¼ ←</small></span></label>
+          <label class="option"><input type="radio" name="motionStart" value="LC">
+            <span><b>좌중</b><small>왼¼ →</small></span></label>
+          <label class="option"><input type="radio" name="motionStart" value="CL">
+            <span><b>중좌</b><small>가운데 ←</small></span></label>
+          <label class="option"><input type="radio" name="motionStart" value="CR" checked>
+            <span><b>중우</b><small>가운데 →</small></span></label>
+          <label class="option"><input type="radio" name="motionStart" value="RL">
+            <span><b>우좌</b><small>오¼ ←</small></span></label>
+          <label class="option"><input type="radio" name="motionStart" value="RR">
+            <span><b>우우</b><small>오¼ →</small></span></label>
+          <label class="option"><input type="radio" name="motionStart" value="RRR">
+            <span><b>우우우</b><small>오끝 ←</small></span></label>
+        </div>
+        <p class="hint"><b>빠르기</b> · 기본값 5</p>
+        <div class="yopt-chips is-speed" role="radiogroup" aria-label="빠르기 1에서 9">
+          <label class="option"><input type="radio" name="motionSpeed" value="1" aria-label="빠르기 1">
+            <span><b>1</b></span></label>
+          <label class="option"><input type="radio" name="motionSpeed" value="2" aria-label="빠르기 2">
+            <span><b>2</b></span></label>
+          <label class="option"><input type="radio" name="motionSpeed" value="3" aria-label="빠르기 3">
+            <span><b>3</b></span></label>
+          <label class="option"><input type="radio" name="motionSpeed" value="4" aria-label="빠르기 4">
+            <span><b>4</b></span></label>
+          <label class="option"><input type="radio" name="motionSpeed" value="5" checked aria-label="빠르기 5 (기본값)">
+            <span><b>5</b></span></label>
+          <label class="option"><input type="radio" name="motionSpeed" value="6" aria-label="빠르기 6">
+            <span><b>6</b></span></label>
+          <label class="option"><input type="radio" name="motionSpeed" value="7" aria-label="빠르기 7">
+            <span><b>7</b></span></label>
+          <label class="option"><input type="radio" name="motionSpeed" value="8" aria-label="빠르기 8">
+            <span><b>8</b></span></label>
+          <label class="option"><input type="radio" name="motionSpeed" value="9" aria-label="빠르기 9">
+            <span><b>9</b></span></label>
+        </div>
+        <p class="yopt-speed-scale" aria-hidden="true"><span>1 느리게</span><span>5 기본</span><span>9 빠르게</span></p>
+        <p class="hint">멈춘 자리가 그대로 나누는 자리가 되며, 계산 규칙은 바뀌지 않습니다. 같은 시작·빠르기로 같은 박자에 멈추면 같은 자리에서 나뉠 수 있습니다. 바꾼 값은 다음 [움직이기 시작]부터 바로 적용됩니다.</p>
+      </fieldset>
+      <!-- 261123_0102 LAUDE: 변효 기호(동전점과 같은 두 표기). 표시만 바꾸며 동전점 설정과는 따로 저장한다. -->
+      <fieldset>
+        <legend>변효 기호</legend>
+        <p class="hint">노양과 노음은 변하는 효입니다. 어떤 기호로 표시할지 고르세요. 기호 선택은 표시만 바꾸며 계산과 점괘에는 영향을 주지 않습니다.</p>
+        <label class="option"><input type="radio" name="symbols" value="iyeok" checked>
+          <span><b>노양 × · 노음 ○ — 기본값</b><small>아이역 기본 표기입니다.</small></span></label>
+        <label class="option"><input type="radio" name="symbols" value="classic">
+          <span><b>노양 ○ · 노음 ×</b><small>많은 주역 책에서 쓰는 표기입니다.</small></span></label>
+        <p class="hint">기호는 숫자가 아니라 판정된 효 종류에 붙습니다. 아이역 방식을 골라 9가 노음이 되면 노음의 기호가 붙습니다. 소양·소음에는 기호가 없습니다. 동전점의 기호 설정과는 따로 저장되며, 배우기를 시작할 때 고정되어 진행 중 변경은 다음 새 배우기부터 적용됩니다.</p>
+      </fieldset>
+      <!-- 261125_0744 LAUDE: 팔괘 순서([팔괘 성격 보기]). 시초점·동전점 공통 저장 iyeok.trigram-order.v1(JJDD). -->
+      <fieldset id="trigram-order">
+        <legend>팔괘 순서</legend>
+        <p class="hint">[팔괘 성격 보기]에서 여덟 괘를 늘어놓는 순서를 고르세요. 보는 순서만 바꾸며 점괘에는 영향이 없습니다.</p>
+        <label class="option"><input type="radio" name="trigramOrder" value="xiantian" checked>
+          <span><b>선천 순서 — 기본값</b><small>건·태·리·진·손·감·간·곤. 선천 팔괘의 수 차례(건1 … 곤8)입니다.</small></span></label>
+        <label class="option"><input type="radio" name="trigramOrder" value="iyeok">
+          <span><b>아이역 순서</b><small>건·손·리·간·태·감·진·곤. 위 효부터 읽은 이진 번호를 큰 수부터(111 → 000) 늘어놓습니다. 64괘 번호와 같은 규칙입니다.</small></span></label>
+        <p class="hint">두 순서는 효를 위에서부터 읽는지 아래에서부터 읽는지만 다릅니다. 이 설정은 시초점과 동전점에 함께 적용됩니다.</p>
+      </fieldset>
+      <p class="yopt-status" id="yopt-status" role="status" aria-live="polite"></p>
+      <div class="yopt-actions">
+        <!-- 261123_2158 LAUDE: [시초점](바로 시작) [시초점 배우기] [기본값 되돌리기] (JJDD). 백업 backups/yarrow/261123_2158_options-index.html -->
+        <a class="yopt-btn yopt-primary" href="../try/" id="yopt-try">시초점</a>
+        <a class="yopt-btn" href="../learn/" id="yopt-learn">시초점 배우기</a>
+        <button type="button" class="yopt-btn" id="yopt-reset">기본값 되돌리기</button>
+      </div>
+    </form>
+
+    <p class="yopt-note">배우기를 하는 중에 바꾸면, ‘하나를 덜어 내는 쪽’은 계산이 달라지지 않도록 진행 중인 배우기에서는 원래대로 이어지고 다음 배우기부터 적용됩니다. ‘진행 방식’은 다음 나누기부터 바로 적용됩니다. 바로 시작은 시작할 때의 설정(진행 방식 포함)으로 한 괘를 끝까지 만듭니다.</p>
+    <!-- 「아이역 생각」 (261121_0945 LAUDE): 한글판. 첫 문단은 늘 보이고 나머지는 [더 읽기]로 펼친다. 셋째 문단만 화면마다 다르다. -->
+    <section class="iyeok-thought" aria-labelledby="thought-title">
+      <h2 id="thought-title">아이역 생각</h2>
+      <p>음과 양은 몸의 성별만으로 나눌 수 없는, 누구 안에나 함께 있는 성질이라고 바라봅니다. 흔히 남성성·여성성이라 부르는 성질도 한 사람 안에 함께 있으며, 시간과 경험, 자신의 선택에 따라 서로 다른 모습으로 드러날 수 있습니다.</p>
+      <details class="iyeok-thought-more">
+        <summary><span class="when-closed">더 읽기</span><span class="when-open">접기</span></summary>
+        <div class="iyeok-thought-body">
+          <p>‘소(少)’가 자라며 펼쳐 가는 모습이라면, ‘노(老)’는 충분히 무르익어 전환점에 이른 모습입니다. 아이역은 노음과 노양의 변화를, 한 성질이 깊어지면서 다른 성질로 나아갈 가능성이 열리는 것으로 읽어 봅니다. 어느 쪽이 더 좋거나 우월하다는 뜻은 아닙니다.</p>
+          <p>시초점의 소·다로 읽는 방식에서도 세 차례 중 하나만 다르면 그 하나가 효의 음양을 정하고, 셋이 모두 같으면 변하는 효가 됩니다. 아이역은 이를 단순한 다수결보다 “이 조합에서 어떤 성질에 결정권을 주는가”라는 물음으로도 바라봅니다.</p>
+          <p class="iyeok-thought-note">소·다는 한 차례에 덜어 모은 수가 작은지(소) 큰지(다)를 말합니다. 4·5는 작은 수(소), 8·9는 큰 수(다)입니다. 전통 방식에서는 소를 양에, 다를 음에 대응시켜 읽습니다(정효점에서는 홀수를 양, 짝수를 음으로). 아이역은 이 대응도 정해진 답이 아니라 각자가 고를 수 있는 기준으로 보며, 위의 ‘음양 대응’에서 뒤집어 고를 수 있습니다. 자세한 과정은 배우기의 [왜 이 효가 나왔나요?]에서 볼 수 있습니다.</p>
+          <p>사람은 태어날 조건을 고르지 못하지만, 태어난 자신을 미워할 필요는 없습니다. 지금의 모습에 자신을 가둘 필요도 없습니다. 무엇을 받아들이고 어떤 방향으로 살아갈지는 스스로 살피고 선택할 수 있습니다. 아이역이 여러 방식을 선택할 수 있게 하려는 이유도 여기에 있습니다.</p>
+          <p>방식은 시작하기 전에 정하고, 그 과정에서는 같은 기준으로 읽습니다. 다른 기준이 궁금하다면 처음의 결과를 지우기보다, 또 하나의 관점으로 나란히 살펴봅니다.</p>
+          <p>이 글은 전통 문헌의 유일한 해석이 아니라 아이역이 제안하는 관점입니다.</p>
+          <p class="iyeok-thought-motto">괘는 길을 보여주고, 선택은 사람이 합니다.</p>
+        </div>
+      </details>
+    </section>
+
+    <p class="try"><a href="../">← 시초점 메뉴로</a> · <a href="../../">아이역 홈으로</a></p>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 iYeok Project · <a href="https://github.com/michin-jjangddol/iyeok">Source</a> · <a href="https://github.com/michin-jjangddol/iyeok/blob/main/LICENSE">AGPL-3.0</a></p>
+  </footer>
+
+  <script type="module" src="261125_1716_options_Laude.js"></script>
+</body>
+</html>

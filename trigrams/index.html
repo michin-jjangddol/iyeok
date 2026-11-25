@@ -10,9 +10,9 @@
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../assets/style.css">
   <link rel="stylesheet" href="../assets/261125_0640_trigrams_Laude.css">
-  <link rel="stylesheet" href="261126_0725_trigrams-page_Laude.css">
+  <link rel="stylesheet" href="261126_0736_trigrams-page_Laude.css">
   <link rel="stylesheet" href="../assets/i18n/261121_1836_language_Laude.css">
-  <script type="module" src="../assets/i18n/261126_0725_language_Laude.js"></script>
+  <script type="module" src="../assets/i18n/261126_0736_language_Laude.js"></script>
 </head>
 <body>
   <!-- 261125_1716 LAUDE: 독립 '8괘' 페이지(JJDD·SHANA). 팔괘 자료는 data/hexagrams.json 과 팔괘 공용 자료(data/trigrams/)의 등록 아이콘,
@@ -36,6 +36,19 @@
       <div class="tri-map" id="map-symbols" role="group" aria-label="팔괘 괘상 배치"></div>
       <div class="tri-map tri-map-images" id="map-images" role="group" aria-label="팔괘 그림 배치"></div>
     </div>
+    <!-- 261126_0736 LAUDE: 순서 따라가기(JJDD) — 같은 배치 위에 선천·아이역 순서를 화살표로. 그림은 스크립트가 그린다. -->
+    <section class="tri-paths" aria-labelledby="paths-title">
+      <h2 id="paths-title">순서 따라가기</h2>
+      <p class="tri-lead">위 배치에서 두 순서를 화살표로 따라가 보세요. 두 순서 모두 하늘에서 시작해 땅에서 끝납니다. 번호는 가는 차례입니다.</p>
+      <div class="tri-path-grid">
+        <figure class="tri-path" data-order="xiantian">
+          <figcaption><b>선천 순서</b><span class="tri-path-now">지금 고른 순서</span><span class="tri-path-seq"></span></figcaption>
+        </figure>
+        <figure class="tri-path" data-order="iyeok">
+          <figcaption><b>아이역 순서</b><span class="tri-path-now">지금 고른 순서</span><span class="tri-path-seq"></span></figcaption>
+        </figure>
+      </div>
+    </section>
 
     <section class="tri-order" aria-labelledby="order-title">
       <h2 id="order-title">보는 순서</h2>
@@ -71,6 +84,6 @@
   <footer class="site-footer">
     <p>© 2026 iYeok Project · <a href="https://github.com/michin-jjangddol/iyeok">Source</a> · <a href="https://github.com/michin-jjangddol/iyeok/blob/main/LICENSE">AGPL-3.0</a></p>
   </footer>
-  <script type="module" src="261126_0725_trigrams-page_Laude.js"></script>
+  <script type="module" src="261126_0736_trigrams-page_Laude.js"></script>
 </body>
 </html>

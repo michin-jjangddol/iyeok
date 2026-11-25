@@ -10,9 +10,9 @@
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../assets/style.css">
   <link rel="stylesheet" href="../assets/261125_0640_trigrams_Laude.css">
-  <link rel="stylesheet" href="261125_1716_trigrams-page_Laude.css">
+  <link rel="stylesheet" href="261125_2209_trigrams-page_Laude.css">
   <link rel="stylesheet" href="../assets/i18n/261121_1836_language_Laude.css">
-  <script type="module" src="../assets/i18n/261125_1716_language_Laude.js"></script>
+  <script type="module" src="../assets/i18n/261125_2209_language_Laude.js"></script>
 </head>
 <body>
   <!-- 261125_1716 LAUDE: 독립 '8괘' 페이지(JJDD·SHANA). 팔괘 자료는 data/hexagrams.json 과 팔괘 공용 자료(data/trigrams/)의 등록 아이콘,
@@ -41,7 +41,14 @@
         <label class="tri-option"><input type="radio" name="trigramOrder" value="iyeok">
           <span><b>아이역 순서</b><small>건·손·리·간·태·감·진·곤. 위 효부터 읽은 이진 번호를 큰 수부터(111 → 000) 늘어놓습니다. 64괘 번호와 같은 규칙입니다.</small></span></label>
       </form>
-      <p class="tri-desc" data-order="xiantian" aria-live="polite">선천 순서는 선천 팔괘의 수, 건1·태2·리3·진4·손5·감6·간7·곤8에 따른 배열입니다. 후천 팔괘의 방위 배치와는 다르며, 아이역의 이진 번호와도 기준이 다릅니다. 세 효를 아래 효부터 읽은 번호로 보면 111에서 000으로 내려가는 차례와 같습니다.</p>
+      <p class="tri-desc" data-order="xiantian" aria-live="polite">선천 순서는 선천 팔괘의 수, 건1·태2·리3·진4·손5·감6·간7·곤8에 따른 배열입니다. 후천 팔괘의 방위 배치와는 다릅니다.</p>
+      <!-- 261125_2209 LAUDE: 이진수 좌우 바꾸기 노트(JJDD) -->
+      <aside class="tri-desc tri-binnote" data-order="xiantian" aria-labelledby="binnote-title">
+        <p class="tri-binnote-title" id="binnote-title">노트 · 이진수의 좌우 방향을 바꾸면</p>
+        <p>아이역 번호는 위 효를 왼쪽에 둡니다. 이 이진수의 좌우 방향을 바꾸어 읽으면(예: 태 011₂ → 110₂), 선천 순서는 7부터 0까지 하나씩 내려가는 차례가 됩니다. 곤부터 거꾸로 보면 0부터 7까지입니다.</p>
+        <p class="tri-binnote-row">건 111 · 태 110 · 리 101 · 진 100 · 손 011 · 감 010 · 간 001 · 곤 000 (7 → 0)</p>
+        <p>아이역 순서와 놓이는 차례는 다르지만, 같은 이진수를 반대 방향에서 읽은 차례로 볼 수 있습니다.</p>
+      </aside>
       <p class="tri-desc" data-order="iyeok" aria-live="polite" hidden>아이역 순서는 음을 0, 양을 1로 놓고 세 효를 위 효부터 읽은 이진 번호(000~111)에 따른 배열입니다. 위에 건(111), 아래에 곤(000)이 오도록 큰 수부터 놓았습니다. 괘의 고유 번호와 저장·계산 체계를 일관되게 잇기 위한 순서이며, 64괘 번호와 같은 규칙입니다.</p>
       <p class="tri-common">순서를 바꾸어도 각 팔괘의 효 구성과 고유 번호는 변하지 않습니다. 이 선택은 시초점·동전점의 [팔괘 성격 보기]와 설정의 '팔괘 순서'에도 함께 적용됩니다.</p>
     </section>

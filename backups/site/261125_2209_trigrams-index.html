@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>8괘 · 아이역 iYeok</title>
+  <meta name="description" content="팔괘는 세 효로 이루어집니다. 아래 팔괘와 위 팔괘가 만나면 64괘 가운데 하나가 됩니다.">
+  <meta name="theme-color" content="#f4efe4" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#1b1a18" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="stylesheet" href="../assets/261125_0640_trigrams_Laude.css">
+  <link rel="stylesheet" href="261125_1716_trigrams-page_Laude.css">
+  <link rel="stylesheet" href="../assets/i18n/261121_1836_language_Laude.css">
+  <script type="module" src="../assets/i18n/261125_1716_language_Laude.js"></script>
+</head>
+<body>
+  <!-- 261125_1716 LAUDE: 독립 '8괘' 페이지(JJDD·SHANA). 팔괘 자료는 data/hexagrams.json 과 팔괘 공용 자료(data/trigrams/)의 등록 아이콘,
+       목록·순서는 팔괘 공용 모듈(assets/261125_1716_trigrams-ko_Laude.js), 순서 선택은 기존 설정과 같은 저장값(iyeok.trigram-order.v1). -->
+  <header class="site-header">
+    <a class="brand" href="../" aria-label="아이역 홈">
+      <span class="brand-mark">i易</span>
+      <span class="brand-name">iYeok</span>
+    </a>
+    <nav class="site-nav" aria-label="주요 메뉴">
+      <a href="../">아이역 홈</a>
+    </nav>
+  </header>
+
+  <main class="tri-page">
+    <p class="eyebrow">아이역 · 8괘</p>
+    <h1>8괘</h1>
+    <p class="tri-intro">팔괘는 세 효로 이루어집니다. 아래 팔괘와 위 팔괘가 만나면 64괘 가운데 하나가 됩니다.</p>
+
+    <section class="tri-order" aria-labelledby="order-title">
+      <h2 id="order-title">보는 순서</h2>
+      <p class="tri-lead">효의 음양 대응을 고르듯, 8괘도 보는 순서를 스스로 고를 수 있습니다.</p>
+      <form id="order-form" class="tri-order-form">
+        <label class="tri-option"><input type="radio" name="trigramOrder" value="xiantian">
+          <span><b>선천 순서 — 기본값</b><small>건·태·리·진·손·감·간·곤. 선천 팔괘의 수 차례(건1 … 곤8)입니다.</small></span></label>
+        <label class="tri-option"><input type="radio" name="trigramOrder" value="iyeok">
+          <span><b>아이역 순서</b><small>건·손·리·간·태·감·진·곤. 위 효부터 읽은 이진 번호를 큰 수부터(111 → 000) 늘어놓습니다. 64괘 번호와 같은 규칙입니다.</small></span></label>
+      </form>
+      <p class="tri-desc" data-order="xiantian" aria-live="polite">선천 순서는 선천 팔괘의 수, 건1·태2·리3·진4·손5·감6·간7·곤8에 따른 배열입니다. 후천 팔괘의 방위 배치와는 다르며, 아이역의 이진 번호와도 기준이 다릅니다. 세 효를 아래 효부터 읽은 번호로 보면 111에서 000으로 내려가는 차례와 같습니다.</p>
+      <p class="tri-desc" data-order="iyeok" aria-live="polite" hidden>아이역 순서는 음을 0, 양을 1로 놓고 세 효를 위 효부터 읽은 이진 번호(000~111)에 따른 배열입니다. 위에 건(111), 아래에 곤(000)이 오도록 큰 수부터 놓았습니다. 괘의 고유 번호와 저장·계산 체계를 일관되게 잇기 위한 순서이며, 64괘 번호와 같은 규칙입니다.</p>
+      <p class="tri-common">순서를 바꾸어도 각 팔괘의 효 구성과 고유 번호는 변하지 않습니다. 이 선택은 시초점·동전점의 [팔괘 성격 보기]와 설정의 '팔괘 순서'에도 함께 적용됩니다.</p>
+    </section>
+
+    <section class="tri-list-section" aria-labelledby="list-title">
+      <h2 id="list-title">여덟 괘</h2>
+      <div id="trigram-list"></div>
+      <p class="tri-error" id="load-error" hidden>팔괘 자료를 불러오지 못했습니다. 잠시 뒤 새로고침해 주세요.</p>
+      <p class="trigram-note">한 글자 성질은 「설괘전」에 전하는 것이고, 옆의 풀이는 상상을 돕기 위해 아이역이 쉽게 풀어 쓴 것입니다. 괘의 뜻을 정하는 정답은 아닙니다.</p>
+    </section>
+
+    <p class="try tri-back"><a href="../">← 아이역 홈으로</a></p>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 iYeok Project · <a href="https://github.com/michin-jjangddol/iyeok">Source</a> · <a href="https://github.com/michin-jjangddol/iyeok/blob/main/LICENSE">AGPL-3.0</a></p>
+  </footer>
+  <script type="module" src="261125_1716_trigrams-page_Laude.js"></script>
+</body>
+</html>

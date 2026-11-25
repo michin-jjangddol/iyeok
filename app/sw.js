@@ -2,20 +2,20 @@
 // 인터넷이 되면 새 파일을 받고(network-first), 끊기면 저장해 둔 파일로 연다.
 // 새 파일을 받을 때 브라우저 캐시(GitHub Pages는 10분)를 그대로 믿지 않고 서버에 바뀌었는지 묻는다.
 
-const CACHE = "iyeok-app-v82"; // 261125_1255: 언어 사전 새 판(홈 하나와 둘)
+const CACHE = "iyeok-app-v83"; // 261125_1716: 팔괘 공용 모듈 새 판·언어 사전 새 판(8괘 페이지)
 const FILES = [
-  "../assets/i18n/261125_1255_language_Laude.js",
+  "../assets/i18n/261125_1716_language_Laude.js",
   "../assets/i18n/261121_1836_language_Laude.css",
-  "../assets/i18n/261125_1255_locales_Laude.json",
-  "../assets/i18n/261125_1255_ko_Laude.json",
-  "../assets/i18n/261125_1255_en_Laude.json",
+  "../assets/i18n/261125_1716_locales_Laude.json",
+  "../assets/i18n/261125_1716_ko_Laude.json",
+  "../assets/i18n/261125_1716_en_Laude.json",
 
   "./",
   "./index.html",
   "./app.css",
   "./app.js",
   "../assets/261124_2251_hexagram-texts_Laude.js",
-  "../assets/261125_0744_trigrams-ko_Laude.js",
+  "../assets/261125_1716_trigrams-ko_Laude.js",
   "../assets/261125_0640_trigrams_Laude.css",
   "../data/trigrams/261125_0744_trigram-index_Laude.json",
   "../data/trigrams/000/261124_2013_trigram_Shana.json",

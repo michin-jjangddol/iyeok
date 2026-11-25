@@ -1,0 +1,396 @@
+/* 261126_0805 LAUDE: 원본 261126_0736_trigrams-page_Laude.css. 짝으로 보기 모양 추가. */
+/* 261126_0736 LAUDE: 원본 261126_0725_trigrams-page_Laude.css. 순서 따라가기 그림 모양 추가. */
+/* 261126_0725 LAUDE: 원본 261126_0707_trigrams-page_Laude.css. 팔괘 배치(괘상·그림) 모양 추가. */
+/* 261126_0707 LAUDE: 원본 261125_2209_trigrams-page_Laude.css. 좌우 바꾼 번호 줄 모양 추가. */
+/* 261125_2209 LAUDE: 원본 261125_1716_trigrams-page_Laude.css. 이진수 노트 모양 추가. */
+/* 261125_1716 LAUDE: 8괘 페이지. 팔괘 목록 모양은 공용 CSS(assets/261125_0640_trigrams_Laude.css)를 그대로 쓰고, 페이지 틀·순서 선택만 더한다. */
+.tri-page {
+  max-width: calc(var(--measure) + 2 * var(--gutter));
+  margin: 0 auto;
+  padding: 2rem var(--gutter) 3rem;
+}
+.tri-page h1 {
+  margin: 0.25rem 0 0.75rem;
+  font-family: var(--serif);
+  font-size: clamp(2rem, 7vw, 2.8rem);
+}
+.tri-page h2 {
+  margin: 2rem 0 0.75rem;
+  font-size: 1.15rem;
+}
+.tri-intro, .tri-lead, .tri-desc, .tri-common {
+  line-height: 1.8;
+  word-break: keep-all;
+}
+.tri-desc {
+  padding: 0.75rem 0.9rem;
+  border-left: 3px solid var(--rule);
+  background: var(--paper-deep);
+  border-radius: 0 6px 6px 0;
+  font-size: 0.92rem;
+}
+.tri-common {
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+}
+.tri-order-form {
+  display: grid;
+  gap: 0.5rem;
+  margin: 0.75rem 0 1rem;
+}
+.tri-option {
+  position: relative;
+  display: block;
+  cursor: pointer;
+}
+.tri-option input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.tri-option span {
+  display: block;
+  padding: 0.7rem 0.95rem;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  line-height: 1.5;
+}
+.tri-option b {
+  display: block;
+  font-weight: 600;
+}
+.tri-option small {
+  display: block;
+  margin-top: 0.15rem;
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+}
+.tri-option input:checked + span,
+.tri-option.is-checked span {
+  border-color: var(--ink);
+  box-shadow: inset 0 0 0 1px var(--ink);
+  background: var(--paper-deep);
+}
+.tri-option input:focus-visible + span {
+  outline: 2px solid var(--seal);
+  outline-offset: 2px;
+}
+/* 고유 번호는 보조 정보로 작게 */
+.trigram-code {
+  font-size: 0.76rem;
+  color: var(--ink-faint);
+  font-variant-numeric: tabular-nums;
+}
+.tri-error {
+  padding: 0.7rem 0.85rem;
+  border-left: 3px solid var(--seal);
+  background: var(--paper-deep);
+}
+.tri-back {
+  margin-top: 2.5rem;
+}
+
+/* 261125_2209: 선천 순서 아래 '이진수 좌우 바꾸기' 노트 */
+.tri-binnote {
+  margin-top: -0.4rem;
+  font-size: 0.86rem;
+  border-left-style: dashed;
+}
+.tri-binnote p {
+  margin: 0.35rem 0;
+}
+.tri-binnote-title {
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+.tri-binnote-row {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.01em;
+}
+
+/* 261126_0707: 선천 순서에서 좌우가 다른 네 괘(태·진·손·간) — 좌우를 바꾼 번호를 눈에 띄게 */
+.trigram-flip {
+  justify-self: start;
+  margin-top: 0.2rem;
+  padding: 0.1rem 0.5rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--seal) 14%, transparent);
+  color: var(--seal);
+  font-size: 0.8rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+.trigram-flip::before {
+  content: "→ ";
+}
+/* 줄이 하나 늘어난 항목은 괘 기호·그림도 다섯 줄 높이 가운데에 */
+.trigram-list li.has-flip > .trigram-sym,
+.trigram-list li.has-flip > .trigram-icon-slot {
+  grid-row: 1 / span 5;
+}
+
+/* 261126_0725: 팔괘 배치 — 왼쪽·오른쪽 열에 세 괘씩, 가운데 열에 두 괘가 그 사이 줄에 */
+.tri-maps {
+  display: grid;
+  gap: 1.25rem;
+  margin: 1.5rem 0 0.5rem;
+}
+.tri-map {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(2.6rem, auto);
+  align-items: center;
+  max-width: 21rem;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1rem 0.75rem;
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+}
+.tri-map[hidden] {
+  display: none;
+}
+.tri-map-cell {
+  display: grid;
+  justify-items: center;
+  gap: 0.35rem;
+}
+.tri-map-sym {
+  display: grid;
+  gap: 0.26rem;
+  width: 2.2rem;
+}
+.tri-map-sym .tri-bar {
+  height: 0.38rem;
+}
+.tri-map-images img {
+  display: block;
+  width: 3.6rem;
+  height: 3.6rem;
+  object-fit: contain;
+}
+.tri-map-name {
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+}
+
+/* 261126_0736: 순서 따라가기 — 폰은 위아래, 넓은 화면은 나란히 */
+.tri-paths {
+  margin-top: 1.5rem;
+}
+.tri-path-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 1rem;
+  margin-top: 0.75rem;
+}
+.tri-path {
+  --path-color: var(--seal);
+  margin: 0;
+  padding: 0.75rem 0.5rem 0.5rem;
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  color: var(--path-color);
+}
+.tri-path[data-order="iyeok"] {
+  --path-color: #2f6fb5;
+}
+.tri-path.is-current {
+  border-color: var(--path-color);
+  box-shadow: inset 0 0 0 1px var(--path-color);
+}
+.tri-path figcaption {
+  display: grid;
+  justify-items: center;
+  gap: 0.2rem;
+  text-align: center;
+  color: var(--ink);
+}
+.tri-path figcaption b {
+  font-size: 1rem;
+}
+.tri-path-now {
+  display: none;
+  padding: 0.05rem 0.5rem;
+  border-radius: 999px;
+  background: var(--path-color);
+  color: var(--paper);
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+.tri-path.is-current .tri-path-now {
+  display: inline-block;
+}
+.tri-path-seq {
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  line-height: 1.5;
+  word-break: keep-all;
+}
+.tri-path-svg {
+  display: block;
+  width: 100%;
+  max-width: 20rem;
+  height: auto;
+  margin: 0.4rem auto 0;
+  color: var(--path-color);
+}
+.tri-path-line {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.4;
+  opacity: 0.9;
+}
+.tri-path-head,
+.tri-path-dot {
+  fill: currentColor;
+}
+.tri-path-dot {
+  stroke: var(--paper);
+  stroke-width: 2;
+}
+.tri-path-num {
+  fill: var(--paper);
+  font-size: 11px;
+  font-weight: 700;
+}
+.tri-path-box {
+  fill: var(--paper);
+  stroke: var(--rule);
+}
+.tri-path-bar {
+  fill: var(--ink);
+}
+.tri-path-name {
+  fill: var(--ink-soft);
+  font-size: 10.5px;
+}
+.tri-path-end {
+  fill: currentColor;
+  font-size: 11px;
+  font-weight: 700;
+}
+@media (prefers-color-scheme: dark) {
+  .tri-path[data-order="iyeok"] {
+    --path-color: #6fa3dc;
+  }
+}
+
+/* 261126_0805: 짝으로 보기 */
+.tri-pairs {
+  margin-top: 2rem;
+}
+.tri-pairs h3 {
+  margin: 1.6rem 0 0.4rem;
+  font-size: 1rem;
+}
+.tri-pairs p {
+  line-height: 1.8;
+  word-break: keep-all;
+}
+.tri-pair-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: 0.6rem;
+  margin: 0.75rem 0;
+}
+.tri-pair {
+  display: grid;
+  justify-items: center;
+  gap: 0.35rem;
+  padding: 0.75rem 0.5rem 0.6rem;
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  background: var(--paper-deep);
+}
+.tri-pair-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.tri-pair-sign {
+  color: var(--seal);
+  font-weight: 700;
+}
+.tri-mini {
+  display: grid;
+  justify-items: center;
+  gap: 0.2rem;
+}
+.tri-mini-sym {
+  display: grid;
+  gap: 0.22rem;
+  width: 1.9rem;
+}
+.tri-mini-sym .tri-bar {
+  height: 0.32rem;
+}
+.tri-mini-sym .tri-bar.is-diff.is-yang {
+  background: var(--seal);
+}
+.tri-mini-sym .tri-bar.is-diff.is-yin {
+  background: linear-gradient(to right, var(--seal) 0 40%, transparent 40% 60%, var(--seal) 60% 100%);
+}
+.tri-mini-name {
+  font-size: 0.8rem;
+}
+.tri-mini-code,
+.tri-pair-sum,
+.tri-pair-diff {
+  font-size: 0.74rem;
+  color: var(--ink-faint);
+  font-variant-numeric: tabular-nums;
+}
+.tri-pair-sum,
+.tri-pair-diff {
+  color: var(--seal);
+  font-weight: 600;
+}
+.tri-pair-note {
+  font-size: 0.86rem;
+  color: var(--ink-soft);
+}
+.tri-fold {
+  display: grid;
+  gap: 0.6rem;
+  margin: 0.75rem 0;
+}
+.tri-fold-row {
+  display: grid;
+  gap: 0.35rem;
+}
+.tri-fold-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+.tri-fold-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.tri-fold-chip {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.3rem;
+  padding: 0.25rem 0.65rem;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  font-size: 0.85rem;
+}
+.tri-fold-pos {
+  font-size: 0.72rem;
+  color: var(--ink-faint);
+  font-variant-numeric: tabular-nums;
+}
+.tri-two {
+  margin-top: 1.5rem;
+}
+.tri-two ul {
+  margin: 0.3rem 0 0;
+  padding-left: 1.1rem;
+  line-height: 1.75;
+  font-size: 0.88rem;
+}
+.tri-two li + li {
+  margin-top: 0.35rem;
+}

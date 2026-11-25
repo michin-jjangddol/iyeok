@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>시초점 맛보기 · 아이역 iYeok</title>
+  <meta name="description" content="시초 쉰 가지를 나누고 세어 여섯 효를 쌓고, 본괘·지괘·괘사까지 봅니다.">
+  <meta name="theme-color" content="#f4efe4" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#1b1a18" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../assets/style.css">
+  <link rel="stylesheet" href="../learn/261122_1723_learn_Laude.css">
+  <link rel="stylesheet" href="261124_0732_try_Laude.css">
+  <link rel="stylesheet" href="../../assets/261125_0640_trigrams_Laude.css">
+  <link rel="stylesheet" href="../../assets/i18n/261121_1836_language_Laude.css">
+  <script type="module" src="../../assets/i18n/261126_0736_language_Laude.js"></script>
+</head>
+<body>
+  <!-- 261123_2003 LAUDE: 진행 방식(단계별 = [다음 장면] / 빠르게 = 자동) 적용. 백업 backups/yarrow/261123_2003_try-index.html -->
+  <!-- 261123_1831 LAUDE: 시초점 맛보기(실제로 한 괘 뽑기). 배우기와 같은 계산·설정 모듈을 쓰고, 나누기는 움직이다 멈추기만. 진행은 저장하지 않는다. -->
+  <header class="site-header">
+    <a class="brand" href="../../" aria-label="아이역 홈">
+      <span class="brand-mark">i易</span>
+      <span class="brand-name">iYeok</span>
+    </a>
+    <nav class="site-nav" aria-label="주요 메뉴">
+      <a href="../">시초점 메뉴</a>
+    </nav>
+  </header>
+
+  <main class="learn try-page">
+    <p class="eyebrow">시초점 · 맛보기</p>
+    <h1 class="learn-heading">시초점 맛보기</h1>
+    <p class="learn-refresh">진행은 저장되지 않습니다. 새로고침하거나 페이지를 닫으면 처음부터 다시 시작합니다.</p>
+
+    <!-- 1. 설정 확인 -->
+    <section class="try-setup" id="setup" aria-labelledby="setup-title">
+      <h2 id="setup-title">이번에 쓸 방식</h2>
+      <dl class="try-summary">
+        <dt>하나를 덜어 내는 쪽</dt><dd id="sum-side">땅 쪽에서 — 오른쪽</dd>
+        <dt>진행 방식</dt><dd id="sum-pace">단계별 진행</dd>
+        <dt>효 읽기</dt><dd id="sum-reading">정효점 · 홀=양·짝=음 · 전통 방식</dd>
+        <dt>변효 기호</dt><dd id="sum-symbols">노양 × · 노음 ○</dd>
+        <dt>정시초 나누기</dt><dd id="sum-motion">중우(가운데에서 오른쪽으로) · 빠르기 5</dd>
+      </dl>
+      <p class="try-note">시작하면 이 방식을 이번 괘가 끝날 때까지 그대로 씁니다. 바꾸려면 시작하기 전에 <a href="../options/">설정</a>에서 바꿔 주세요.</p>
+      <ul class="try-points">
+        <li>매 차례 [움직이기 시작]을 누르고 원하는 순간에 [멈춤]을 누르면, 멈춘 자리에서 바로 나뉩니다. 다시 뽑기는 없습니다.</li>
+        <li>나눈 뒤의 인시초 덜기·넷씩 세기·윤시초 모으기는 실제 계산대로 보여 줍니다. 단계별 진행이면 장면마다 [다음 장면]을 눌러 차분히 넘기고, 빠르게 진행이면 자동으로 지나갑니다.</li>
+        <li>멈추는 순간을 사람이 고르는 체험이라, 완전한 무작위나 전통 시초법의 확률을 보장하지는 않습니다.</li>
+      </ul>
+      <div class="try-actions">
+        <button type="button" class="learn-btn learn-primary" id="start">시작</button>
+        <a class="learn-btn learn-ghost" href="../options/">설정</a>
+        <a class="learn-btn learn-ghost" href="../learn/">배우기</a>
+      </div>
+    </section>
+
+    <!-- 2. 여섯 효 만들기 -->
+    <section class="learn-scene try-cast" id="cast" aria-labelledby="cast-title" hidden>
+      <div class="learn-head">
+        <h2 id="cast-title" tabindex="-1">초효 만들기</h2>
+        <span class="learn-step" id="cast-step">1/6 효 · 1/3 차례</span>
+      </div>
+      <p class="try-fixed">이번 괘의 방식: <span id="cast-fixed"></span></p>
+
+      <div class="learn-mat" id="mat">
+        <div class="learn-mat-bg" style="background-image:url('../learn/261119_2027_mat_Laude.svg')" aria-hidden="true"></div>
+        <svg id="field" class="learn-field" viewBox="0 0 360 240" role="img" aria-label="시초 쉰 가지"></svg>
+      </div>
+      <p class="learn-counts" id="counts" aria-live="polite"></p>
+
+      <div class="try-ops">
+        <div class="motion-track" aria-hidden="true"><span class="motion-knob" id="motion-knob"></span></div>
+        <p class="learn-readout motion-readout" id="motion-readout" role="status"></p>
+        <div class="try-buttons">
+          <button type="button" class="learn-btn learn-primary" id="go" aria-pressed="false">움직이기 시작</button>
+          <button type="button" class="learn-btn learn-primary" id="step" hidden>다음 장면</button>
+          <button type="button" class="learn-btn learn-primary" id="next" hidden>다음 효</button>
+        </div>
+      </div>
+      <div class="learn-story try-msg" id="msg" tabindex="-1" aria-live="polite"></div>
+
+      <div class="learn-board" id="board" aria-label="효판">
+        <p class="learn-board-title">효판 (아래에서 위로 쌓습니다)</p>
+        <div class="board-line" data-line="6"><span class="board-label">상효 · 아직</span><span class="board-mark" aria-hidden="true"></span><span class="board-bar"></span></div>
+        <div class="board-line" data-line="5"><span class="board-label">오효 · 아직</span><span class="board-mark" aria-hidden="true"></span><span class="board-bar"></span></div>
+        <div class="board-line" data-line="4"><span class="board-label">사효 · 아직</span><span class="board-mark" aria-hidden="true"></span><span class="board-bar"></span></div>
+        <div class="board-line" data-line="3"><span class="board-label">삼효 · 아직</span><span class="board-mark" aria-hidden="true"></span><span class="board-bar"></span></div>
+        <div class="board-line" data-line="2"><span class="board-label">이효 · 아직</span><span class="board-mark" aria-hidden="true"></span><span class="board-bar"></span></div>
+        <div class="board-line" data-line="1"><span class="board-label">초효 · 아직</span><span class="board-mark" aria-hidden="true"></span><span class="board-bar"></span></div>
+      </div>
+      <p class="try-error" id="data-error" hidden>괘 이름을 불러오지 못했습니다. <button type="button" class="learn-btn learn-ghost" id="data-retry">다시 시도</button></p>
+
+      <p class="try-note">진행 중에 <a href="../options/">설정</a>이나 다른 화면으로 가면 지금까지 만든 효가 지워집니다. 과정이 궁금하면 <a href="../learn/">배우기</a>에서 천천히 볼 수 있습니다.</p>
+      <button type="button" class="learn-btn learn-ghost try-restart" id="restart">처음부터</button>
+    </section>
+
+    <!-- 3. 결과 -->
+    <section class="learn-scene try-result" id="result" aria-labelledby="result-title" hidden>
+      <h2 id="result-title" tabindex="-1">괘를 얻었습니다</h2>
+      <div class="learn-result">
+        <div class="result-hexes" id="result-hexes"></div>
+        <p class="result-moving" id="result-moving"></p>
+        <p class="result-side" id="result-how"></p>
+        <ul class="result-list" id="result-list"></ul>
+      </div>
+      <div id="trigram-guide-slot"></div>
+      <details class="try-process">
+        <summary>과정 보기</summary>
+        <div id="process"></div>
+      </details>
+      <div class="texts" id="texts" aria-live="polite"></div>
+      <p class="try-note">시초점 맛보기의 결과는 스스로를 돌아보는 참고입니다. 정답이나 앞일을 알려 주는 결과가 아닙니다.</p>
+      <div class="try-actions">
+        <button type="button" class="learn-btn learn-primary" id="again">새로 뽑기</button>
+        <a class="learn-btn learn-ghost" href="../learn/">배우기</a>
+      </div>
+    </section>
+
+    <dialog class="learn-confirm" id="restart-confirm" aria-labelledby="restart-title" aria-describedby="restart-desc">
+      <h2 id="restart-title">처음부터 다시 할까요?</h2>
+      <p id="restart-desc">지금까지 만든 효가 모두 지워집니다.</p>
+      <div class="learn-range-row">
+        <button type="button" class="learn-btn learn-ghost" id="restart-no">취소</button>
+        <button type="button" class="learn-btn learn-primary" id="restart-yes">지우고 처음부터</button>
+      </div>
+    </dialog>
+
+    <p class="try learn-back"><a href="../">← 시초점 메뉴로</a> · <a href="../../">아이역 홈으로</a></p>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 iYeok Project · <a href="https://github.com/michin-jjangddol/iyeok">Source</a> · <a href="https://github.com/michin-jjangddol/iyeok/blob/main/LICENSE">AGPL-3.0</a></p>
+  </footer>
+
+  <script type="module" src="261125_1716_try_Laude.js"></script>
+</body>
+</html>

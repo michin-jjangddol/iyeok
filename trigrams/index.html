@@ -10,9 +10,9 @@
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../assets/style.css">
   <link rel="stylesheet" href="../assets/261125_0640_trigrams_Laude.css">
-  <link rel="stylesheet" href="261126_0736_trigrams-page_Laude.css">
+  <link rel="stylesheet" href="261126_0805_trigrams-page_Laude.css">
   <link rel="stylesheet" href="../assets/i18n/261121_1836_language_Laude.css">
-  <script type="module" src="../assets/i18n/261126_0736_language_Laude.js"></script>
+  <script type="module" src="../assets/i18n/261126_0805_language_Laude.js"></script>
 </head>
 <body>
   <!-- 261125_1716 LAUDE: 독립 '8괘' 페이지(JJDD·SHANA). 팔괘 자료는 data/hexagrams.json 과 팔괘 공용 자료(data/trigrams/)의 등록 아이콘,
@@ -79,12 +79,41 @@
       </div>
     </section>
 
+    <!-- 261126_0805 LAUDE: 짝으로 보기(JJDD) — 반대 짝·비슷한 짝·접으면 마주 보는 짝·두 가지 바꾸기. 카드는 스크립트가 그린다. -->
+    <section class="tri-pairs" aria-labelledby="pairs-title">
+      <h2 id="pairs-title">짝으로 보기</h2>
+      <p class="tri-lead">여덟 괘는 서로 짝을 이룹니다. 성질이 반대인 짝이 있고, 닮은 짝이 있습니다.</p>
+
+      <h3>반대 짝 — 음양을 모두 바꾸면</h3>
+      <p>세 효의 음양을 모두 바꾸면(0 ↔ 1) 성질이 반대인 괘가 됩니다. 값으로는 7에서 뺀 수라서, 두 값을 더하면 늘 7입니다.</p>
+      <div class="tri-pair-grid" id="pairs-opposite"></div>
+      <p class="tri-pair-note">하늘 ↔ 땅, 물 ↔ 불, 이 두 짝의 네 괘(건·곤·감·리)는 태극기에 그려진 괘입니다.</p>
+
+      <h3>비슷한 짝 — 한 효만 다르면</h3>
+      <p>가운데 효는 같고 맨 위나 맨 아래 효 하나만 다른 괘끼리는 닮은 짝으로 볼 수 있습니다. 다른 효는 색으로 표시했습니다.</p>
+      <div class="tri-pair-grid" id="pairs-similar"></div>
+
+      <h3>접으면 마주 보는 짝</h3>
+      <p>선천 순서든 아이역 순서든 마찬가지입니다. 여덟 괘를 한 줄로 꿴 구슬 장식처럼 놓고 가운데를 접으면, 마주 닿는 구슬끼리 늘 반대 짝입니다.</p>
+      <div class="tri-fold" id="pairs-fold"></div>
+      <p class="tri-pair-note">두 순서 모두 값이 7부터 0까지 차례로 내려가서(선천 순서는 좌우를 바꾸면) 마주 보는 자리를 더하면 7이 되기 때문입니다.</p>
+
+      <aside class="tri-desc tri-two" aria-labelledby="two-title">
+        <p class="tri-binnote-title" id="two-title">두 가지 바꾸기</p>
+        <ul>
+          <li>음양 바꾸기(0 ↔ 1): 성질이 반대가 됩니다. 하늘 ↔ 땅, 물 ↔ 불, 못 ↔ 산, 우레 ↔ 바람.</li>
+          <li>좌우 바꾸기(011₂ → 110₂): 못 ↔ 바람, 우레 ↔ 산이 서로 바뀌고, 하늘·땅·물·불은 그대로입니다. 그대로 남는 네 괘가 태극기의 네 괘입니다.</li>
+          <li>효의 음양 대응을 뒤집어 읽으면, 같은 막대 모양이 반대 성질의 괘로 읽힙니다. 선택 하나로 세계가 반대로 보이는 셈입니다.</li>
+        </ul>
+      </aside>
+    </section>
+
     <p class="try tri-back"><a href="../">← 아이역 홈으로</a></p>
   </main>
 
   <footer class="site-footer">
     <p>© 2026 iYeok Project · <a href="https://github.com/michin-jjangddol/iyeok">Source</a> · <a href="https://github.com/michin-jjangddol/iyeok/blob/main/LICENSE">AGPL-3.0</a></p>
   </footer>
-  <script type="module" src="261126_0736_trigrams-page_Laude.js"></script>
+  <script type="module" src="261126_0805_trigrams-page_Laude.js"></script>
 </body>
 </html>

@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>8괘 · 아이역 iYeok</title>
+  <meta name="description" content="팔괘는 세 효로 이루어집니다. 아래 팔괘와 위 팔괘가 만나면 64괘 가운데 하나가 됩니다.">
+  <meta name="theme-color" content="#f4efe4" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#1b1a18" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="stylesheet" href="../assets/261125_0640_trigrams_Laude.css">
+  <link rel="stylesheet" href="261126_0805_trigrams-page_Laude.css">
+  <link rel="stylesheet" href="../assets/i18n/261121_1836_language_Laude.css">
+  <script type="module" src="../assets/i18n/261126_0805_language_Laude.js"></script>
+</head>
+<body>
+  <!-- 261125_1716 LAUDE: 독립 '8괘' 페이지(JJDD·SHANA). 팔괘 자료는 data/hexagrams.json 과 팔괘 공용 자료(data/trigrams/)의 등록 아이콘,
+       목록·순서는 팔괘 공용 모듈(assets/261125_1716_trigrams-ko_Laude.js), 순서 선택은 기존 설정과 같은 저장값(iyeok.trigram-order.v1). -->
+  <header class="site-header">
+    <a class="brand" href="../" aria-label="아이역 홈">
+      <span class="brand-mark">i易</span>
+      <span class="brand-name">iYeok</span>
+    </a>
+    <nav class="site-nav" aria-label="주요 메뉴">
+      <a href="../">아이역 홈</a>
+    </nav>
+  </header>
+
+  <main class="tri-page">
+    <p class="eyebrow">아이역 · 8괘</p>
+    <h1>8괘</h1>
+    <p class="tri-intro">팔괘는 세 효로 이루어집니다. 아래 팔괘와 위 팔괘가 만나면 64괘 가운데 하나가 됩니다.</p>
+    <section class="tri-order" aria-labelledby="order-title">
+      <h2 id="order-title">보는 순서</h2>
+      <p class="tri-lead">효의 음양 대응을 고르듯, 8괘도 보는 순서를 스스로 고를 수 있습니다.</p>
+      <form id="order-form" class="tri-order-form">
+        <label class="tri-option"><input type="radio" name="trigramOrder" value="xiantian">
+          <span><b>선천 순서 — 기본값</b><small>건·태·리·진·손·감·간·곤. 선천 팔괘의 수 차례(건1 … 곤8)입니다.</small></span></label>
+        <label class="tri-option"><input type="radio" name="trigramOrder" value="iyeok">
+          <span><b>아이역 순서</b><small>건·손·리·간·태·감·진·곤. 위 효부터 읽은 이진 번호를 큰 수부터(111 → 000) 늘어놓습니다. 64괘 번호와 같은 규칙입니다.</small></span></label>
+      </form>
+      <p class="tri-desc" data-order="xiantian" aria-live="polite">선천 순서는 선천 팔괘의 수, 건1·태2·리3·진4·손5·감6·간7·곤8에 따른 배열입니다. 후천 팔괘의 방위 배치와는 다릅니다.</p>
+      <!-- 261125_2209 LAUDE: 이진수 좌우 바꾸기 노트(JJDD) -->
+      <aside class="tri-desc tri-binnote" data-order="xiantian" aria-labelledby="binnote-title">
+        <p class="tri-binnote-title" id="binnote-title">노트 · 이진수의 좌우 방향을 바꾸면</p>
+        <p>아이역 번호는 위 효를 왼쪽에 둡니다. 이 이진수의 좌우 방향을 바꾸어 읽으면(예: 태 011₂ → 110₂), 선천 순서는 7부터 0까지 하나씩 내려가는 차례가 됩니다. 곤부터 거꾸로 보면 0부터 7까지입니다.</p>
+        <p class="tri-binnote-row">건 111 · 태 110 · 리 101 · 진 100 · 손 011 · 감 010 · 간 001 · 곤 000 (7 → 0)</p>
+        <p>아이역 순서와 놓이는 차례는 다르지만, 같은 이진수를 반대 방향에서 읽은 차례로 볼 수 있습니다.</p>
+      </aside>
+      <p class="tri-desc" data-order="iyeok" aria-live="polite" hidden>아이역 순서는 음을 0, 양을 1로 놓고 세 효를 위 효부터 읽은 이진 번호(000~111)에 따른 배열입니다. 위에 건(111), 아래에 곤(000)이 오도록 큰 수부터 놓았습니다. 괘의 고유 번호와 저장·계산 체계를 일관되게 잇기 위한 순서이며, 64괘 번호와 같은 규칙입니다.</p>
+      <p class="tri-common">순서를 바꾸어도 각 팔괘의 효 구성과 고유 번호는 변하지 않습니다. 이 선택은 시초점·동전점의 [팔괘 성격 보기]와 설정의 '팔괘 순서'에도 함께 적용됩니다.</p>
+    </section>
+
+    <section class="tri-list-section" aria-labelledby="list-title">
+      <h2 id="list-title">여덟 괘</h2>
+      <div id="trigram-list"></div>
+      <p class="tri-error" id="load-error" hidden>팔괘 자료를 불러오지 못했습니다. 잠시 뒤 새로고침해 주세요.</p>
+      <p class="trigram-note">한 글자 성질은 「설괘전」에 전하는 것이고, 옆의 풀이는 상상을 돕기 위해 아이역이 쉽게 풀어 쓴 것입니다. 괘의 뜻을 정하는 정답은 아닙니다.</p>
+    </section>
+
+    <!-- 261126_0751 LAUDE: 팔괘 배치·순서 따라가기를 기존 내용 아래로 옮김(JJDD) -->
+    <!-- 261126_0725 LAUDE: 팔괘 배치(JJDD) — 괘상, 그 아래 그림. 칸은 스크립트가 채운다. -->
+    <div class="tri-maps">
+      <div class="tri-map" id="map-symbols" role="group" aria-label="팔괘 괘상 배치"></div>
+      <div class="tri-map tri-map-images" id="map-images" role="group" aria-label="팔괘 그림 배치"></div>
+    </div>
+    <!-- 261126_0736 LAUDE: 순서 따라가기(JJDD) — 같은 배치 위에 선천·아이역 순서를 화살표로. 그림은 스크립트가 그린다. -->
+    <section class="tri-paths" aria-labelledby="paths-title">
+      <h2 id="paths-title">순서 따라가기</h2>
+      <p class="tri-lead">위 배치에서 두 순서를 화살표로 따라가 보세요. 두 순서 모두 하늘에서 시작해 땅에서 끝납니다. 번호는 가는 차례입니다.</p>
+      <div class="tri-path-grid">
+        <figure class="tri-path" data-order="xiantian">
+          <figcaption><b>선천 순서</b><span class="tri-path-now">지금 고른 순서</span><span class="tri-path-seq"></span></figcaption>
+        </figure>
+        <figure class="tri-path" data-order="iyeok">
+          <figcaption><b>아이역 순서</b><span class="tri-path-now">지금 고른 순서</span><span class="tri-path-seq"></span></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 261126_0805 LAUDE: 짝으로 보기(JJDD) — 반대 짝·비슷한 짝·접으면 마주 보는 짝·두 가지 바꾸기. 카드는 스크립트가 그린다. -->
+    <section class="tri-pairs" aria-labelledby="pairs-title">
+      <h2 id="pairs-title">짝으로 보기</h2>
+      <p class="tri-lead">여덟 괘는 서로 짝을 이룹니다. 성질이 반대인 짝이 있고, 닮은 짝이 있습니다.</p>
+
+      <h3>반대 짝 — 음양을 모두 바꾸면</h3>
+      <p>세 효의 음양을 모두 바꾸면(0 ↔ 1) 성질이 반대인 괘가 됩니다. 값으로는 7에서 뺀 수라서, 두 값을 더하면 늘 7입니다.</p>
+      <div class="tri-pair-grid" id="pairs-opposite"></div>
+      <p class="tri-pair-note">하늘 ↔ 땅, 물 ↔ 불, 이 두 짝의 네 괘(건·곤·감·리)는 태극기에 그려진 괘입니다.</p>
+
+      <h3>비슷한 짝 — 한 효만 다르면</h3>
+      <p>가운데 효는 같고 맨 위나 맨 아래 효 하나만 다른 괘끼리는 닮은 짝으로 볼 수 있습니다. 다른 효는 색으로 표시했습니다.</p>
+      <div class="tri-pair-grid" id="pairs-similar"></div>
+
+      <h3>접으면 마주 보는 짝</h3>
+      <p>선천 순서든 아이역 순서든 마찬가지입니다. 여덟 괘를 한 줄로 꿴 구슬 장식처럼 놓고 가운데를 접으면, 마주 닿는 구슬끼리 늘 반대 짝입니다.</p>
+      <div class="tri-fold" id="pairs-fold"></div>
+      <p class="tri-pair-note">두 순서 모두 값이 7부터 0까지 차례로 내려가서(선천 순서는 좌우를 바꾸면) 마주 보는 자리를 더하면 7이 되기 때문입니다.</p>
+
+      <aside class="tri-desc tri-two" aria-labelledby="two-title">
+        <p class="tri-binnote-title" id="two-title">두 가지 바꾸기</p>
+        <ul>
+          <li>음양 바꾸기(0 ↔ 1): 성질이 반대가 됩니다. 하늘 ↔ 땅, 물 ↔ 불, 못 ↔ 산, 우레 ↔ 바람.</li>
+          <li>좌우 바꾸기(011₂ → 110₂): 못 ↔ 바람, 우레 ↔ 산이 서로 바뀌고, 하늘·땅·물·불은 그대로입니다. 그대로 남는 네 괘가 태극기의 네 괘입니다.</li>
+          <li>효의 음양 대응을 뒤집어 읽으면, 같은 막대 모양이 반대 성질의 괘로 읽힙니다. 선택 하나로 세계가 반대로 보이는 셈입니다.</li>
+        </ul>
+      </aside>
+    </section>
+
+    <p class="try tri-back"><a href="../">← 아이역 홈으로</a></p>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 iYeok Project · <a href="https://github.com/michin-jjangddol/iyeok">Source</a> · <a href="https://github.com/michin-jjangddol/iyeok/blob/main/LICENSE">AGPL-3.0</a></p>
+  </footer>
+  <script type="module" src="261126_0805_trigrams-page_Laude.js"></script>
+</body>
+</html>

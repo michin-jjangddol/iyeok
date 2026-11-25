@@ -1,0 +1,8 @@
+.iyeok-menu { background: var(--paper-deep); border-radius: 6px; padding: 1rem 1.15rem; }
+.iyeok-menu summary { cursor: pointer; padding: .25rem 0; }
+.iyeok-menu summary:focus-visible { outline: 2px solid var(--seal); outline-offset: 4px; }
+.iyeok-menu > summary strong { font-family: var(--serif); }
+.iyeok-description { display: block; margin-top: .4rem; color: var(--ink-soft); font-weight: normal; }
+.iyeok-submenus { list-style: none; padding: 0; margin: 1rem 0 0; }
+.iyeok-submenus > li { border-top: 1px solid var(--rule); padding: .5rem 0; }
+.iyeok-submenus p { color: var(--ink-soft); padding: .5rem 0 0 1rem; }

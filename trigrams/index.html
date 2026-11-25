@@ -31,25 +31,6 @@
     <p class="eyebrow">아이역 · 8괘</p>
     <h1>8괘</h1>
     <p class="tri-intro">팔괘는 세 효로 이루어집니다. 아래 팔괘와 위 팔괘가 만나면 64괘 가운데 하나가 됩니다.</p>
-    <!-- 261126_0725 LAUDE: 팔괘 배치(JJDD) — 괘상, 그 아래 그림. 칸은 스크립트가 채운다. -->
-    <div class="tri-maps">
-      <div class="tri-map" id="map-symbols" role="group" aria-label="팔괘 괘상 배치"></div>
-      <div class="tri-map tri-map-images" id="map-images" role="group" aria-label="팔괘 그림 배치"></div>
-    </div>
-    <!-- 261126_0736 LAUDE: 순서 따라가기(JJDD) — 같은 배치 위에 선천·아이역 순서를 화살표로. 그림은 스크립트가 그린다. -->
-    <section class="tri-paths" aria-labelledby="paths-title">
-      <h2 id="paths-title">순서 따라가기</h2>
-      <p class="tri-lead">위 배치에서 두 순서를 화살표로 따라가 보세요. 두 순서 모두 하늘에서 시작해 땅에서 끝납니다. 번호는 가는 차례입니다.</p>
-      <div class="tri-path-grid">
-        <figure class="tri-path" data-order="xiantian">
-          <figcaption><b>선천 순서</b><span class="tri-path-now">지금 고른 순서</span><span class="tri-path-seq"></span></figcaption>
-        </figure>
-        <figure class="tri-path" data-order="iyeok">
-          <figcaption><b>아이역 순서</b><span class="tri-path-now">지금 고른 순서</span><span class="tri-path-seq"></span></figcaption>
-        </figure>
-      </div>
-    </section>
-
     <section class="tri-order" aria-labelledby="order-title">
       <h2 id="order-title">보는 순서</h2>
       <p class="tri-lead">효의 음양 대응을 고르듯, 8괘도 보는 순서를 스스로 고를 수 있습니다.</p>
@@ -76,6 +57,26 @@
       <div id="trigram-list"></div>
       <p class="tri-error" id="load-error" hidden>팔괘 자료를 불러오지 못했습니다. 잠시 뒤 새로고침해 주세요.</p>
       <p class="trigram-note">한 글자 성질은 「설괘전」에 전하는 것이고, 옆의 풀이는 상상을 돕기 위해 아이역이 쉽게 풀어 쓴 것입니다. 괘의 뜻을 정하는 정답은 아닙니다.</p>
+    </section>
+
+    <!-- 261126_0751 LAUDE: 팔괘 배치·순서 따라가기를 기존 내용 아래로 옮김(JJDD) -->
+    <!-- 261126_0725 LAUDE: 팔괘 배치(JJDD) — 괘상, 그 아래 그림. 칸은 스크립트가 채운다. -->
+    <div class="tri-maps">
+      <div class="tri-map" id="map-symbols" role="group" aria-label="팔괘 괘상 배치"></div>
+      <div class="tri-map tri-map-images" id="map-images" role="group" aria-label="팔괘 그림 배치"></div>
+    </div>
+    <!-- 261126_0736 LAUDE: 순서 따라가기(JJDD) — 같은 배치 위에 선천·아이역 순서를 화살표로. 그림은 스크립트가 그린다. -->
+    <section class="tri-paths" aria-labelledby="paths-title">
+      <h2 id="paths-title">순서 따라가기</h2>
+      <p class="tri-lead">위 배치에서 두 순서를 화살표로 따라가 보세요. 두 순서 모두 하늘에서 시작해 땅에서 끝납니다. 번호는 가는 차례입니다.</p>
+      <div class="tri-path-grid">
+        <figure class="tri-path" data-order="xiantian">
+          <figcaption><b>선천 순서</b><span class="tri-path-now">지금 고른 순서</span><span class="tri-path-seq"></span></figcaption>
+        </figure>
+        <figure class="tri-path" data-order="iyeok">
+          <figcaption><b>아이역 순서</b><span class="tri-path-now">지금 고른 순서</span><span class="tri-path-seq"></span></figcaption>
+        </figure>
+      </div>
     </section>
 
     <p class="try tri-back"><a href="../">← 아이역 홈으로</a></p>

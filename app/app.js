@@ -4,7 +4,7 @@ import {
   primaryLines, changedLines, changingPositions, findHexagram, lineName,
 } from "./iching.js";
 import { createTextLoader } from "../assets/261124_2251_hexagram-texts_Laude.js";
-import { triCaption, imageryLines, trigramGuide, loadTrigramIcons, iconPair, loadTrigramOrder, saveTrigramOrder, DEFAULT_TRIGRAM_ORDER } from "../assets/261125_0744_trigrams-ko_Laude.js"; // 261124_2251: 팔괘 아이콘, 261125_0640: 괘 기호 크게, 261125_0744: 팔괘 순서 설정
+import { triCaption, imageryLines, trigramGuide, loadTrigramIcons, iconPair, loadTrigramOrder, saveTrigramOrder, DEFAULT_TRIGRAM_ORDER } from "../assets/261125_1716_trigrams-ko_Laude.js"; // 261124_2251: 팔괘 아이콘, 261125_0640: 괘 기호 크게, 261125_0744: 팔괘 순서 설정, 261125_1716: 8괘 페이지와 공용
 
 const DEFAULT_SETTINGS = { coin: "basic", yangFace: "picture", order: "earth", symbols: "iyeok" };
 const STORAGE_KEY = "iyeok.coin.settings.v1";

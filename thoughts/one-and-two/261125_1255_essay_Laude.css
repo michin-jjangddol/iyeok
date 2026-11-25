@@ -1,0 +1,50 @@
+/* 261125_1255 LAUDE: 「하나와 둘」 글 페이지. 공통 스타일(assets/style.css)을 쓰고, 읽기 좋은 폭·줄 간격만 더한다. */
+.essay-page {
+  max-width: calc(var(--measure) + 2 * var(--gutter));
+  margin: 0 auto;
+  padding: 2rem var(--gutter) 3rem;
+}
+.essay h1 {
+  margin: 0.25rem 0 0.4rem;
+  font-family: var(--serif);
+  font-size: clamp(2rem, 7vw, 2.8rem);
+}
+.essay-sub {
+  margin: 0 0 0.3rem;
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  color: var(--ink-soft);
+}
+.essay-meta {
+  margin: 0 0 1.5rem;
+  font-size: 0.85rem;
+  color: var(--ink-faint);
+}
+.essay h2 {
+  margin: 2.6rem 0 1rem;
+  font-size: 1.2rem;
+}
+.essay p {
+  margin: 0 0 1rem;
+  line-height: 1.9;
+  word-break: keep-all;
+}
+.essay hr {
+  margin: 2rem 0;
+  border: 0;
+  border-top: 1px solid var(--rule);
+}
+/* 04장의 선: 이어진 선 하나, 가운데가 나뉜 선 */
+.essay-line {
+  width: min(14rem, 70%);
+  height: 0.85rem;
+  margin: 1.4rem auto;
+  border-radius: 2px;
+  background: var(--ink);
+}
+.essay-line.is-yin {
+  background: linear-gradient(to right, var(--ink) 0 44%, transparent 44% 56%, var(--ink) 56% 100%);
+}
+.essay-back {
+  margin-top: 2.5rem;
+}

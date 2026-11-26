@@ -1,0 +1,305 @@
+/* 261126_2110 LAUDE: 8괘 더 알아보기(8면체) 페이지. */
+.octa-page {
+  max-width: calc(var(--measure) + 2 * var(--gutter));
+  margin: 0 auto;
+  padding: 2rem var(--gutter) 3rem;
+}
+.octa-page h1 {
+  margin: 0.25rem 0 0.75rem;
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 6.5vw, 2.6rem);
+}
+.octa-page h2 {
+  margin: 2.2rem 0 0.6rem;
+  font-size: 1.15rem;
+}
+.octa-page h3 {
+  margin: 1.4rem 0 0.4rem;
+  font-size: 1rem;
+}
+.octa-page p,
+.octa-page li {
+  line-height: 1.8;
+  word-break: keep-all;
+}
+.octa-view {
+  --o-face: #d9ccb0;
+  --o-sel: var(--seal);
+  --o-d1: #d08a2c;
+  --o-d2: #7f9a4a;
+  --o-d3: #2f6fb5;
+  --o-jump: #7a5bd1;
+  margin: 1rem 0;
+}
+@media (prefers-color-scheme: dark) {
+  .octa-view {
+    --o-face: #5a5244;
+    --o-d1: #e0a24a;
+    --o-d2: #9db86a;
+    --o-d3: #6fa3dc;
+    --o-jump: #a68cf0;
+  }
+}
+.octa-canvas {
+  display: block;
+  width: 100%;
+  max-width: 26rem;
+  aspect-ratio: 1;
+  margin: 0 auto;
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+  background: var(--paper-deep);
+  touch-action: none; /* 이 안에서만 손가락으로 돌리고 키운다(페이지 스크롤과 엉키지 않게) */
+  cursor: grab;
+}
+.octa-canvas:active {
+  cursor: grabbing;
+}
+.octa-canvas:focus-visible {
+  outline: 2px solid var(--seal);
+  outline-offset: 3px;
+}
+.octa-hint {
+  margin: 0.5rem auto 0;
+  max-width: 26rem;
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  text-align: center;
+}
+.octa-controls,
+.octa-paths {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.35rem;
+  margin: 0.6rem 0;
+}
+.octa-btn,
+.octa-path-btn,
+.octa-face-btn {
+  min-width: 2.6rem;
+  padding: 0.4rem 0.75rem;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.86rem;
+  cursor: pointer;
+}
+.octa-btn[aria-pressed="true"],
+.octa-path-btn[aria-pressed="true"],
+.octa-face-btn[aria-pressed="true"] {
+  border-color: var(--seal);
+  box-shadow: inset 0 0 0 1px var(--seal);
+  color: var(--seal);
+  font-weight: 600;
+}
+.octa-btn:focus-visible,
+.octa-path-btn:focus-visible,
+.octa-face-btn:focus-visible {
+  outline: 2px solid var(--seal);
+  outline-offset: 2px;
+}
+.octa-note {
+  font-size: 0.86rem;
+  color: var(--ink-soft);
+}
+.octa-legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.3rem 0.9rem;
+  margin: 0.6rem 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+}
+.octa-legend li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.octa-sw {
+  display: inline-block;
+  width: 0.85rem;
+  height: 0.85rem;
+  border-radius: 3px;
+  vertical-align: -0.1rem;
+}
+.octa-sw.is-sel { background: var(--o-sel, var(--seal)); }
+.octa-sw.is-d1 { background: var(--o-d1, #d08a2c); }
+.octa-sw.is-d2 { background: var(--o-d2, #7f9a4a); }
+.octa-sw.is-d3 { background: var(--o-d3, #2f6fb5); }
+.octa-sw.is-odd { background: var(--ink-soft); }
+.octa-sw.is-even { background: var(--paper-deep); border: 1px solid var(--rule); }
+.octa-sw.is-fold { height: 0; border-top: 2px dashed var(--seal); border-radius: 0; }
+.octa-group {
+  margin: 0.8rem 0 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+.octa-group legend {
+  padding: 0;
+  margin-bottom: 0.35rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+.octa-faces {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.35rem;
+}
+.octa-face-btn {
+  display: grid;
+  justify-items: center;
+  gap: 0.2rem;
+  padding: 0.45rem 0.2rem;
+  border-radius: 8px;
+  font-size: 0.76rem;
+}
+.octa-sym {
+  display: grid;
+  gap: 0.2rem;
+  width: 1.7rem;
+}
+.octa-bar {
+  display: block;
+  height: 0.28rem;
+  background: var(--ink);
+}
+.octa-bar.is-yin {
+  background: linear-gradient(to right, var(--ink) 0 40%, transparent 40% 60%, var(--ink) 60% 100%);
+}
+.octa-info,
+.octa-path-info {
+  margin: 0.6rem 0;
+  padding: 0.7rem 0.85rem;
+  border-left: 3px solid var(--seal);
+  background: var(--paper-deep);
+  border-radius: 0 8px 8px 0;
+  font-size: 0.9rem;
+}
+.octa-info p,
+.octa-path-info p {
+  margin: 0.2rem 0;
+}
+.octa-info dl {
+  margin: 0;
+  display: grid;
+  gap: 0.45rem;
+}
+.octa-info dt {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+.octa-info dd {
+  margin: 0.1rem 0 0;
+}
+.octa-seq {
+  font-size: 0.86rem;
+}
+.octa-stats b {
+  color: var(--seal);
+}
+.octa-error {
+  padding: 0.7rem 0.85rem;
+  border-left: 3px solid var(--seal);
+  background: var(--paper-deep);
+}
+.octa-ok-list li::marker {
+  content: "✓  ";
+  color: #4a8a3a;
+}
+.octa-no-list li::marker {
+  content: "✗  ";
+  color: var(--seal);
+}
+.octa-table-wrap {
+  margin: 0.75rem 0;
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.octa-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.86rem;
+}
+.octa-table th,
+.octa-table td {
+  padding: 0.5rem 0.6rem;
+  text-align: left;
+  vertical-align: top;
+  line-height: 1.55;
+  word-break: keep-all;
+}
+.octa-table thead th {
+  background: var(--paper-deep);
+  font-size: 0.78rem;
+  color: var(--seal);
+}
+.octa-table tbody tr + tr td {
+  border-top: 1px dashed var(--rule);
+}
+.octa-cmp td:not(:first-child),
+.octa-cmp th:not(:first-child) {
+  text-align: center;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.octa-cmp tr.is-best td {
+  font-weight: 600;
+  background: color-mix(in srgb, var(--seal) 8%, transparent);
+}
+.octa-net-fig {
+  margin: 1rem 0;
+}
+.octa-net {
+  max-width: 24rem;
+  margin: 0 auto;
+}
+.octa-net-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.octa-net-face polygon {
+  stroke: var(--ink);
+  stroke-width: 1.2;
+}
+.octa-net-face.is-odd polygon {
+  fill: color-mix(in srgb, var(--ink-soft) 45%, var(--paper));
+}
+.octa-net-face.is-even polygon {
+  fill: var(--paper-deep);
+}
+.octa-net-bar {
+  fill: var(--ink);
+}
+.octa-net-name {
+  font-size: 8.5px;
+  font-weight: 600;
+  fill: var(--ink);
+}
+.octa-net-step {
+  font-size: 7.5px;
+  fill: var(--ink-soft);
+}
+.octa-net-fold {
+  stroke: var(--seal);
+  stroke-width: 1.6;
+  stroke-dasharray: 4 3;
+}
+.octa-net-fig figcaption {
+  margin-top: 0.4rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+}
+.octa-back {
+  margin-top: 2.5rem;
+}

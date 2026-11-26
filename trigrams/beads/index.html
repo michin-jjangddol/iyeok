@@ -9,7 +9,7 @@
   <meta name="theme-color" content="#1b1a18" media="(prefers-color-scheme: dark)">
   <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../../assets/style.css">
-  <link rel="stylesheet" href="261126_2242_beads_Laude.css">
+  <link rel="stylesheet" href="261126_2255_beads_Laude.css">
   <link rel="stylesheet" href="../../assets/i18n/261121_1836_language_Laude.css">
   <script type="module" src="../../assets/i18n/261126_2242_language_Laude.js"></script>
 </head>
@@ -33,6 +33,20 @@
 
     <section class="beads-view" aria-label="고무줄로 엮은 여덟 개의 8괘 구슬">
       <canvas id="beads" class="beads-canvas" tabindex="0" role="img" aria-label="고무줄로 엮은 여덟 개의 8괘 구슬"></canvas>
+      <!-- 261126_2255 LAUDE: 온도 막대를 그림 바로 아래로(JJDD: 모바일에서 그림과 함께 보이게) -->
+      <div class="beads-near">
+          <label class="beads-label" for="beads-temp">온도</label>
+          <div class="beads-temp-row">
+            <span aria-hidden="true">❄️</span>
+            <input type="range" id="beads-temp" min="-1" max="1" step="0.05" value="0">
+            <span aria-hidden="true">🔥</span>
+          </div>
+          <div class="beads-presets">
+            <button type="button" class="beads-chip" data-preset="-1" aria-pressed="false">❄️ 추움</button>
+            <button type="button" class="beads-chip" data-preset="0" aria-pressed="true">보통</button>
+            <button type="button" class="beads-chip" data-preset="1" aria-pressed="false">🔥 더움</button>
+          </div>
+      </div>
       <p class="beads-hint">한 손가락(마우스)으로 돌리고, 두 손가락(휠)으로 키우거나 줄입니다. 두 번 누르면 처음 보던 자리로 돌아옵니다. 구슬 둘을 누르면 거리와 효 차이가 나옵니다.</p>
       <div class="beads-controls">
         <button type="button" class="beads-btn" data-act="left" aria-label="왼쪽으로 돌리기">↺</button>
@@ -45,17 +59,6 @@
       </div>
 
       <div class="beads-panel">
-        <label class="beads-label" for="beads-temp">온도</label>
-        <div class="beads-temp-row">
-          <span aria-hidden="true">❄️</span>
-          <input type="range" id="beads-temp" min="-1" max="1" step="0.05" value="0">
-          <span aria-hidden="true">🔥</span>
-        </div>
-        <div class="beads-presets">
-          <button type="button" class="beads-chip" data-preset="-1" aria-pressed="false">❄️ 추움</button>
-          <button type="button" class="beads-chip" data-preset="0" aria-pressed="true">보통</button>
-          <button type="button" class="beads-chip" data-preset="1" aria-pressed="false">🔥 더움</button>
-        </div>
         <p class="beads-label" id="pairs-label">자석이 되는 짝</p>
         <div class="beads-pairs" role="group" aria-labelledby="pairs-label">
           <button type="button" class="beads-chip beads-pair-btn" data-pair="all" aria-pressed="false">네 쌍 모두</button>
@@ -131,6 +134,22 @@
       <p>이번엔 고무줄 대신 여의봉입니다. 여의봉은 당기기도 밀기도 하고, 말 한마디에 늘어나고 줄어듭니다. 막대를 골라 마음대로 늘이고 줄여 보세요.</p>
       <div class="beads-view">
         <canvas id="rods" class="beads-canvas" tabindex="0" role="img" aria-label="여의봉 열두 개로 엮은 여덟 개의 8괘 구슬"></canvas>
+        <!-- 261126_2255 LAUDE: 길이 막대·버튼·변형 줄을 그림 바로 아래로(JJDD) -->
+        <div class="beads-near">
+            <label class="beads-label" for="rods-len">고른 막대 길이</label>
+            <div class="beads-temp-row">
+              <span aria-hidden="true">−</span>
+              <input type="range" id="rods-len" min="0.4" max="2.5" step="0.05" value="1" disabled>
+              <span aria-hidden="true">+</span>
+            </div>
+            <div class="beads-presets">
+              <button type="button" class="beads-chip" data-rod-act="shrink" disabled>줄어들어라!</button>
+              <button type="button" class="beads-chip" data-rod-act="grow" disabled>늘어나라!</button>
+              <button type="button" class="beads-chip" data-rod-act="reset" disabled>처음 길이로</button>
+              <button type="button" class="beads-chip" data-rod-act="all-reset">모두 처음으로</button>
+            </div>
+            <p class="beads-stats rods-near-stats" aria-live="polite"><span>고른 막대</span> <b id="rods-count">0</b> · <span>길이</span> <b id="rods-mul">—</b> · <span>다른 막대의 변형</span> <b id="rods-strain">0%</b></p>
+        </div>
         <p class="beads-hint">막대를 화면에서 누르거나 아래 버튼으로 고르세요. 돌리기·확대는 위 그림과 같습니다.</p>
         <div class="beads-panel">
           <p class="beads-label" id="rods-g-label">한꺼번에 고르기</p>
@@ -145,21 +164,6 @@
           <p class="rods-opp-row"><button type="button" class="beads-chip rods-opp-btn" id="rods-opp" aria-pressed="true"><span data-opp="true">반대 짝 막대: 넣음</span><span data-opp="false" hidden>반대 짝 막대: 뺌</span></button></p>
           <p class="beads-label" id="rods-one-label">하나씩 고르기</p>
           <div class="rods-chips" id="rods-chips" role="group" aria-labelledby="rods-one-label"></div>
-          <label class="beads-label" for="rods-len">고른 막대 길이</label>
-          <div class="beads-temp-row">
-            <span aria-hidden="true">−</span>
-            <input type="range" id="rods-len" min="0.4" max="2.5" step="0.05" value="1" disabled>
-            <span aria-hidden="true">+</span>
-          </div>
-          <div class="beads-presets">
-            <button type="button" class="beads-chip" data-rod-act="shrink" disabled>줄어들어라!</button>
-            <button type="button" class="beads-chip" data-rod-act="grow" disabled>늘어나라!</button>
-            <button type="button" class="beads-chip" data-rod-act="reset" disabled>처음 길이로</button>
-            <button type="button" class="beads-chip" data-rod-act="all-reset">모두 처음으로</button>
-          </div>
-        </div>
-        <div class="beads-say" aria-live="polite">
-          <p class="beads-stats"><span>고른 막대</span> <b id="rods-count">0</b> · <span>길이</span> <b id="rods-mul">—</b> · <span>다른 막대의 변형</span> <b id="rods-strain">0%</b></p>
         </div>
         <p class="beads-error" id="rods-error" hidden>팔괘 자료를 불러오지 못했습니다. 잠시 뒤 새로고침해 주세요.</p>
       </div>

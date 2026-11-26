@@ -10,9 +10,9 @@
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../assets/style.css">
   <link rel="stylesheet" href="../assets/261125_0640_trigrams_Laude.css">
-  <link rel="stylesheet" href="261126_0821_trigrams-page_Laude.css">
+  <link rel="stylesheet" href="261126_1240_trigrams-page_Laude.css">
   <link rel="stylesheet" href="../assets/i18n/261121_1836_language_Laude.css">
-  <script type="module" src="../assets/i18n/261126_0821_language_Laude.js"></script>
+  <script type="module" src="../assets/i18n/261126_1240_language_Laude.js"></script>
 </head>
 <body>
   <!-- 261125_1716 LAUDE: 독립 '8괘' 페이지(JJDD·SHANA). 팔괘 자료는 data/hexagrams.json 과 팔괘 공용 자료(data/trigrams/)의 등록 아이콘,
@@ -148,12 +148,60 @@
       <p class="tri-pair-note">보통 셈으로는, 반대 짝끼리 값을 더하면 늘 7이고 여덟 괘의 값을 모두 더하면 28입니다.</p>
     </section>
 
+    <!-- 261126_1240 LAUDE: 돌려 보고 뒤집어 보기(JJDD) — 흑백처럼·바꾸기 표·세 가족. 표와 가족 그림은 스크립트가 채운다. -->
+    <section class="tri-turn" aria-labelledby="turn-title">
+      <h2 id="turn-title">돌려 보고 뒤집어 보기</h2>
+      <p class="tri-lead">64괘에 앞서 8괘로 먼저 살펴봅니다. 괘상을 손에 들고 돌려 보고, 뒤집어 보고, 거울에 비춰 보면 바뀌는 괘와 그대로인 괘가 있습니다.</p>
+
+      <h3>흑백처럼 — 같은 그림, 다른 이름</h3>
+      <p>실선 세 줄을 그려 놓고 실선을 양으로 읽으면 하늘(111), 음으로 읽으면 땅(000)입니다. 그림은 하나도 바뀌지 않았고 이름만 바뀌었습니다.</p>
+      <p>반대 짝은 모두 이렇게 같은 그림을 반대 약속으로 읽은 것입니다. 흑백 사진과 그 네거티브처럼, 서로 가장 멀고 성질은 정반대인데 떼려야 뗄 수가 없습니다. 그래서 8괘는 네 가지 모양이 저마다 두 얼굴을 가진 셈입니다.</p>
+
+      <h3 id="turn-table-title">바꾸기 표</h3>
+      <p>여덟 괘에 네 가지 바꾸기를 해 보았습니다. 흐린 칸은 바꿔도 그대로인 괘입니다.</p>
+      <div class="tri-turn-wrap">
+        <table class="tri-turn-table" aria-labelledby="turn-table-title">
+          <thead><tr><th scope="col">원래</th><th scope="col">거울</th><th scope="col">뒤집기</th><th scope="col">흑백</th><th scope="col">뒤집고 흑백</th></tr></thead>
+          <tbody id="turn-body"></tbody>
+        </table>
+      </div>
+      <ul class="tri-calc-list">
+        <li>거울에 비추기(좌우): 효 막대는 좌우가 같아서 여덟 괘 모두 그대로입니다.</li>
+        <li>위아래 뒤집기(180° 돌리기와 같음): 못 ↔ 바람, 우레 ↔ 산이 바뀌고 하늘·땅·물·불은 그대로입니다. 이진수로는 좌우 바꾸기와 같습니다.</li>
+        <li>흑백 바꾸기(음양): 여덟 괘 모두 반대 짝으로 바뀝니다.</li>
+        <li>뒤집고 흑백까지: 하늘 ↔ 땅, 물 ↔ 불, 못 ↔ 우레, 바람 ↔ 산.</li>
+      </ul>
+
+      <!-- 261126_1240 LAUDE: 거리 세 단계(JJDD) — 가운데 괘를 고르면 거리 1·2·3 괘를 보여 준다. -->
+      <h3 id="dist-title">거리 세 단계</h3>
+      <p>두 괘의 거리는 서로 다른 효의 개수입니다. 거리는 1·2·3, 세 단계뿐이고, 어느 괘에서 보든 거리 1이 셋, 거리 2가 셋, 거리 3이 하나입니다. 가운데 괘를 골라 보세요.</p>
+      <div class="tri-calc-box tri-dist" role="group" aria-labelledby="dist-title">
+        <fieldset class="tri-pick" data-slot="center"><legend>가운데 괘</legend><div class="tri-pick-row"></div></fieldset>
+        <div class="tri-dist-out" id="dist-out" aria-live="polite">
+          <div class="tri-dist-ring" data-d="1"><span class="tri-calc-op">거리 1 — 한 효 차이</span><div class="tri-dist-row"></div></div>
+          <div class="tri-dist-ring" data-d="2"><span class="tri-calc-op">거리 2 — 두 효 차이</span><div class="tri-dist-row"></div></div>
+          <div class="tri-dist-ring" data-d="3"><span class="tri-calc-op">거리 3 — 반대 짝</span><div class="tri-dist-row"></div></div>
+        </div>
+      </div>
+      <p class="tri-pair-note">바꾸기마다 움직이는 거리도 정해져 있습니다. 거울은 0, 뒤집기는 0 아니면 2, 흑백은 늘 3, 뒤집고 흑백은 1 아니면 3입니다.</p>
+
+      <h3>세 가족</h3>
+      <p>돌리고 뒤집고 흑백을 바꾸며 서로 오갈 수 있는 괘끼리 묶으면, 여덟 괘가 세 가족으로 나뉩니다.</p>
+      <div class="tri-families">
+        <div class="tri-family" data-members="qian,kun"><div class="tri-family-row"></div><p>하늘·땅: 뒤집어도 그대로이고, 흑백을 바꾸면 서로가 됩니다.</p></div>
+        <div class="tri-family" data-members="kan,li"><div class="tri-family-row"></div><p>물·불: 하늘·땅과 같습니다. 뒤집어도 그대로이고, 흑백을 바꾸면 서로가 됩니다.</p></div>
+        <div class="tri-family" data-members="dui,xun,gen,zhen"><div class="tri-family-row"></div><p>못·바람·산·우레: 넷이 한 가족입니다. 못을 뒤집으면 바람, 흑백을 바꾸면 산, 둘 다 하면 우레가 됩니다.</p></div>
+      </div>
+      <p class="tri-pair-note">뒤집어도 그대로인 하늘·땅·물·불은 태극기에 그려진 네 괘입니다.</p>
+      <p class="tri-pair-note">64괘로 가면 같은 일이 여섯 효에서 일어납니다. 뒤집어도 그대로인 괘가 8개이고, 나머지 56개는 뒤집으면 다른 괘가 됩니다.</p>
+    </section>
+
     <p class="try tri-back"><a href="../">← 아이역 홈으로</a></p>
   </main>
 
   <footer class="site-footer">
     <p>© 2026 iYeok Project · <a href="https://github.com/michin-jjangddol/iyeok">Source</a> · <a href="https://github.com/michin-jjangddol/iyeok/blob/main/LICENSE">AGPL-3.0</a></p>
   </footer>
-  <script type="module" src="261126_0821_trigrams-page_Laude.js"></script>
+  <script type="module" src="261126_1240_trigrams-page_Laude.js"></script>
 </body>
 </html>

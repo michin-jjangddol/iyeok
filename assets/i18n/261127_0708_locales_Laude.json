@@ -1,0 +1,18 @@
+{
+  "format": 1,
+  "default": "ko",
+  "locales": [
+    {
+      "code": "ko",
+      "label": "한국어",
+      "status": "ready",
+      "file": "261127_0708_ko_Laude.json"
+    },
+    {
+      "code": "en",
+      "label": "English",
+      "status": "preparing",
+      "file": "261127_0708_en_Laude.json"
+    }
+  ]
+}

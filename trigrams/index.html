@@ -10,9 +10,9 @@
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../assets/style.css">
   <link rel="stylesheet" href="../assets/261125_0640_trigrams_Laude.css">
-  <link rel="stylesheet" href="261126_1240_trigrams-page_Laude.css">
+  <link rel="stylesheet" href="261126_2028_trigrams-page_Laude.css">
   <link rel="stylesheet" href="../assets/i18n/261121_1836_language_Laude.css">
-  <script type="module" src="../assets/i18n/261126_1240_language_Laude.js"></script>
+  <script type="module" src="../assets/i18n/261126_2028_language_Laude.js"></script>
 </head>
 <body>
   <!-- 261125_1716 LAUDE: 독립 '8괘' 페이지(JJDD·SHANA). 팔괘 자료는 data/hexagrams.json 과 팔괘 공용 자료(data/trigrams/)의 등록 아이콘,
@@ -196,12 +196,42 @@
       <p class="tri-pair-note">64괘로 가면 같은 일이 여섯 효에서 일어납니다. 뒤집어도 그대로인 괘가 8개이고, 나머지 56개는 뒤집으면 다른 괘가 됩니다.</p>
     </section>
 
+    <!-- 261126_2028 LAUDE: 쉬어 가기 — 건곤감리(JJDD). 태극기 그림은 스크립트가 팔괘 자료로 그린다. -->
+    <section class="tri-flag" aria-labelledby="flag-title">
+      <h2 id="flag-title">쉬어 가기 — 건곤감리</h2>
+      <p class="tri-lead">건·곤·감·리, 어디서 많이 보지 않았나요? 그렇죠, 태극기입니다.</p>
+      <p>그럼 태극기를 한번 그려 볼까요? 가운데에 빨강과 파랑의 태극을 두고, 네 귀퉁이에 건(하늘)·곤(땅)·감(물)·리(불)를 놓습니다.</p>
+      <figure class="tri-flag-fig">
+        <div class="tri-flag-frame" id="flag-box" role="img" aria-label="태극기 그림"></div>
+        <figcaption>왼쪽 위 건(하늘) · 오른쪽 아래 곤(땅) · 오른쪽 위 감(물) · 왼쪽 아래 리(불)</figcaption>
+      </figure>
+      <p class="tri-flag-actions"><button type="button" class="learn-btn learn-ghost tri-flag-btn" id="flag-draw">그려 보기</button></p>
+      <!-- 261126_2028 LAUDE: 태극기 돌리기·뒤집기(JJDD) -->
+      <p>그럼 태극기를 돌리거나 뒤집으면 어떻게 될까요?</p>
+      <div class="tri-flag-turns" role="group" aria-label="그럼 태극기를 돌리거나 뒤집으면 어떻게 될까요?">
+        <button type="button" class="tri-flag-turn" data-turn="none" aria-pressed="true">원래대로</button>
+        <button type="button" class="tri-flag-turn" data-turn="rotate" aria-pressed="false">180° 돌리기</button>
+        <button type="button" class="tri-flag-turn" data-turn="flip" aria-pressed="false">위아래 뒤집기</button>
+        <button type="button" class="tri-flag-turn" data-turn="mirror" aria-pressed="false">거울(좌우)</button>
+      </div>
+      <p class="tri-flag-say" id="flag-say" aria-live="polite">
+        <span data-turn="none">원래 태극기입니다. 왼쪽 위 건, 오른쪽 아래 곤, 오른쪽 위 감, 왼쪽 아래 리.</span>
+        <span data-turn="rotate" hidden>180° 돌리면 건 ↔ 곤, 감 ↔ 리가 자리를 바꾸고, 태극은 빨강이 아래로 갑니다. 하늘과 땅이 자리를 바꾼 셈입니다.</span>
+        <span data-turn="flip" hidden>위아래로 뒤집으면 건은 리의 자리로, 감은 곤의 자리로 옮겨 가고, 태극은 빨강이 아래로 가며 맞물린 방향도 바뀝니다.</span>
+        <span data-turn="mirror" hidden>거울에 비추면 건은 감의 자리로, 리는 곤의 자리로 옮겨 가고, 태극은 빨강이 위에 그대로 있지만 맞물린 방향이 바뀝니다.</span>
+      </p>
+      <p class="tri-flag-same">어느 쪽이든 네 괘 하나하나의 모양은 바뀌지 않습니다. 건곤감리는 돌리든 뒤집든 그대로인 괘이기 때문입니다. 바뀌는 것은 자리와 태극뿐입니다.</p>
+      <p>대각선으로 마주 보는 괘끼리 반대 짝입니다(건 ↔ 곤, 감 ↔ 리). 앞에서 본 대로 이 네 괘는 위아래로 뒤집어도 그대로입니다.</p>
+      <p>가운데 태극은 빨강(양)이 위, 파랑(음)이 아래에서 서로 맞물려 돕니다. 하나의 원 안에서 둘이 나뉘고 다시 하나가 되는 모양입니다.</p>
+      <p class="tri-pair-note">괘의 효 막대는 이 페이지의 팔괘 자료로 그렸습니다. 비율과 색은 알려진 규격을 참고해 그렸지만, 공식 도안 파일과 맞춰 보지는 않았습니다.</p>
+    </section>
+
     <p class="try tri-back"><a href="../">← 아이역 홈으로</a></p>
   </main>
 
   <footer class="site-footer">
     <p>© 2026 iYeok Project · <a href="https://github.com/michin-jjangddol/iyeok">Source</a> · <a href="https://github.com/michin-jjangddol/iyeok/blob/main/LICENSE">AGPL-3.0</a></p>
   </footer>
-  <script type="module" src="261126_1240_trigrams-page_Laude.js"></script>
+  <script type="module" src="261126_2028_trigrams-page_Laude.js"></script>
 </body>
 </html>

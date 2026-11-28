@@ -1,8 +1,10 @@
+// 261128_1853 SHANA: 태 그림 비율 보존 확대·여백 축소.
+// 261128_1847 SHANA: 태 수중 깊이 아이콘 갱신.
 // 아이역 동전점 서비스 워커
 // 인터넷이 되면 새 파일을 받고(network-first), 끊기면 저장해 둔 파일로 연다.
 // 새 파일을 받을 때 브라우저 캐시(GitHub Pages는 10분)를 그대로 믿지 않고 서버에 바뀌었는지 묻는다.
 
-const CACHE = "iyeok-app-v111"; // 261128_1900: 언어 사전 새 판(게임 3단)
+const CACHE = "iyeok-app-v112"; // 261128_1910 LAUDE: main 합치기 — 게임 3단 언어 사전(v111) + SHANA 진 새 이미지·공용 목록(v101)
 const FILES = [
   "../assets/i18n/261128_1900_language_Laude.js",
   "../assets/i18n/261121_1836_language_Laude.css",
@@ -13,19 +15,20 @@ const FILES = [
   "./",
   "./index.html",
   "./app.css",
-  "./app.js",
+  "./261128_1858_app_Shana.js",
   "../assets/261124_2251_hexagram-texts_Laude.js",
-  "../assets/261125_1716_trigrams-ko_Laude.js",
+  "../assets/261128_1858_trigrams-shared_Shana.js",
+  "../assets/261128_1858_trigrams-legacy_Shana.js",
   "../assets/261125_0640_trigrams_Laude.css",
-  "../data/trigrams/261125_0744_trigram-index_Laude.json",
+  "../data/trigrams/261128_1853_trigram-index_Shana.json",
   "../data/trigrams/000/261124_2013_trigram_Shana.json",
   "../data/trigrams/000/images/261124_2013_kun-icon-256_Shana.webp",
-  "../data/trigrams/001/261124_2024_trigram_Shana.json",
-  "../data/trigrams/001/images/261124_2024_zhen-icon-256_Shana.webp",
+  "../data/trigrams/001/261128_1812_trigram_Shana.json",
+  "../data/trigrams/001/images/261128_1812_zhen-earth-wind-256_Shana.webp",
   "../data/trigrams/010/261124_2052_trigram_Shana.json",
   "../data/trigrams/010/images/261124_2052_kan-icon-256_Shana.webp",
-  "../data/trigrams/011/261124_2101_trigram_Shana.json",
-  "../data/trigrams/011/images/261124_2101_dui-icon-256_Shana.webp",
+  "../data/trigrams/011/261128_1853_trigram_Shana.json",
+  "../data/trigrams/011/images/261128_1853_dui-depth-fit-256_Shana.webp",
   "../data/trigrams/100/261124_2212_trigram_Shana.json",
   "../data/trigrams/100/images/261124_2212_gen-icon-256_Shana.webp",
   "../data/trigrams/101/261124_2239_trigram_Shana.json",

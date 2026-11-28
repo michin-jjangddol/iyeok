@@ -1,0 +1,72 @@
+{
+  "format": 1,
+  "code": "001",
+  "value": 1,
+  "id": "zhen",
+  "nameKo": "진",
+  "name": "震",
+  "symbol": "☳",
+  "natureKo": "우레",
+  "nature": "雷",
+  "lines": [
+    1,
+    0,
+    0
+  ],
+  "lineOrder": "lines 는 아래 효부터(lines[0] = 아래 효, lines[2] = 위 효). code 는 위 효부터 쓴 3자리(왼쪽 = 위 효). 양 = 1, 음 = 0.",
+  "basis": "이름·한자·기호·자연물·효 배열·value 는 data/hexagrams.json 의 trigrams.zhen 와 같다(tests/261124_1930_trigram-data_Laude.mjs 가 검사).",
+  "imageFolder": "data/trigrams/001/images/",
+  "icon": {
+    "status": "registered",
+    "current": "data/trigrams/001/images/261128_1812_zhen-earth-wind-256_Shana.webp",
+    "versions": [
+      {
+        "path": "data/trigrams/001/images/261124_2024_zhen-icon-1024_Shana.png",
+        "createdAt": "2026-11-24T20:24+09:00",
+        "author": "SHANA",
+        "width": 1024,
+        "height": 1024,
+        "role": "archive",
+        "note": "JJDD approved the lightning with detached short vibration strokes, without long branches or a frame."
+      },
+      {
+        "path": "data/trigrams/001/images/261124_2024_zhen-icon-256_Shana.webp",
+        "createdAt": "2026-11-24T20:24+09:00",
+        "author": "SHANA",
+        "width": 256,
+        "height": 256,
+        "role": "web",
+        "note": "JJDD approved the lightning with detached short vibration strokes, without long branches or a frame."
+      },
+      {
+        "path": "data/trigrams/001/images/261128_1812_zhen-earth-wind-1024_Shana.png",
+        "createdAt": "2026-11-28T18:12+09:00",
+        "author": "SHANA",
+        "width": 1024,
+        "height": 1024,
+        "role": "archive",
+        "note": "JJDD approved underground flowing wind strokes as iYeok creative imagery for Zhen movement; earlier lightning preserved."
+      },
+      {
+        "path": "data/trigrams/001/images/261128_1812_zhen-earth-wind-256_Shana.webp",
+        "createdAt": "2026-11-28T18:12+09:00",
+        "author": "SHANA",
+        "width": 256,
+        "height": 256,
+        "role": "web",
+        "note": "JJDD approved underground flowing wind strokes as iYeok creative imagery for Zhen movement; earlier lightning preserved."
+      }
+    ],
+    "intent": "JJDD가 부여한 땅의 움직임을, 옅은 흙 아래로 굽이치고 끝이 말리는 바람 붓선으로 표현한 아이역 창작 이미지다. 전통의 진=우레 설명을 대체하는 정의는 아니다.",
+    "alt": "평평한 지표 아래 옅은 흙 속에서 갈색 바람 붓선이 굽이치고 끝이 말리는 이미지"
+  },
+  "iconIdea": {
+    "status": "땅속 바람지렁이 시안을 JJDD가 선택하여 새 버전 등록",
+    "candidate": "땅속을 흐르는 바람 붓선",
+    "question": "번개와 떨림으로 우레를 떠올리게 할 수 있을까?",
+    "source": "docs/eight-trigram-icons.md — 05. 여덟 가지 자연의 첫 후보"
+  },
+  "createdAt": "2026-11-24T19:30+09:00",
+  "author": "SHANA",
+  "updatedAt": "2026-11-28T18:12+09:00"
+}

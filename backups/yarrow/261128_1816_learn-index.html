@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>시초점 배우기 · 아이역 iYeok</title>
+  <meta name="description" content="시초 쉰 가지를 나누고, 덜고, 넷씩 세며 여섯 효를 쌓아 괘 하나를 완성하는 과정을 차근차근 배워 봅니다.">
+  <meta name="theme-color" content="#f4efe4" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#1b1a18" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../assets/style.css">
+  <link rel="stylesheet" href="261122_1723_learn_Laude.css">
+  <link rel="stylesheet" href="../../assets/261125_0640_trigrams_Laude.css">
+  <link rel="stylesheet" href="261123_2132_learn-result_Laude.css"> <!-- 261123_2132 LAUDE: 결과 본괘·지괘 줄 맞춤. 백업 backups/yarrow/261123_2132_learn-index.html -->
+  <link rel="stylesheet" href="../../assets/i18n/261121_1836_language_Laude.css">
+  <script type="module" src="../../assets/i18n/261128_1810_language_Laude.js"></script>
+</head>
+<body>
+  <!-- 시초점 배우기 4차: 여섯 효를 쌓아 괘 하나를 완성한다. 실제 점치기, 괘사 풀이, 음성, 설정 저장, 오프라인은 없다. -->
+  <header class="site-header">
+    <a class="brand" href="../../" aria-label="아이역 홈">
+      <span class="brand-mark">i易</span>
+      <span class="brand-name">iYeok</span>
+    </a>
+    <nav class="site-nav" aria-label="주요 메뉴">
+      <a href="../">시초점 메뉴</a>
+    </nav>
+  </header>
+
+  <main class="learn">
+    <p class="eyebrow">시초점 · 배우기</p>
+    <h1 class="learn-heading">시초점 배우기</h1>
+    <p class="learn-notice" id="notice"></p>
+    <p class="learn-refresh">진행은 저장되지 않습니다. 새로고침하거나 페이지를 닫으면 처음부터 다시 시작합니다.</p>
+
+    <!-- 시초점 옵션 요약 (261120_2247): 바꾸기는 시초점 메뉴의 [옵션] 화면(../options/)에서 한다. -->
+    <div class="learn-settings-bar">
+      <p class="learn-settings-now"><span id="settings-now">하나를 덜어 내는 쪽: 땅 쪽에서 — 오른쪽 · 단계별 진행</span> · <a href="../options/" id="settings-link">설정에서 바꾸기</a></p>
+      <p class="learn-settings-status" id="settings-status" role="status"></p>
+    </div>
+
+    <section class="learn-scene" aria-labelledby="scene-title">
+      <div class="learn-head">
+        <h2 id="scene-title" tabindex="-1">자리 펴기</h2>
+        <span class="learn-step" id="scene-step">준비</span>
+      </div>
+
+      <div class="learn-mat" id="mat">
+        <div class="learn-mat-bg" style="background-image:url('261119_2027_mat_Laude.svg')" aria-hidden="true"></div>
+        <svg id="field" class="learn-field" viewBox="0 0 360 240" role="img" aria-label="펼쳐 놓은 천"></svg>
+      </div>
+
+      <p class="learn-counts" id="counts" aria-live="polite" hidden></p>
+
+      <!-- 조작 영역: 시초판·상태 요약 바로 아래 (261120_2121 이동). 261121_1554: 기본 나누기 방식은 움직이다 멈추기, 예시 따라가기 없음 -->
+      <div class="learn-ops" id="ops">
+
+      <div class="learn-panel" id="split-panel" hidden>
+        <div class="split-modes" role="group" aria-label="나누기 방식">
+          <button type="button" class="learn-btn learn-mode" id="mode-motion" aria-pressed="true">움직이다 멈추기</button>
+          <button type="button" class="learn-btn learn-mode" id="mode-manual" aria-pressed="false">직접 조절</button>
+        </div>
+        <p class="learn-hint" id="mode-desc">움직이다 멈추기: 무더기의 양을 보다가 원하는 순간에 멈춰 봅니다.</p>
+
+        <div id="manual-box" hidden>
+          <label class="learn-range-label" for="split-range">왼쪽 무더기에 둘 시초 가지 수</label>
+          <input type="range" id="split-range" min="1" max="47" step="1" value="24">
+          <div class="learn-range-row">
+            <button type="button" class="learn-btn learn-small" id="split-minus" aria-label="왼쪽 한 가지 줄이기">−1</button>
+            <output class="learn-readout" id="split-readout" for="split-range">왼쪽 24 · 오른쪽 25 · 합계 49</output>
+            <button type="button" class="learn-btn learn-small" id="split-plus" aria-label="왼쪽 한 가지 늘리기">+1</button>
+          </div>
+          <p class="learn-hint" id="split-hint">왼쪽은 1~47가지로 정할 수 있고, 오른쪽에는 언제나 두 가지 이상 남습니다.</p>
+        </div>
+
+        <div id="motion-box">
+          <div class="motion-track" aria-hidden="true"><span class="motion-knob" id="motion-knob"></span></div>
+          <p class="learn-readout motion-readout" id="motion-readout" role="status">[움직이기 시작]을 눌러 보세요.</p>
+          <div class="learn-range-row motion-row">
+            <button type="button" class="learn-btn learn-primary" id="motion-go">움직이기 시작</button>
+            <button type="button" class="learn-btn learn-ghost" id="motion-again" hidden>다시 움직이기</button>
+          </div>
+          <p class="learn-hint">움직이는 동안에는 개수를 숨기고, 멈추면 알려 드립니다. 멈춘 순간의 위치로 나뉘며, 무작위로 뽑는 것이 아닙니다.</p>
+        </div>
+
+        <div class="learn-range-row learn-confirm-row">
+          <button type="button" class="learn-btn learn-primary" id="split-confirm">이렇게 나누기</button>
+        </div>
+      </div>
+      </div>
+
+      <!-- 진행 버튼: 조작 영역 아래, 설명글 위 (261120_2121) -->
+      <nav class="learn-nav" aria-label="장면 이동">
+        <button type="button" class="learn-btn learn-ghost" id="prev">이전</button>
+        <!-- 261122_1640: 장면 동작 버튼을 [이전]과 [다음] 사이 한 줄로 옮김(JJDD) -->
+        <button type="button" class="learn-btn learn-action" id="action" hidden>하나 따로 두기</button>
+        <button type="button" class="learn-btn learn-primary" id="next">배우기 시작</button>
+      </nav>
+
+      <div class="learn-story" id="story" tabindex="-1" aria-live="polite"></div>
+
+      <button type="button" class="learn-btn learn-ghost learn-toggle" id="why-toggle" aria-expanded="false" aria-controls="why" hidden>왜 이 효가 나왔나요?</button>
+      <div class="learn-why" id="why" hidden></div>
+
+      <button type="button" class="learn-btn learn-ghost learn-toggle" id="verse-toggle" aria-expanded="false" aria-controls="verse" hidden>원문과 뜻 보기</button>
+      <div class="learn-verse" id="verse" hidden></div>
+
+      <div class="learn-board" id="board" hidden aria-label="효판">
+        <p class="learn-board-title">효판 (아래에서 위로 쌓습니다)</p>
+        <div class="board-line" data-line="6"><span class="board-label">상효 · 아직</span><span class="board-mark" aria-hidden="true"></span><span class="board-bar"></span></div>
+        <div class="board-line" data-line="5"><span class="board-label">오효 · 아직</span><span class="board-mark" aria-hidden="true"></span><span class="board-bar"></span></div>
+        <div class="board-line" data-line="4"><span class="board-label">사효 · 아직</span><span class="board-mark" aria-hidden="true"></span><span class="board-bar"></span></div>
+        <div class="board-line" data-line="3"><span class="board-label">삼효 · 아직</span><span class="board-mark" aria-hidden="true"></span><span class="board-bar"></span></div>
+        <div class="board-line" data-line="2"><span class="board-label">이효 · 아직</span><span class="board-mark" aria-hidden="true"></span><span class="board-bar"></span></div>
+        <div class="board-line" data-line="1"><span class="board-label">초효 · 아직 그리지 않음</span><span class="board-mark" aria-hidden="true"></span><span class="board-bar"></span></div>
+      </div>
+      <p class="learn-line-table" id="line-table" hidden></p>
+
+      <div class="learn-result" id="result" hidden aria-live="polite"></div>
+      <button type="button" class="learn-btn learn-ghost learn-toggle" id="review-toggle" aria-expanded="false" aria-controls="review" hidden>만든 과정 돌아보기</button>
+      <div class="learn-review" id="review" hidden></div>
+
+      <div class="learn-end" id="end-links" hidden>
+        <p class="learn-next-note" id="next-note">배우기는 여기까지입니다. 괘사와 함께 실제로 괘를 뽑아 보고 싶다면 시초점 <a href="../try/">바로 시작</a>이나 <a href="../../app/">동전점 맛보기</a>에서 해 볼 수 있습니다.</p>
+        <button type="button" class="learn-btn learn-primary" id="restart">처음부터 다시 배우기</button>
+        <p><a href="../">시초점 메뉴로</a> · <a href="../../">아이역 홈으로</a></p>
+      </div>
+    </section>
+
+    <dialog class="learn-confirm" id="restart-confirm" aria-labelledby="restart-title" aria-describedby="restart-desc">
+      <h2 id="restart-title">처음부터 다시 배울까요?</h2>
+      <p id="restart-desc">지금까지 만든 효와 과정이 모두 지워집니다.</p>
+      <div class="learn-range-row">
+        <button type="button" class="learn-btn learn-ghost" id="restart-no">취소</button>
+        <button type="button" class="learn-btn learn-primary" id="restart-yes">지우고 다시 시작</button>
+      </div>
+    </dialog>
+
+    <p class="try learn-back"><a href="../">← 시초점 메뉴로</a> · <a href="../../">아이역 홈으로</a></p>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 iYeok Project · <a href="https://github.com/michin-jjangddol/iyeok">Source</a> · <a href="https://github.com/michin-jjangddol/iyeok/blob/main/LICENSE">AGPL-3.0</a></p>
+  </footer>
+
+  <script type="module" src="261125_1716_learn_Laude.js"></script>
+</body>
+</html>

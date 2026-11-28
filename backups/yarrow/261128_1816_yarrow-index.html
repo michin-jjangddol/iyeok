@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>시초점 맛보기 · 아이역 iYeok</title>
+  <meta name="description" content="아이역 시초점 맛보기: 시초로 직접 괘를 뽑는 바로 시작, 과정을 천천히 보는 배우기, 나만의 방식을 정하는 설정.">
+  <meta name="theme-color" content="#f4efe4" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#1b1a18" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="stylesheet" href="261119_0748_yarrow_Laude.css">
+  <link rel="stylesheet" href="261119_2027_yarrow-menu_Laude.css">
+  <link rel="stylesheet" href="261121_1936_yarrow-menu_Laude.css">
+  <link rel="stylesheet" href="../assets/i18n/261121_1836_language_Laude.css">
+  <script type="module" src="../assets/i18n/261128_1810_language_Laude.js"></script>
+</head>
+<body>
+  <!-- 시초점 맛보기: 소개와 메뉴. [바로 시작](준비 안내) · [배우기](learn/) · [옵션](options/). 261121_1936 찬찬히·빠르게 버튼 정리(진행 방식은 옵션). -->
+  <header class="site-header">
+    <a class="brand" href="../" aria-label="아이역 홈">
+      <span class="brand-mark">i易</span>
+      <span class="brand-name">iYeok</span>
+    </a>
+    <nav class="site-nav" aria-label="주요 메뉴">
+      <a href="../app/">동전점 맛보기</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="yarrow-intro" aria-labelledby="yarrow-title">
+      <p class="eyebrow">아이역 · 시초점</p>
+      <h1 id="yarrow-title">시초점 맛보기</h1>
+      <p class="lead">
+        시초 쉰 가지를 나누고 세는 과정을 거듭하며 여섯 효를 쌓아 괘를 얻습니다.
+        정해진 하나의 방식은 없습니다. 설정에서 나만의 방식을 정하고, 처음이라면 배우기로 과정을 먼저 살펴보세요.
+      </p>
+
+      <!-- 261121_1936 LAUDE: 동전점처럼 지금 방식 요약 + [바로 시작] [배우기] [옵션] (JJDD). 값은 시초점 옵션(이 기기 저장)에서 읽는다. -->
+      <dl class="ymenu-summary" id="ymenu-summary">
+        <dt>하나를 덜어 내는 쪽</dt><dd id="ymenu-side">땅 쪽에서 — 오른쪽</dd>
+        <dt>진행 방식</dt><dd id="ymenu-pace">단계별 진행</dd>
+        <dt>효 읽기</dt><dd id="ymenu-reading">정효점 · 홀=양·짝=음 · 전통 방식</dd>
+        <dt>변효 기호</dt><dd id="ymenu-symbols">노양 × · 노음 ○</dd>
+      </dl>
+
+      <div class="ymenu-actions">
+        <a class="ymenu-btn ymenu-primary" id="ymenu-start" href="try/">바로 시작</a>
+        <a class="ymenu-btn" href="learn/">배우기</a>
+        <a class="ymenu-btn" href="options/">설정</a>
+      </div>
+      <p class="ymenu-note">바로 시작에서는 시초로 직접 괘를 뽑고 본괘·지괘·괘사까지 봅니다. 처음이라면 배우기에서 과정을 먼저 천천히 살펴보세요. 진행 방식이 단계별이면 바로 시작에서도 장면마다 [다음 장면]을 눌러 넘깁니다.</p>
+    </section>
+
+    <section class="section" aria-labelledby="plan-title">
+      <h2 id="plan-title"><span class="en">Plan</span>앞으로 준비할 방향</h2>
+      <ul class="yarrow-plan">
+        <li><strong>바로 시작</strong>에서 시초로 직접 괘를 뽑고, 동전점처럼 본괘·지괘·괘사까지 볼 수 있습니다. 앞으로 기록하고 돌아보는 기능과 이어 갈 예정입니다.</li>
+        <li>설정에서 정한 방식(하나를 덜어 내는 쪽 · 효 읽기 · 변효 기호 · 정시초 나누기)은 배우기와 바로 시작에 똑같이 적용됩니다.</li>
+        <li>어느 방식이 더 낫다는 것은 없습니다. 각자에게 맞는 방식과 속도를 존중합니다.</li>
+      </ul>
+
+      <p class="try"><a href="../">← 아이역 홈으로</a></p>
+    </section>
+  </main>
+
+  <dialog class="yarrow-dialog" id="soon" aria-labelledby="soon-title" aria-describedby="soon-desc">
+    <h2 id="soon-title"><span class="en">Coming Soon</span><span id="soon-name">배우기</span></h2>
+    <div id="soon-desc">
+      <p>아! 지금 만들려고 준비 중입니다. <span aria-hidden="true">😊</span></p>
+      <p class="soon-mark">Coming Soon</p>
+    </div>
+    <button type="button" class="yarrow-close" id="soon-close">닫기</button>
+  </dialog>
+
+  <footer class="site-footer">
+    <p>© 2026 iYeok Project · <a href="https://github.com/michin-jjangddol/iyeok">Source</a> · <a href="https://github.com/michin-jjangddol/iyeok/blob/main/LICENSE">AGPL-3.0</a></p>
+  </footer>
+
+  <script>
+    // 메뉴를 누르면 화면 안의 준비 안내(dialog)를 연다. 닫으면 누른 메뉴로 초점을 돌려준다.
+    (function () {
+      var dialog = document.getElementById("soon");
+      var nameEl = document.getElementById("soon-name");
+      var closeBtn = document.getElementById("soon-close");
+      var opener = null;
+
+      document.querySelectorAll("button.yarrow-choice").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          opener = btn;
+          nameEl.textContent = btn.dataset.name;
+          dialog.showModal();
+          closeBtn.focus();
+        });
+      });
+
+      closeBtn.addEventListener("click", function () { dialog.close(); });
+
+      // 바깥 어두운 부분을 눌러도 닫는다.
+      dialog.addEventListener("click", function (e) {
+        if (e.target === dialog) dialog.close();
+      });
+
+      // ESC 또는 닫기로 닫힌 뒤 초점을 메뉴 버튼으로 되돌린다.
+      dialog.addEventListener("close", function () {
+        if (opener) opener.focus();
+      });
+    })();
+  </script>
+  <script type="module" src="261123_1831_yarrow-menu_Laude.js"></script>
+</body>
+</html>

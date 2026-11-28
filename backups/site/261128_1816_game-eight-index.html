@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>8괘 1단 게임 · 아이역 iYeok</title>
+  <meta name="description" content="8구슬을 세는 순서대로 길게 늘인 말판입니다. 동전 세 개를 던져 땅(곤)과 하늘(건) 사이를 달려 보세요. 괘와 괘 사이 칸 수는 8구슬 사이의 거리 비율입니다.">
+  <meta name="theme-color" content="#f4efe4" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#1b1a18" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../assets/style.css">
+  <link rel="stylesheet" href="261128_1810_game_Laude.css">
+  <link rel="stylesheet" href="../../assets/i18n/261121_1836_language_Laude.css">
+  <script type="module" src="../../assets/i18n/261128_1810_language_Laude.js"></script>
+</head>
+<body>
+  <!-- 261128_1705 LAUDE: 8괘 1단 게임(JJDD 구상, SHANA 게임 문서 바탕). 규칙: 261128_1705_rules_Laude.js, 화면: 261128_1705_game_Laude.js -->
+  <header class="site-header">
+    <a class="brand" href="../../" aria-label="아이역 홈">
+      <span class="brand-mark">i易</span>
+      <span class="brand-name">iYeok</span>
+    </a>
+    <nav class="site-nav" aria-label="주요 메뉴">
+      <a href="../../trigrams/">8괘</a>
+    </nav>
+  </header>
+
+  <main class="g-page">
+    <p class="eyebrow">아이역 · 괘 게임</p>
+    <h1>8괘 1단 게임</h1>
+    <p class="g-intro">8구슬을 세는 순서대로 길게 늘인 말판입니다. 동전 세 개를 던져 땅(곤)과 하늘(건) 사이를 달려 보세요. 괘와 괘 사이 칸 수는 8구슬 사이의 거리 비율입니다.</p>
+    <p class="g-note">처음 만들어 보는 규칙이라, 놀면서 함께 고쳐 갑니다.</p>
+
+    <section class="g-step" id="step-setup">
+      <form id="game-setup" class="g-form">
+        <fieldset><legend>누구와 할까요?</legend>
+          <label class="g-opt"><input type="radio" name="mode" value="solo"><span><b>혼자</b><small>적게 던지고 도착하기</small></span></label>
+          <label class="g-opt"><input type="radio" name="mode" value="cpu" checked><span><b>컴퓨터와</b><small>컴퓨터는 알아서 던져요</small></span></label>
+          <label class="g-opt"><input type="radio" name="mode" value="two"><span><b>둘이서</b><small>한 화면에서 번갈아 던지기</small></span></label>
+        </fieldset>
+        <fieldset><legend>말판 길이</legend>
+          <label class="g-opt"><input type="radio" name="len" value="short"><span><b>짧게</b><small>괘 사이 2·3·4칸</small></span></label>
+          <label class="g-opt"><input type="radio" name="len" value="normal" checked><span><b>보통</b><small>괘 사이 3·4·5칸</small></span></label>
+          <label class="g-opt"><input type="radio" name="len" value="long"><span><b>길게</b><small>괘 사이 5·7·9칸</small></span></label>
+        </fieldset>
+        <label class="g-check"><input type="checkbox" name="capture" value="on" checked> <span>말 잡기: 상대 말이 있는 칸에 서면 잡기(잡힌 말은 출발점으로)</span></label>
+        <p class="g-actions"><button type="submit" class="g-btn g-primary">시작</button></p>
+      </form>
+    </section>
+
+    <section class="g-step" id="step-side" hidden aria-labelledby="side-title">
+      <h2 id="side-title">출발점 고르기</h2>
+      <p id="side-who" aria-live="polite"></p>
+      <p class="g-actions" id="side-buttons">
+        <button type="button" class="g-btn" data-side="heaven">하늘(건) 쪽, 맨 위 인에서</button>
+        <button type="button" class="g-btn" data-side="earth">땅(곤) 쪽, 맨 아래 인에서</button>
+      </p>
+    </section>
+
+    <section class="g-step" id="step-play" hidden aria-labelledby="board-title">
+      <h2 id="board-title" class="g-visually-hidden">말판</h2>
+      <p class="g-turn" id="game-turn" aria-live="polite"></p>
+      <div class="g-board" id="game-board"></div>
+      <div class="g-throw-row">
+        <div class="g-coins" id="game-coins" aria-label="동전"></div>
+        <button type="button" class="g-btn g-primary" id="game-throw">동전 던지기</button>
+      </div>
+      <p class="g-result" id="game-result" aria-live="polite"></p>
+      <div class="g-win" id="game-win" hidden aria-live="polite"></div>
+      <p class="g-actions">
+        <button type="button" class="g-btn" data-again="same">같은 설정으로 다시</button>
+        <button type="button" class="g-btn" data-again="setup">설정으로</button>
+      </p>
+      <h3 class="g-log-h">지난 기록</h3>
+      <ol class="g-log" id="game-log"></ol>
+    </section>
+
+    <section class="g-rules" aria-labelledby="rules-title">
+      <h2 id="rules-title">규칙</h2>
+      <div class="g-table-wrap">
+        <table class="g-table">
+          <thead><tr><th scope="col">동전 세 개</th><th scope="col">확률</th><th scope="col">평소</th><th scope="col">8괘 자리에 멈춘 뒤 한 번 더</th></tr></thead>
+          <tbody>
+            <tr><td>소양 (양 하나, 음 둘)</td><td>3/8</td><td>앞으로 1칸</td><td>앞으로 1칸</td></tr>
+            <tr><td>소음 (양 둘, 음 하나)</td><td>3/8</td><td>앞으로 2칸</td><td>앞으로 2칸</td></tr>
+            <tr><td>노양 (모두 양)</td><td>1/8</td><td>앞으로 3칸</td><td><b>반대괘로 점프!</b></td></tr>
+            <tr><td>노음 (모두 음)</td><td>1/8</td><td>뒤로 3칸</td><td><b>상대 말 3칸 뒤로!</b></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ul>
+        <li>두 사람 모두 인(人) 구슬에서 출발합니다. 하늘(건) 쪽 인은 말판 맨 위, 땅(곤) 쪽 인은 맨 아래에 있습니다. 1번(컴퓨터와 할 때는 나)이 출발할 쪽을 고르고 먼저 던집니다. 반대쪽 끝 괘를 지나 그 너머의 인까지 먼저 가면 승리입니다. 끝은 괘가 아니라 사람입니다.</li>
+        <li>8괘 자리에 딱 멈추면 한 번 더 던집니다. 노양이 나오면 반대괘로 점프합니다. 반대괘는 말판 가운데를 사이에 둔 거울 자리라서, 가운데를 넘기 전에는 인생역전, 넘은 뒤에는 망할 수 있습니다. 노음이 나오면 내가 아니라 상대 말이 3칸 뒤로 밀려납니다(상대 출발점보다 뒤로는 가지 않습니다).</li>
+        <li>점프나 한 번 더 던지기로 도착한 자리에서는 또 던지지 않고 상대 차례로 넘어갑니다. 출발점보다 뒤로는 가지 않습니다.</li>
+        <li><b>끝의 인에는 딱 맞게 도착해야 합니다. 수가 크면 인까지 갔다가 넘친 만큼 되돌아갑니다. 예를 들어 끝 괘(곤이나 건)에서 소음이 나오면 인을 찍고 다시 그 괘로 돌아와 한 번 더 던집니다. 소양이면 승리, 노양이면 반대괘로 점프, 노음이면 상대 말을 3칸 뒤로, 소음이면 다시 그 괘에 머물고 차례를 넘깁니다.</b></li>
+        <li>동전 한 면은 양, 다른 면은 음입니다. 세 개 가운데 하나뿐인 쪽이 이름을 정합니다. 양이 하나면 소양, 음이 하나면 소음입니다. 셋이 모두 같으면 노(老)가 붙어 모두 양이면 노양, 모두 음이면 노음입니다. 소(少)는 아직 자라는 젊은 기운, 노(老)는 끝까지 차서 반대로 바뀌려는 기운이라서, 이 게임에서 노양·노음은 점프와 밀어내기처럼 판을 크게 흔듭니다. 소양·소음은 각각 3/8, 노양·노음은 각각 1/8로 나옵니다.</li>
+      </ul>
+    </section>
+
+    <p class="try g-back"><a href="../../trigrams/">← 8괘로</a> · <a href="../../">아이역 홈으로</a></p>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 iYeok Project · <a href="https://github.com/michin-jjangddol/iyeok">Source</a> · <a href="https://github.com/michin-jjangddol/iyeok/blob/main/LICENSE">AGPL-3.0</a></p>
+  </footer>
+  <script type="module" src="261128_1810_game_Laude.js"></script>
+</body>
+</html>

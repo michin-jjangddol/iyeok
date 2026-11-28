@@ -2,13 +2,13 @@
 // 인터넷이 되면 새 파일을 받고(network-first), 끊기면 저장해 둔 파일로 연다.
 // 새 파일을 받을 때 브라우저 캐시(GitHub Pages는 10분)를 그대로 믿지 않고 서버에 바뀌었는지 묻는다.
 
-const CACHE = "iyeok-app-v110"; // 261128_1849: 언어 사전 새 판(반대 규칙 노양·노음)
+const CACHE = "iyeok-app-v111"; // 261128_1900: 언어 사전 새 판(게임 3단)
 const FILES = [
-  "../assets/i18n/261128_1849_language_Laude.js",
+  "../assets/i18n/261128_1900_language_Laude.js",
   "../assets/i18n/261121_1836_language_Laude.css",
-  "../assets/i18n/261128_1849_locales_Laude.json",
-  "../assets/i18n/261128_1849_ko_Laude.json",
-  "../assets/i18n/261128_1849_en_Laude.json",
+  "../assets/i18n/261128_1900_locales_Laude.json",
+  "../assets/i18n/261128_1900_ko_Laude.json",
+  "../assets/i18n/261128_1900_en_Laude.json",
 
   "./",
   "./index.html",

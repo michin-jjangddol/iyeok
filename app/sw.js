@@ -4,7 +4,7 @@
 // 인터넷이 되면 새 파일을 받고(network-first), 끊기면 저장해 둔 파일로 연다.
 // 새 파일을 받을 때 브라우저 캐시(GitHub Pages는 10분)를 그대로 믿지 않고 서버에 바뀌었는지 묻는다.
 
-const CACHE = "iyeok-app-v100"; // 261128_1818 SHANA: 진 새 이미지와 공용 목록 갱신
+const CACHE = "iyeok-app-v101"; // 261128_1818 SHANA: 진 새 이미지와 공용 목록 갱신
 const FILES = [
   "../assets/i18n/261127_0708_language_Laude.js",
   "../assets/i18n/261121_1836_language_Laude.css",
@@ -15,10 +15,10 @@ const FILES = [
   "./",
   "./index.html",
   "./app.css",
-  "./app.js",
+  "./261128_1858_app_Shana.js",
   "../assets/261124_2251_hexagram-texts_Laude.js",
-  "../assets/261125_1716_trigrams-ko_Laude.js",
-  "../assets/261125_0744_trigrams-ko_Laude.js",
+  "../assets/261128_1858_trigrams-shared_Shana.js",
+  "../assets/261128_1858_trigrams-legacy_Shana.js",
   "../assets/261125_0640_trigrams_Laude.css",
   "../data/trigrams/261128_1853_trigram-index_Shana.json",
   "../data/trigrams/000/261124_2013_trigram_Shana.json",

@@ -1,3 +1,4 @@
+// 261128_1847 SHANA: 태 새 이미지 목록 연결, 이전 판 백업 보존.
 // 261128_1818 SHANA: JJDD 요청으로 진 새 이미지 목록 연결. 원본 backups/trigrams 보존.
 // 261125_0744 LAUDE: 원본 261125_0711_trigrams-ko_Laude.js. [팔괘 성격 보기] 순서를 설정(선천 순서 기본 / 아이역 순서)으로 고르게 함(JJDD).
 // 261125_0711 LAUDE: 원본 261125_0640_trigrams-ko_Laude.js. [팔괘 성격 보기] 순서를 아이역 순서(위 건 111 … 아래 곤 000)로, 팔괘 목록 새 판 연결(JJDD).
@@ -54,7 +55,7 @@ export function saveTrigramOrder(v) {
 // ---- 아이콘(261124_2251) ----
 // 아이콘은 팔괘 공용 자료(data/trigrams/)에 등록된 것만 쓴다: 목록 파일 → 정보 파일 → icon.current.
 // 목록 파일이 새 판으로 바뀌면 이 경로도 새 판으로 바꾼다(tests/261124_2251_trigram-icons_Laude.mjs 가 최신 판인지 검사).
-export const TRIGRAM_INDEX = "data/trigrams/261128_1812_trigram-index_Shana.json";
+export const TRIGRAM_INDEX = "data/trigrams/261128_1847_trigram-index_Shana.json";
 let iconsLoading = null;
 // root: 페이지에서 사이트 뿌리까지의 상대 경로("../../" 등). 결과: Map(id → { src, alt }). 실패하면 빈 Map.
 export function loadTrigramIcons(root) {
